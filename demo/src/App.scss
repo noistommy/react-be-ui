@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+$mainHeaderHeight: 56px;
+
+header {
+  height: $mainHeaderHeight;
+  .container {
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+main {
+  height: calc(100vh - $mainHeaderHeight);
+  .main {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+}
+
+
