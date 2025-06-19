@@ -1,9 +1,10 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 
 interface BeCheckBoxProps {
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   type?: 'checkbox' | 'radio';
+  group?: string;
   name: string;
   labelText?: string;
   indeter?: boolean;
@@ -12,19 +13,24 @@ interface BeCheckBoxProps {
 
 const BeCheckBox = ({
   children,
-  onChange,
+  onChange = () => {},
   ...props
 }: BeCheckBoxProps): JSX.Element => {
 
   const {
     labelText = '',
     type = 'checkbox',
-    name = 'checkbox',
+    group = '',
+    name = '',
     indeter = false,
     checked = false
   } = props
 
   const [isChecked, setIsChecked] = useState(checked)
+
+  useEffect(() => {
+    setIsChecked(checked)
+  }, [checked])
 
   const setClass: string = [
     type,
@@ -34,7 +40,7 @@ const BeCheckBox = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newChecked = e.target.checked;
     setIsChecked(newChecked);
-    onChange?.(newChecked);
+    onChange(name, newChecked);
   }
 
   return (
@@ -43,9 +49,9 @@ const BeCheckBox = ({
         {children || labelText}
       </label>
       <input 
-        name={name} 
+        name={type === 'radio' ? group : name} 
         id={name} 
-        type="checkbox" 
+        type={type}
         onChange={handleChange}
         checked={isChecked}
       />

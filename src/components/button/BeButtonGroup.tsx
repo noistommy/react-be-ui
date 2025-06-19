@@ -30,6 +30,7 @@ const BeButtonGroup = ({
         <>
           {buttons.map((b, i) => (
             <BeButton 
+              key={`btn-${i}`}
               props={b} 
               selected={selected === i}
               onClick={handleSelect}
