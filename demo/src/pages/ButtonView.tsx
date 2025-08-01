@@ -188,7 +188,7 @@ export default function ButtonView () {
                 <BeButton outline brand="primary" contentText="outline" />
                 <BeButton outline brand="secondary" contentText="outline" />
                 <BeButton outline round contentText="outline" />
-                <BeButton outline outline contentText="outline" />
+                <BeButton outline contentText="outline" />
                 <BeButton outline withIcon="xi-flight-on" iconPos="left" contentText="outline" />
               </div>
               <CodeBlock code={codes.outline} language="tsx"></CodeBlock>

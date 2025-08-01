@@ -1,0 +1,1 @@
+const e=["tiny","small","medium","large","huge","massive"],t=["success","danger","info","attention","importance"],s=["red","orange","yellow","lightgreen","green","lightblue","blue","deepblue","deeppurple","purple","brown","gray"],a=["mark","bg","text","mark bg","mark text","bg text","bg text mark"];export{e as a,a as b,s as c,t as s};
