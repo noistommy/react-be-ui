@@ -37,6 +37,7 @@ interface BeInputProps {
   unit?: string | null;
   labeled?: boolean | LabeledOption | null;
   button?: boolean | ButtonOption | null;
+  short?: boolean;
 }
 
 const BeInput = ({ 
@@ -67,6 +68,7 @@ const BeInput = ({
     unit = null,
     labeled = null,
     button = null,
+    short = false
   } = props
 
   const [inputValue, setInputValue] = useState(value)
@@ -123,9 +125,10 @@ const BeInput = ({
     unit && 'unit',
     disabled && 'disabled',
     labeled && 'labeled',
-    labeled?.pos || 'right',
+    labeled && (labeled.pos || 'right'),
     button && 'button',
-    button?.pos || 'right'
+    button &&( button.pos || 'right'),
+    type === 'textarea' && short ? 'short' : ''
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (

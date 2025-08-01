@@ -48,8 +48,8 @@ const BeTag = ({
       className={`be-tag ${setClass}`} 
       onClick={handleClick}
     >
-      {icon && iconPos === 'left'&& (
-        <i className={`icon left ${icon}`}></i>
+      {icon && iconPos !== 'right' && (
+        <i className={`icon ${iconPos} ${icon}`}></i>
       )}
       {(type === 'label' || type === 'pointing') && children}
       {icon && iconPos === 'right' && (

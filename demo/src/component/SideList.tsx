@@ -22,8 +22,8 @@ function SideList({
 
   return (
     <div className="nav-wrapper">
-      <h4 className="nav-title">{title}a</h4>
-      <div className="be-list selection text bg" style={{maxWidth: '250px'}}>
+      <h4 className="nav-title">{title}</h4>
+      <div className="be-list selection text bg">
         {
           navList.map(item => (
             <div 
@@ -35,20 +35,22 @@ function SideList({
           ))
         }
       </div>
-      <style jsx>{`
-        .nav-wrapper {
-          padding: 10px;
-          font-size: 0.85em;
-        }
-        .nav-title {
-          color: #d6d6d6;
-          padding: 10px;
-          font-size: .95em;
-        }
-        .nav-item {
-          border-radius: 4px;
-        }
-      `}</style>  
+      <style jsx="true">
+        {`
+          .nav-wrapper {
+            padding: 10px;
+            font-size: 0.85em;
+          }
+          .nav-title {
+            color: #d6d6d6;
+            padding: 10px;
+            font-size: .95em;
+          }
+          .nav-item {
+            border-radius: 4px;
+          }
+      `}
+      </style>  
     </div>
   )
 }

@@ -32,12 +32,15 @@ const libConfig = {
 
 const docsConfig = {
   root: './demo',
-  base: process.env.NODE_ENV === 'production' ? '/beui/' : '/',
+  // base: process.env.NODE_ENV === 'production' ? '/beui/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./demo/src', import.meta.url)),
     },
+  },
+  build: {
+    outDir: '../docs',
   },
   server: {
     port: 5178,

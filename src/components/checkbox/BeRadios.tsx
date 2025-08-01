@@ -6,17 +6,16 @@ const BeRadios = ({
   children,
   onChange = () => {},
   group = '',
-  optionsList = [],
+  radioList = [],
   selectedValue = ''
 }) => {
 
   const [selected, setSelected] = useState(selectedValue)
 
   const handleChange = (name, checked) => {
-    console.log(name, checked)
     if (checked) {
       setSelected(name)
-      onChange(selected)
+      onChange(name)
     }
   }
 
@@ -24,9 +23,10 @@ const BeRadios = ({
     <div className="be-radio">
       {children || (
         <>
-          {optionsList.map(option => (
+          {radioList.map(option => (
             <BeCheckbox
               type="radio"
+              inputType="radio"
               key={option.name}
               name={option.name}
               group={group}

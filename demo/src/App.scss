@@ -17,11 +17,82 @@ header {
 
 main {
   height: calc(100vh - $mainHeaderHeight);
+  .main-pane {
+    overflow-y: auto;
+  }
   .main {
+    height: 100%;
+    
     max-width: 780px;
     margin: 0 auto;
     padding: 0 16px;
   }
 }
 
+.logo {
+  flex-grow: 1;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #000;
+  }
+  .description {
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.main-title .title {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.main-title .description {
+  color: #c4c4c4;
+  padding: 10px 10px 20px;
+}
+.nav-container {
+  background-color: var(--bgc);
+  height: 100%;
+  overflow-y: auto;
+}
+.main-footer {
+  padding: 15px;
+  border-top: 1px solid var(--brd);
+  .prev-next {
+    display: flex;
+    justify-content: space-between;
+    .prev,
+    .next {
+      a span {
+        &:first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.page-wrapper {
+  h1.title {
+    margin: 72px 0 20px 0;
+  }
+  section {
+    margin-bottom: 2rem;
+    .desc {
+      opacity: 1;
+      padding: 5px 5px 10px;
+    }
+  }
+  .be-segment > .contents {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+}
 

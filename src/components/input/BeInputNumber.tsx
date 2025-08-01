@@ -22,7 +22,7 @@ interface BeInputProps {
   incIcon?: string;
   decIcon?: string;
   disabled?: boolean;
-  width?: number
+  width?: number | null
 }
 
 const BeInputNumber = ({ 
@@ -49,7 +49,7 @@ const BeInputNumber = ({
     incIcon = 'xi-plus',
     decIcon = 'xi-minus',
     disabled = false,
-    width = 150
+    width = null
   } = props
 
   const [inputValue, setInputValue] = useState(value)
@@ -90,7 +90,7 @@ const BeInputNumber = ({
     onChange(inputValue + step);
   }
   const decrease = () => {
-    if(min && inputValue - step > min) return
+    if(min && inputValue - step < min) return
     setInputValue(inputValue - step)
     onChange(inputValue - step);
   }
@@ -119,7 +119,7 @@ const BeInputNumber = ({
     <div 
       className={`be-input button number ${setClass}`}
       tabIndex="-1"
-      style={{ width: `${width}px` }}
+      style={width ? { width: `${width}px` } : {}}
       onKeyDown={keyControl}
     >
       {children}
@@ -141,10 +141,10 @@ const BeInputNumber = ({
       {iconRight && (
         <i className={`icon ${iconRight}`} />
       )}
-      <button className={`be-button compact icon dec ${disabled}`} onClick={decrease}>
+      <button className={`be-button compact icon dec ${disabled ? 'disabled' : ''}`} onClick={decrease}>
         <i className={`icon ${decIcon}`}></i>
       </button>
-      <button className={`be-button compact icon inc ${disabled}`} onClick={increase}>
+      <button className={`be-button compact icon inc ${disabled ? 'disabled' : ''}`} onClick={increase}>
         <i className={`icon ${incIcon}`}></i>
       </button>
     </div>

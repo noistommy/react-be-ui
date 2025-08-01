@@ -4,6 +4,7 @@ interface BeCheckBoxProps {
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   type?: 'checkbox' | 'radio';
+  inputType?: 'checkbox' | 'radio';
   group?: string;
   name: string;
   labelText?: string;
@@ -20,6 +21,7 @@ const BeCheckBox = ({
   const {
     labelText = '',
     type = 'checkbox',
+    inputType = 'checkbox',
     group = '',
     name = '',
     indeter = false,
@@ -51,7 +53,7 @@ const BeCheckBox = ({
       <input 
         name={type === 'radio' ? group : name} 
         id={name} 
-        type={type}
+        type={inputType}
         onChange={handleChange}
         checked={isChecked}
       />

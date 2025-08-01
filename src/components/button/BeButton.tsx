@@ -11,11 +11,13 @@ const BeButton = ({
     brand, 
     state, 
     color, 
+    light = false,
     text, 
     border, 
     disabled, 
     fluid, 
-    circle, 
+    round,
+    size, 
     compact, 
     outline, 
     icon,
@@ -27,11 +29,12 @@ const BeButton = ({
   
   // const hasIcon = !!(icon || withIcon)
 
-  const setClass: string = [brand, state, color,
+  const setClass: string = [brand, state, size,
+    color && (light ? `${color}-light` : color),
     selected && 'selected',
     text && 'text', border && 'border',
     disabled && 'disabled', fluid && 'fluid',
-    circle && 'circle', compact && 'compact',
+    round && 'round', compact && 'compact',
     outline && 'outline', icon && 'icon',
     badge && 'badge' 
   ].filter((item): item is string => Boolean(item)).join(' ')

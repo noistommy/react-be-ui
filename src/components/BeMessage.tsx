@@ -6,6 +6,7 @@ const stateIcon: Record<MessageState, string> = {
   success: 'xi-check-circle',
   info: 'xi-info',
   error: 'xi-emoticon-devil',
+  danger: 'xi-emoticon-devil',
   attention: 'xi-warning',
   importance: 'xi-star',
 }
@@ -40,7 +41,7 @@ const BeMessage = ({
     icon && 'icon',
     state,
     selected && 'selected',
-    disabled && disabled
+    disabled && 'disabled'
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   const iconName = useMemo(() => {

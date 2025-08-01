@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import createSlots from './slot/createSlots'
 
 interface SSLProps {
   children: react.ReactNode;
   type: string;
-  direct?: string;
+  direct?: string;s
   sideWidth?: number;
   minSideWidth?: number;
   isShow: boolean;
@@ -21,20 +21,43 @@ const SlideSideLayout = ({
   duration = 500
 }: SSLProps): JSX.Element => {
   const slots = createSlots(children, ['side', 'main'])
-
   const [stateShow, setStateShow] = useState(isShow)
+  const [device, setDevice] = useState('desktop')
+
+  useEffect(() => {
+    function detect() {
+      const ua = navigator.userAgent
+      if (/mobile/i.test(ua)) setDevice('mobile')
+      else if (/tablet|ipad|playbook|silk/i.test(ua)) setDevice('tablet')
+      else setDevice('desktop')
+    }
+    detect();
+    window.addEventListener('resize', detect)
+    return () => window.removeEventListener('resize', detect)
+  }, [])
+
+  const slideType = useMemo(() => {
+    return device === 'mobile' ? 'overlay' : type
+  }, [device, type])
 
   useEffect(() => {
     setStateShow(isShow)
   }, [isShow])
 
+  // useEffect(() => {
+  //   const initShow = slideType !== 'overlay'
+  //   setStateShow(initShow)
+  // }, [slideType])
+
   const setClass = [
-    type,
     direct,
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`slide-side-layout ${setClass} ${stateShow ? 'show': 'hide'}`} style={{'--dur': duration}} >
+    <div 
+      className={`slide-side-layout ${setClass} ${slideType} ${device} ${stateShow ? 'show': 'hide'}`} 
+      style={{'--dur': duration}} 
+    >
       <div className="side-pane" style={{'--side': sideWidth, '--min-side': minSideWidth}}>
         {slots.side || 'Side'}
       </div>

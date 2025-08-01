@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 
 const BeTable = ({
   children,
+  onSelect = () => {},
   onSelectColumn,
   ...props
 }) => {
@@ -29,9 +30,10 @@ const BeTable = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   const onRowSelect = (row) => {
-    console.log(row)
+    if (selection) {
+      onSelect(row, values[row])
+    }
   }
-
   return (
     <table className={`be-table ${setClass}`}>
       {children || (

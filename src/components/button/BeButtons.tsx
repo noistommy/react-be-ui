@@ -7,16 +7,16 @@ interface BeButtonProps {
   children: React.ReactNode;
   buttons: BeButtonProps[];
   border?: boolean;
-  outline?: boolean;
+  round?: boolean;
   selectIndex: number;
 }
 
 
-const BeButtonGroup = ({
+const BeButtons = ({
   children,
   buttons = null,
   border = false,
-  outline = false,
+  round = false,
   selectIndex = 0
 }: BeButtonProps): JSX.Element => {
   const [selected, setSelected] = useState(selectIndex)
@@ -25,7 +25,7 @@ const BeButtonGroup = ({
     setSelected(idx)
   }
   return (
-    <div className={`be-buttons ${border ? 'border' : ''} ${outline ? 'outline' : ''}`}>
+    <div className={`be-buttons ${border ? 'border' : ''} ${round ? 'round' : ''}`}>
       {children || (
         <>
           {buttons.map((b, i) => (
@@ -42,4 +42,4 @@ const BeButtonGroup = ({
   )
 }
 
-export default BeButtonGroup
+export default BeButtons

@@ -23,11 +23,12 @@ const BePanel = ({
     title = '',
     contents = '',
     border = false,
-    toggleIcon = null,
+    toggleIcon = 'xi-angle-down',
     iconPos = 'left',
     open = false,
     collapse = false,
-    maxHeight = 200
+    // maxHeight = 200,
+    maxLine = 5
   } = props
 
   const [isOpen, setIsOpen] = useState(open)
@@ -35,7 +36,8 @@ const BePanel = ({
   const setClass: string = [
     border && 'border',
     collapse && 'collapse',
-    toggleIcon && 'icon'
+    toggleIcon && 'icon',
+    iconPos,
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   const onToggle = () => {
@@ -44,16 +46,16 @@ const BePanel = ({
     onClick(newValue)
   }
   return (
-    <div className={`be-panel ${setClass} ${isOpen && 'open'}`}>
+    <div className={`be-panel ${setClass} ${isOpen ? 'open' : ''}`}>
       <div className="panel-header" onClick={onToggle}>
         <div className="title">{title}</div>
         {collapse && toggleIcon && (
           <i className={`icon ${toggleIcon}`} />
         )}
       </div>
-      <div className="panel-content" style={{'--max-height': `${maxHeight}px`}}>
+      <div className="panel-content" style={{'--max-height': `${maxLine * 1.5 + 1}em`}}>
         <div className="content-wrapper">
-          {contents}
+          {children || contents}
         </div>
       </div>
     </div>
