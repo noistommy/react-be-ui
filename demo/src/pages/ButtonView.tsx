@@ -292,7 +292,7 @@ export default function ButtonView () {
           </div>
         </section>
       </div>
-      <style jsx>222
+      <style jsx="true">
         {`
           h1.title {
             margin: 72px 0 20px 0;

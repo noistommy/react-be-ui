@@ -2,8 +2,8 @@ import { lazy } from 'react'
 import { Routes, Route } from 'react-router'
 
 // pages
-import GlobalView from '../pages/GlobalView'
-import TestComp from '../component/TestComp'
+// import GlobalView from '../pages/GlobalView'
+// import TestComp from '../component/TestComp'
 import NotFound from '../pages/NotFound'
 
 const ButtonView = lazy(() => import('../pages/ButtonView'))
@@ -33,8 +33,7 @@ const FormView = lazy(() => import('../pages/FormView'))
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<TestComp />} />
-      <Route path="/globals" element={<GlobalView />} />
+      <Route path="/" element={<ButtonView />} />
       <Route path="/button" element={<ButtonView />} />
       <Route path="/button-group" element={<ButtonGroupView />} />
       <Route path="/input" element={<InputView />} />

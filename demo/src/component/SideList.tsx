@@ -7,7 +7,7 @@ interface ListItem {
 
 function SideList({ 
   title,
-  current,
+  current = '/button',
   navList
 }: { 
   title: string;

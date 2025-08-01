@@ -68,7 +68,7 @@ function App() {
   }
 
   const currentName = useMemo(() => {
-    return navAllList.find(t => t.path === location.pathname).name
+    return navAllList.find(t => t.path === location.pathname)?.name || 'Button'
   }, [location])
 
   useEffect(() => {
