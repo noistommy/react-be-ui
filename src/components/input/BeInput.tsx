@@ -25,6 +25,7 @@ interface BeInputProps {
   placeholder?: string;
   readonly?: boolean;
   underline?: boolean;
+  round?: boolean;
   transparent?: boolean;
   compact?: boolean;
   fluid?: boolean;
@@ -55,6 +56,7 @@ const BeInput = ({
     status,
     placeholder = '입력하세요',
     readonly = false,
+    round = false,
     underline = false,
     transparent = false,
     compact = false,
@@ -116,6 +118,7 @@ const BeInput = ({
     status,
     readonly && 'readonly',
     underline && 'underline',
+    round && 'round',
     transparent && 'transparent', 
     compact && 'compact',
     fluid && 'fluid',

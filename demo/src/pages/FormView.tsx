@@ -147,23 +147,23 @@ export default function FormView () {
                   <Fields divide={3}>
                     <Field>
                       <Column>
-                        <input type="text" value="col 4" />
+                        <input type="text" placeholder="col 4" />
                       </Column>
                       <Column>
-                        <input type="text" value="col 4" />
+                        <input type="text" placeholder="col 4" />
                       </Column>
                       <Column>
-                        <input type="text" value="col 4" />
+                        <input type="text" placeholder="col 4" />
                       </Column>
                     </Field>
                   </Fields>
                   <Fields divide={2}>
                     <Field>
                       <Column>
-                        <input type="text"  value="col 6" />
+                        <input type="text"  placeholder="col 6" />
                       </Column>
                       <Column>
-                        <input type="text"  value="col 6" />
+                        <input type="text"  placeholder="col 6" />
                       </Column>
                     </Field>
                   </Fields>
@@ -183,23 +183,23 @@ export default function FormView () {
                   <Fields>
                     <Field>
                       <Column span={2}>
-                        <input type="text" value="col 2" />
+                        <input type="text" placeholder="col 2" />
                       </Column>
                       <Column span={5}>
-                        <input type="text" value="col 5" />
+                        <input type="text" placeholder="col 5" />
                       </Column>
                       <Column span={5}>
-                        <input type="text" value="col 5" />
+                        <input type="text" placeholder="col 5" />
                       </Column>
                     </Field>
                   </Fields>
                   <Fields>
                     <Field>
                       <Column span={3}>
-                        <input type="text"  value="col 3" />
+                        <input type="text"  placeholder="col 3" />
                       </Column>
                       <Column span={9}>
-                        <input type="text"  value="col 9" />
+                        <input type="text"  placeholder="col 9" />
                       </Column>
                     </Field>
                   </Fields>

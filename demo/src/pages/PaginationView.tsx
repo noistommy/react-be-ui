@@ -68,6 +68,19 @@ export default function PaginationView () {
           </div>
         </section>
         <section>
+          <h4>User Custom First, Last Text</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BePagination pageLength={10} firstText="First" lastText="Last"></BePagination>
+                <BePagination pageLength={10} firstText="xi-arrow-left" lastText="xi-arrow-right"></BePagination>
+              </div>
+              <CodeBlock code={codes.first_last_text} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Align</h4>
           <div className="desc"></div>
           <div className="contents">

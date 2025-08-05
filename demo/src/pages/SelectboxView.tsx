@@ -92,6 +92,7 @@ export default function SelectboxView () {
             <div className="be-segment border">
               <div className="contents">
                 <BeSelectbox 
+                fluid
                   options={menuList} 
                   isSearch
                 ></BeSelectbox>
@@ -172,6 +173,42 @@ export default function SelectboxView () {
                 <BeSelectbox options={menuList} compact></BeSelectbox>
               </div>
               <CodeBlock code={codes.compact} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Round</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeSelectbox options={menuList} round></BeSelectbox>
+              </div>
+              <CodeBlock code={codes.round} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Fluid</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeSelectbox options={menuList} fluid></BeSelectbox>
+              </div>
+              <CodeBlock code={codes.fluid} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Disabled</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeSelectbox options={menuList} disabled></BeSelectbox>
+              </div>
+              <CodeBlock code={codes.disabled} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>

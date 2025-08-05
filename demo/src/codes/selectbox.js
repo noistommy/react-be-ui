@@ -66,3 +66,15 @@ export const custom_result =
 export const event =
   `// event: onSelect \n` +
   `<BeSelectBox onSelect="setSelect"></BeSelectBox>`
+export const round =
+  `// @round: Boolean \n` +
+  `// default: false \n\n` +
+  `<BeSelectBox round></BeSelectBox>`
+export const fluid =
+  `// @fluid: Boolean \n` +
+  `// default: false \n\n` +
+  `<BeSelectBox fluid></BeSelectBox>`
+export const disabled =  
+  `// @disabled: Boolean \n` +
+  `// default: false \n\n` +
+  `<BeSelectBox disabled></BeSelectBox>` 

@@ -22,14 +22,14 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className="be-switch slide">
-                  <input type="checkbox" checked />
+                <label className="be-switch slide">
+                  <input type="checkbox" />
                   <span className="switch" />
-                </div>
-                <div className="be-switch slide inside">
-                  <input type="checkbox" checked />
+                </label>
+                <label className="be-switch slide inside">
+                  <input type="checkbox" />
                   <span className="switch" />
-                </div>
+                </label>
               </div>
               <CodeBlock code={codes.base_html} language="html"></CodeBlock>
             </div>

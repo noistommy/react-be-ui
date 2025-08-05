@@ -32,6 +32,7 @@ const BeSelectbox = ({
     isAll = false,
     fluid = false,
     compact = false,
+    round = false,
     disabled = false 
   } = props
 
@@ -149,6 +150,14 @@ const BeSelectbox = ({
     fluid && 'fluid',
     compact && 'compact',
     disabled && 'disabled',
+    round && 'round',
+  ].filter((item): item is string => Boolean(item)).join(' ')
+
+  const setInputClass = [
+    fluid && 'fluid',
+    compact && 'compact',
+    disabled && 'disabled',
+    round && 'round',
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
@@ -163,7 +172,7 @@ const BeSelectbox = ({
             {selectedText || placeholder}
           </div>
         ) : (
-          <div className={`be-input icon right ${fluid, disabled} ${selectedItem ? 'has' : ''}`}>
+          <div className={`be-input icon right ${setInputClass} ${selectedItem ? 'has' : ''}`}>
             <input 
               type="text" 
               placeholder={selectedText || placeholder} 
@@ -221,8 +230,8 @@ const BeSelectbox = ({
         </FloatingPortal>
       )}
 
-      <style jsx>{`
-        .be-select-box .option-item.item {33333
+      <style jsx="true" >{`
+        .be-select-box .option-item.item {
           padding: 1rem;
         }
         .be-select-box .select-menu {

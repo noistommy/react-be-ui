@@ -101,6 +101,18 @@ export default function InputNumberView () {
             </div>
           </div>
         </section>
+        <section>
+          <h4>Round</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeInputNumber round></BeInputNumber>
+              </div>
+              <CodeBlock code={codes.userIcon} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )

@@ -14,6 +14,11 @@ export const round =
   `// @round: Boolean \n` +
   `// default: false \n\n` +
   `<BePagination round></BePagination>`
+export const first_last_text =
+  `// @firstText: String \n` +
+  `// @lastText: String \n` +
+  `// default: F, L \n\n` +
+  `<BePagination firstText={firstText} lastText={lastText}></BePagination>`
 export const align =
   `// @align: { left | center | right } \n` +
   `// default: left \n\n` +

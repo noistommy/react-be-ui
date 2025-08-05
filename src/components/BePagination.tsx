@@ -15,7 +15,9 @@ const BePagination = ({
     pageLength = 1,
     itemClass = '',
     ellipsis = false,
-    color = null
+    color = null,
+    firstText = 'F',
+    lastText = 'L'
   } = props
 
   const pageRef = useRef(null)
@@ -113,7 +115,7 @@ const BePagination = ({
         <div className={`${itemClass} pagination-nav first ${isDisabledPrev && 'disabled'}`}
           onClick={() => handleSetCurrent(1)}
         >
-          F
+          {firstText.indexOf('xi') > -1 ? <i className={firstText} /> : firstText}
         </div>
       )}
       <div className={`${itemClass} pagination-nav prev ${isDisabledPrev && 'disabled'}`}
@@ -177,7 +179,7 @@ const BePagination = ({
           className={`${itemClass} pagination-nav last ${isDisabledNext && 'disabled'}`}
           onClick={() => handleSetCurrent(last)}
         >
-          L
+          {lastText.indexOf('xi') > -1 ? <i className={lastText} /> : lastText}
         </div>
       )}
     </div>

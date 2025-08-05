@@ -10,6 +10,7 @@ interface BeInputProps {
   placeholder?: string;
   readonly?: boolean;
   underline?: boolean;
+  round?: boolean;
   transparent?: boolean;
   compact?: boolean;
   fluid?: boolean;
@@ -37,6 +38,7 @@ const BeInputNumber = ({
     placeholder = '0',
     readonly = false,
     underline = false,
+    round = false,
     transparent = false,
     compact = false,
     fluid = false,
@@ -106,6 +108,7 @@ const BeInputNumber = ({
     status,
     readonly && 'readonly',
     underline && 'underline',
+    round && 'round',
     transparent && 'transparent', 
     compact && 'compact',
     fluid && 'fluid',

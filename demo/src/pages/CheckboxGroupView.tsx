@@ -31,7 +31,7 @@ export default function CheckboxGroupView () {
               </div>
               <div className="result">
                 [ {checked.map(c => (
-                  <BeTag>{c}</BeTag>
+                  <BeTag key={c}>{c}</BeTag>
                 ))} ]
               </div>
               <CodeBlock code={codes.checkbox_group} language="tsx"></CodeBlock>

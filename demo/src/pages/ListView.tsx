@@ -46,7 +46,7 @@ export default function ListView () {
               <div className="contents">
                 <div className="list-btns be-segment" style={{width: '100%'}}>
                   {activeType.map(active => (
-                    <BeTag color={active === actived ? 'deepblue' : ''} onClick={() => handleClick(active)}>{active}</BeTag>
+                    <BeTag key={active} color={active === actived ? 'deepblue' : ''} onClick={() => handleClick(active)}>{active}</BeTag>
                   ))}
                 </div>
                 <div className="list-container">
@@ -114,7 +114,7 @@ export default function ListView () {
           </div>
         </section>
       </div>
-      <style jsx>
+      <style jsx="true">
         {`  
           .list-container {
             width: 250px;

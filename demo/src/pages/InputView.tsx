@@ -77,6 +77,18 @@ export default function InputView () {
           </div>
         </section>
         <section>
+          <h4>Round</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeInput round></BeInput>
+              </div>
+              <CodeBlock code={codes.underline} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Transparent</h4>
           <div className="desc"></div>
           <div className="contents">
@@ -107,7 +119,7 @@ export default function InputView () {
             <div className="be-segment border">
               <div className="contents">
                 {status.map(state => (
-                  <BeInput status={state} placeholder={state}></BeInput>
+                  <BeInput key={state} status={state} placeholder={state}></BeInput>
                 ))}
               </div>
               <CodeBlock code={codes.status} language="tsx"></CodeBlock>
@@ -171,7 +183,7 @@ export default function InputView () {
             <div className="be-segment border">
               <div className="contents">
                 <BeInput badge="New" badgeOption="red"></BeInput>
-                <BeInput badge={<i class="xi-arrow-down"></i>} badgeOption="primary"></BeInput>
+                <BeInput badge={<i className="xi-arrow-down"></i>} badgeOption="primary"></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>

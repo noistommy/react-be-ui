@@ -39,7 +39,7 @@ const BeTabs = ({
       {slots.nav || (
         <div className="tab-menu">
           {tabList.map(tab => (
-            <div 
+            <div key={tab.id}
               className={`tab-item tab ${(selectedTab === tab.option) ? 'active' : ''}`}
               onClick={() => handleSelectTab(tab)}
             >{tab.option}</div>
