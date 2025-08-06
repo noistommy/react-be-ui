@@ -12,10 +12,14 @@ export default function CheckboxView () {
 
   const checkList = new Array(15).fill(true)
   const [isChecked, setIsChecked] = useState(checkList)
+  const [onChecked, setOnChecked] = useState(true)
 
   const handleChange = (idx) => {
     const newArr = isChecked.map((c, i) => i === idx ? c = !c : c )
     setIsChecked(newArr)
+  }
+  const onChange = (name, value) => {
+    setOnChecked(value)
   }
   return (
     <div className="page-wrapper be container">
@@ -75,14 +79,36 @@ export default function CheckboxView () {
           </div>
         </section>
         <section>
-          <h4>Type</h4>
+          <h4>Indeterminate</h4>
           <div className="desc"></div>
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeCheckbox name="ch_comp_2" labelText="checkbox" checked indeter></BeCheckbox>
+                <BeCheckbox 
+                  name="ch_comp_2"
+                  labelText="checkbox"
+                  checked indeter
+                ></BeCheckbox>
               </div>
               <CodeBlock code={codes.indeter} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Event: onChange</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeCheckbox 
+                  name="ch_comp_3"
+                  labelText="checkbox"
+                  checked={onChecked}
+                  onChange={onChange}
+                ></BeCheckbox>
+                {onChecked ? (<span className="be-tag label green">True</span>) : (<span className="be-tag label red">False</span>)}
+              </div>
+              <CodeBlock code={codes.event} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>

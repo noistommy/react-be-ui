@@ -5,15 +5,23 @@ export const base_html =
   `   <label for="checkbox" type="checkbox" />\n` +
   `</div>`
 export const base_component =
-  `// script setup \n` +
-  `// const inputValue = ref(null) \n` +
-  `<BeCheckbox v-model="inputValue" name="checkbox" label-text="{labelText}"></BeCheckbox>`
+  `// Component\n` +
+  `<BeCheckbox>\n` +
+  `   name="checkbox"\n` +
+  `   type={type}\n` +
+  `   checkText={checkText}\n` +
+  `   checked={inputValue}>\n` +
+  `</BeCheckbox>`
 export const type =
   `// @type: {checkbox | radio} \n` +
   `// default: checkbox \n\n` +
-  `<BeCheckbox v-model="inputValue" name="checkbox" type="{type}"></BeCheckbox>`
+  `<BeCheckbox name="checkbox" type={type}></BeCheckbox>`
+export const event =
+  `// handleChange: onChange() \n` +
+  `// return: name, value \n\n` +
+  `<BeCheckbox name="checkbox" onChange={handleChange}></BeCheckbox>`
 export const indeter =
-  `// @indet: Boolean \n` +
+  `// @indeter: Boolean \n` +
   `// default: false \n\n` +
   `// html \n` +
   `<div class="be-checkbox indeter">\n` +
@@ -21,7 +29,7 @@ export const indeter =
   `   <label for="checkbox" type="checkbox" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeCheckbox v-model="inputValue" name="checkbox" indeter"></BeCheckbox>`
+  `<BeCheckbox name="checkbox" indeter></BeCheckbox>`
 
 export const checkbox_group =
   `// const checkboxList = [{name, label}] \n` +

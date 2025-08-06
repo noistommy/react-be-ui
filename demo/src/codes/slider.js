@@ -1,8 +1,6 @@
 export const base_component =
   `// Component only \n` +
-  `// script setup \n` +
-  `// const result = ref() \n` +
-  `<BeSlider v-model="result"></BeSlider>`
+  `<BeSlider></BeSlider>`
 export const disabled =
   `//@disabled: Boolean \n` +
   `//default: false \n\n` +
