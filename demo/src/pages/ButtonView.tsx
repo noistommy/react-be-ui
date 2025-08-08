@@ -280,6 +280,18 @@ export default function ButtonView () {
           </div>
         </section>
         <section>
+          <h4>Link</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeButton link="/" linkTarget="_blank" contentText="Link" />
+              </div>
+              <CodeBlock code={codes.eventClick} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Event: click</h4>
           <div className="desc"></div>
           <div className="contents">

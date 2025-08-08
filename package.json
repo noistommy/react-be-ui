@@ -1,7 +1,7 @@
 {
   "name": "react-be-ui",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/be-ui.umd.js",
   "module": "./dist/be-ui.es.js",
@@ -10,8 +10,22 @@
       "import": "./dist/be-ui.es.js",
       "require": "./dist/be-ui.umd.cjs"
     },
-    "./dist/style.css": "./dist/beui.css"
+    "./react-be-ui.css": "./dist/react-be-ui.css"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/noistommy/react-be-ui/issues"
+  },
+  "hompage": "https://github.com/noistommy/react-be-ui#readme",
+  "keywords": [
+    "react",
+    "ui/ux",
+    "liblary",
+    "components"
+  ],
   "scripts": {
     "dev": "MODE=demo vite",
     "build": "npm run build:code",
@@ -46,5 +60,9 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noistommy/react-be-ui.git"
   }
 }

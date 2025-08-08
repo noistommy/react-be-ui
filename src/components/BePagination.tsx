@@ -17,7 +17,8 @@ const BePagination = ({
     ellipsis = false,
     color = null,
     firstText = 'F',
-    lastText = 'L'
+    lastText = 'L',
+    activeType = 'button'
   } = props
 
   const pageRef = useRef(null)
@@ -102,6 +103,7 @@ const BePagination = ({
   }
   const setClass = [
     type,
+    activeType,
     border && 'border',
     round && 'round',
     compact && 'compact',

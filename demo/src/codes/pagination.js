@@ -2,6 +2,10 @@ export const base_component =
   `// @pageLength: Number  \n` +
   `// required: true  \n\n` +
   `<BePagination pageLength={pageLength}></BePagination>`
+export const active_type =
+  `// @activeType: button | line \n` +
+  `// default: button \n\n` +
+  `<BePagination avtiveType={activeType}></BePagination>`
 export const limits =
   `// @limits: Number \n` +
   `// default: 5 \n\n` +

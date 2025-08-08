@@ -18,5 +18,7 @@ export interface BeButtonProps {
   iconPos?: 'left' | 'right' | 'both';
   badge?: string | number;
   badgeOption?: string;
+  link?: string;
+  link?: '_self' | '_blank';
 }
 

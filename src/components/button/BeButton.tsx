@@ -24,7 +24,9 @@ const BeButton = ({
     withIcon,
     iconPos = 'left',
     badge, 
-    badgeOption = 'primary'
+    badgeOption = 'primary',
+    link,
+    linkTarget = '_self'
   } = props
   
   // const hasIcon = !!(icon || withIcon)
@@ -36,7 +38,8 @@ const BeButton = ({
     disabled && 'disabled', fluid && 'fluid',
     round && 'round', compact && 'compact',
     outline && 'outline', icon && 'icon',
-    badge && 'badge' 
+    badge && 'badge', 
+    link && 'link'
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -71,6 +74,9 @@ const BeButton = ({
             <div className={`in-badge ${badgeOption}`}>{badge}</div>
           )}
         </>
+      )}
+      {link && (
+        <a href={link} linkTarget={linkTarget}></a>
       )}
     </button>
   )

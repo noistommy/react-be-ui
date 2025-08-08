@@ -44,7 +44,7 @@ const BeTag = ({
   }
 
   return (
-    <div 
+    <span 
       className={`be-tag ${setClass}`} 
       onClick={handleClick}
     >
@@ -55,7 +55,7 @@ const BeTag = ({
       {icon && iconPos === 'right' && (
         <i className={`icon right ${icon}`}></i>
       )}
-    </div>
+    </span>
   )
 }
 

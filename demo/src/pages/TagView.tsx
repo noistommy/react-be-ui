@@ -16,8 +16,8 @@ export default function TagView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className="be-tag label">Base</div>
-                <div className="be-tag label">기본</div>
+                <label className="be-tag label">Base</label>
+                <span className="be-tag label">기본</span>
                 <div className="be-tag label round">Round</div>
                 <div className="be-tag label icon">
                   <i className="xi-tag" />

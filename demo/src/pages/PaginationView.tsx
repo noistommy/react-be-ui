@@ -32,6 +32,21 @@ export default function PaginationView () {
       <div className="variants">
         <h1 className="title">Variants</h1>
         <section>
+          <h4>Active Type</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <h5>Button</h5>
+                <BePagination activeType="button" pageLength={10} limits={5}></BePagination>
+                <h5>Line</h5>
+                <BePagination activeType="text" pageLength={10} limits={5}></BePagination>
+              </div>
+              <CodeBlock code={codes.active_type} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Limits</h4>
           <div className="desc"></div>
           <div className="contents">

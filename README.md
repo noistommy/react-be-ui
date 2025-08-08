@@ -1,56 +1,32 @@
-# React + TypeScript + Vite
+# React BeUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 전용 UI 컴포넌트 라이브러리
 
-Currently, two official plugins are available:
+`react-be-ui`는 `React`전용 UI 컴포넌트 라이브러리입니다.
+디자인 시스템이 적용된 [`Flog`](https://frog-ui-css.vercel.app/) CSS 라이브러리를 기반으로 최신의 `React`에 사용 가능한 컴포넌트로 이루어저 있습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 총 23개 컴포넌트 구현
+- NPM 패키지 배포
 
-## Expanding the ESLint configuration
+## Document
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+[BeUI(React) Docs](https://react-be-ui.vercel.app)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## A U Vue??
+
+[BeUI Docs](https://beui.vercel.app/)
+
+## Install
+
+```sh
+npm install react-be-ui
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+import { BeComponent } from 'noist-beui'
+<BeComponent variants="...">...</BeComponent>
 ```
-# react-be-ui
-# react-be-ui
+
+## Thank you 감사합니다.
