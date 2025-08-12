@@ -10,6 +10,8 @@ import PrevNext from './component/PrevNext'
 import { useState , useMemo, useEffect } from 'react'
 import { useLocation } from 'react-router'
 
+import { Analytics } from '@vercel/analytics/react'
+
 interface ListItem {
   path: string;
   name: string;
@@ -121,6 +123,7 @@ function App() {
           </Slot>
         </SlideSideLayout>
       </main>
+      <Analytics/>
     </>
   )
 }
