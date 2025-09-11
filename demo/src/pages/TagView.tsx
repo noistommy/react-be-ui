@@ -27,6 +27,7 @@ export default function TagView () {
                 <div className="be-tag dot" />
                 <div className="be-tag dot purple" />
                 <div className="be-tag dot orange" />
+                <div className="be-tag kbd orange">o</div>
               </div>
               <CodeBlock code={codes.base_html} language="html"></CodeBlock>
             </div>
@@ -68,6 +69,26 @@ export default function TagView () {
                 <BeTag type="dot yellow"></BeTag>
               </div>
               <CodeBlock code={codes.type} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Kbd</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeTag type="kbd">enter</BeTag>
+                <BeTag type="kbd">space</BeTag>
+                <BeTag type="kbd">a</BeTag>
+                <BeTag type="kbd">b</BeTag>
+                <BeTag type="kbd">c</BeTag>
+                <BeTag type="kbd" isMeta>shift</BeTag>
+                <BeTag type="kbd" isMeta>ctrl</BeTag>
+                <BeTag type="kbd">z</BeTag>
+               
+              </div>
+              <CodeBlock code={codes.kbd} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>

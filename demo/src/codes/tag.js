@@ -17,6 +17,15 @@ export const type =
   `<BeTag type="label">Tag(Label)</BeTag>\n` +
   `<BeTag type="line">Tag(Line)</BeTag>\n` +
   `<BeTag type="dot">Tag(Dot)</BeTag>`
+export const kbd =
+  `// html \n` +
+  `<div class="be-tag kbd meta">shift</div>\n` +
+  `<div class="be-tag kbd meta">ctrl</div>\n` +
+  `<div class="be-tag kbd">z</div>\n` +
+  `// component \n` +
+  `<BeTag type="kbd" isMeta>shift</BeTag>\n` +
+  `<BeTag type="kbd" isMeta>ctrl</BeTag>\n` +
+  `<BeTag type="kbd">z</BeTag>`
 export const icon =
   `// html \n` +
   `<div class="be-tag label icon">\n` +

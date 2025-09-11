@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react'
+import {useState, useEffect, useMemo, useRef} from 'react'
 import createSlots from './slot/createSlots'
 
 interface SSLProps {
@@ -9,6 +9,7 @@ interface SSLProps {
   minSideWidth?: number;
   isShow: boolean;
   duration?: number;
+  current?: string;
 }
 
 const SlideSideLayout = ({
@@ -18,11 +19,14 @@ const SlideSideLayout = ({
   sideWidth = 250,
   minSideWidth = 0,
   isShow = true,
-  duration = 500
+  duration = 500,
+  current = ''
 }: SSLProps): JSX.Element => {
   const slots = createSlots(children, ['side', 'main'])
   const [stateShow, setStateShow] = useState(isShow)
   const [device, setDevice] = useState('desktop')
+
+  const scrollRef = useRef(null)
 
   useEffect(() => {
     function detect() {
@@ -44,6 +48,11 @@ const SlideSideLayout = ({
     setStateShow(isShow)
   }, [isShow])
 
+  useEffect(() => {
+    console.log("current:", scrollRef)
+    scrollRef.current.scrollTop = 0
+  }, [current])
+
   // useEffect(() => {
   //   const initShow = slideType !== 'overlay'
   //   setStateShow(initShow)
@@ -61,7 +70,7 @@ const SlideSideLayout = ({
       <div className="side-pane" style={{'--side': sideWidth, '--min-side': minSideWidth}}>
         {slots.side || 'Side'}
       </div>
-      <div className="main-pane">
+      <div className="main-pane" ref={scrollRef}>
         {slots.main || 'Main'}
       </div>
     </div>

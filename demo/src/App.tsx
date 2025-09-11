@@ -99,7 +99,7 @@ function App() {
         </div>
       </header>
       <main>
-        <SlideSideLayout isShow={show} onChange={handleClick}>
+        <SlideSideLayout isShow={show} onChange={handleClick} current={currentName}>
           <Slot name="side">
             <nav className="nav-container">
               {/* <SideList title="Test" current={location.pathname} navList={LIST_INFO} /> */}

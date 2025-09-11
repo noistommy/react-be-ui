@@ -1,7 +1,7 @@
 interface BeTagProps {
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  type?: 'label' | 'line' | 'dot';
+  type?: 'label' | 'line' | 'dot' | 'kbd';
   color?: string;
   light?: boolean;
   round?: boolean;
@@ -9,6 +9,7 @@ interface BeTagProps {
   iconPos?: 'left' | 'right';
   pointDirect?: 'up' | 'down' | 'left' | 'right';
   disabled?: boolean;
+  isMeta?: boolean;
 }
 
 const BeTag = ({
@@ -17,14 +18,15 @@ const BeTag = ({
   ...props
 }: BeTagProps): JSX.Element => {
   const {
-    type = 'label', // line, dot
+    type = 'label', // line, dot, kbd
     color = null,
     light = false,
     round = false,
     icon = null,
     iconPos = null, // 'right'
     pointDirect = 'up',
-    disabled = false
+    disabled = false,
+    isMeta = false
   } = props
 
   const setClass = [
@@ -34,6 +36,7 @@ const BeTag = ({
     round && 'round',
     icon && 'icon',
     type === 'pointing' && pointDirect,
+    type === 'kbd' && isMeta && 'meta',
     disabled && 'disabled'
   ].filter(Boolean).join(' ')
 
@@ -51,7 +54,7 @@ const BeTag = ({
       {icon && iconPos !== 'right' && (
         <i className={`icon ${iconPos} ${icon}`}></i>
       )}
-      {(type === 'label' || type === 'pointing') && children}
+      {(type === 'label' || type === 'pointing' || type === 'kbd') && children}
       {icon && iconPos === 'right' && (
         <i className={`icon right ${icon}`}></i>
       )}
