@@ -78,15 +78,14 @@ export default function TagView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeTag type="kbd">enter</BeTag>
-                <BeTag type="kbd">space</BeTag>
+                <BeTag type="kbd" keyType="enter">enter</BeTag>
+                <BeTag type="kbd" keyType="space">space</BeTag>
                 <BeTag type="kbd">a</BeTag>
                 <BeTag type="kbd">b</BeTag>
                 <BeTag type="kbd">c</BeTag>
-                <BeTag type="kbd" isMeta>shift</BeTag>
-                <BeTag type="kbd" isMeta>ctrl</BeTag>
+                <BeTag type="kbd" isMeta  keyType="shift">shift</BeTag>
+                <BeTag type="kbd" isMeta keyType="ctrl">ctrl</BeTag>
                 <BeTag type="kbd">z</BeTag>
-               
               </div>
               <CodeBlock code={codes.kbd} language="tsx"></CodeBlock>
             </div>

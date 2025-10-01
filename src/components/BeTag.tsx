@@ -10,6 +10,7 @@ interface BeTagProps {
   pointDirect?: 'up' | 'down' | 'left' | 'right';
   disabled?: boolean;
   isMeta?: boolean;
+  keyType?: string;
 }
 
 const BeTag = ({
@@ -26,7 +27,8 @@ const BeTag = ({
     iconPos = null, // 'right'
     pointDirect = 'up',
     disabled = false,
-    isMeta = false
+    isMeta = false,
+    keyType = ''
   } = props
 
   const setClass = [
@@ -37,6 +39,7 @@ const BeTag = ({
     icon && 'icon',
     type === 'pointing' && pointDirect,
     type === 'kbd' && isMeta && 'meta',
+    type === 'kbd' && keyType,
     disabled && 'disabled'
   ].filter(Boolean).join(' ')
 
