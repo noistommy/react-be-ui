@@ -39,6 +39,8 @@ const COMPONENT_INFO: ListItem[] = [
   { path: '/panel', name: 'Panel' },
   
   { path: '/card', name: 'Card' },
+  { path: '/calendar', name: 'Calendar' },
+  { path: '/date-picker', name: 'DatePicker' },
 
   { path: '/slider', name: 'Slider' },
   { path: '/pagination', name: 'Pagination' },

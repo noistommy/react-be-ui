@@ -10,6 +10,7 @@ const BeCalendar = ({
   selectedDate = new Date(),
   cellSize = '37px',
   border = false,
+  symmetry = false,
   lang = 'EN',
   contentType = 'MIDDLE',
   today = false
@@ -19,6 +20,7 @@ const BeCalendar = ({
   selectedDate: string | Date;
   cellSize: string;
   border: boolean;
+  symmetry: boolean;
   lang: string;
   contentType: string;
   today: boolean;
@@ -90,8 +92,9 @@ const BeCalendar = ({
     
 
   const setToday = () => {
-    setCurrentDate(setDateInfo())
-    setSelectDate(setDateInfo())
+    
+    setCurrentDate(getDateInfo())
+    setSelectDate(getDateInfo())
 
     // setCalendarList()
   }
@@ -101,7 +104,7 @@ const BeCalendar = ({
       className={`be-calendar ${border ? 'border' : ''}`} 
       style={{ '--cell-size': cellSize}}
     >
-      <div className="calendar-header">
+      <div className={`calendar-header ${symmetry ? 'symmetry' : ''}`}>
         {slots.current || (
           <div className="current-date">
             <span className="month">
@@ -122,7 +125,7 @@ const BeCalendar = ({
         )}
         {today && (
           <div 
-            className="be-button tiny circle outline deepblue"
+            className="be-tag label circle primary"
             onClick={setToday}
           >Today</div>
         )}

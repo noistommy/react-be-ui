@@ -10,6 +10,9 @@ import {
   FloatingPortal
 } from '@floating-ui/react'
 
+import { getDateInfo } from './calendar'
+
+
 const BeDatePicker = ({
   selectedDate = null,
   updateChange = () => {}
@@ -31,9 +34,7 @@ const BeDatePicker = ({
 
   const dateFormatted = useMemo(() => {
     if (!date) return
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
+    const { year, month, date: day } = getDateInfo(date)
     return `${year}.${String(month).padStart(2, '0')}.${String(day).padStart(2, '0')}` 
   }, [date])
 
@@ -66,7 +67,11 @@ const BeDatePicker = ({
   return (
     <div className="be-date-picker" ref={elRef}>
       <div className="default-date-text" ref={refs.setReference} onClick={toggleOpen}>
-        <div className="be-button">{dateFormatted} {isShow}</div>
+        <div className="be-button icon small round">
+          <i className="icon xi-calendar"></i>
+        </div>
+        <input type="text" readonly value={dateFormatted} />
+        <i class={`icon xi-angle-down ${isShow ? 'xi-rotate-180' : ''}`}></i>
       </div>
       {isShow && (
         <FloatingPortal>

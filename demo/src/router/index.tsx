@@ -29,6 +29,8 @@ const SegmentView = lazy(() => import('../pages/SegmentView'))
 const TabsView = lazy(() => import('../pages/TabsView'))
 const GridView = lazy(() => import('../pages/GridView'))
 const FormView = lazy(() => import('../pages/FormView'))
+const CalendarView = lazy(() => import('../pages/CalendarView'))
+const DatePickerView = lazy(() => import('../pages/DatePickerView'))
 
 export default function Router() {
   return (
@@ -57,6 +59,8 @@ export default function Router() {
       <Route path="/tabs" element={<TabsView />} />
       <Route path="/grid" element={<GridView />} />
       <Route path="/form" element={<FormView />} />
+      <Route path="/calendar" element={<CalendarView />} />
+      <Route path="/date-picker" element={<DatePickerView />} />
       {/* 404 not found */}
       <Route path="*" component={NotFound} />
     </Routes>

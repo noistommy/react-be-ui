@@ -17,6 +17,7 @@ interface CalendarCell {
 const lastDayList: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 export const getDateInfo = (date: Date | string = new Date()): DateInfo => {
+  if (!date) date = new Date()
   const newDate = typeof date === 'string' ? new Date(date) : date
   const y = newDate.getFullYear()
   const m = newDate.getMonth() + 1
