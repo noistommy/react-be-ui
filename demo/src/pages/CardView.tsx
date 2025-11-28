@@ -1,4 +1,4 @@
-import { BeTag, BeCard, Slot } from '../../../dist/be-ui.es'
+import { BeTag, BeCard, Slot, BeCard2 } from '../../../dist/be-ui.es'
 import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/card'
@@ -171,6 +171,33 @@ export default function CardView () {
                     {lorem_text}
                     </Slot>
                   </BeCard>
+                  <BeCard2 >
+                    <BeCard2.Header>
+                      <h5>Only Contents</h5>
+                    </BeCard2.Header>
+                    <div className="contents">
+                      {lorem_text}
+                    </div>
+                  </BeCard2>
+                  <BeCard2 >
+                    <BeCard2.Header>Header</BeCard2.Header>
+                    <BeCard2.Contents title="Contents">
+                      {lorem_text}
+                    </BeCard2.Contents>
+                    <BeCard2.Footer>Footer</BeCard2.Footer>
+                  </BeCard2>
+                  <BeCard2>
+                    <BeCard2.Image src={profileImg} alt="profile image"></BeCard2.Image>
+                    <BeCard2.Contents title="Contents">
+                    </BeCard2.Contents>
+                  </BeCard2>
+                  <BeCard2>
+                    <BeCard2.Image src={profileImg} alt="profile image"></BeCard2.Image>
+                    <BeCard2.Contents title="Contents">Image Card</BeCard2.Contents>
+                    <BeCard2.Extra>
+                      Extra
+                    </BeCard2.Extra>
+                  </BeCard2>
 
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 interface BePanelProps {
   children?: React.ReactNode;
+  className?: string;
   onClick?: (value: boolean) => void;
   title?: string;
   contents?: string;
@@ -15,6 +16,7 @@ interface BePanelProps {
 
 const BePanel = ({
   children,
+  className = '',
   onClick = () => {},
   ...props
 }: BePanelProps): JSX.Element => {
@@ -46,7 +48,7 @@ const BePanel = ({
     onClick(newValue)
   }
   return (
-    <div className={`be-panel ${setClass} ${isOpen ? 'open' : ''}`}>
+    <div className={`be-panel ${className} ${setClass} ${isOpen ? 'open' : ''}`}>
       <div className="panel-header" onClick={onToggle}>
         <div className="title">{title}</div>
         {collapse && toggleIcon && (

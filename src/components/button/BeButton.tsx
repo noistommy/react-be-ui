@@ -2,6 +2,8 @@ import {BeButtonProps} from '../../types'
 
 const BeButton = ({
   children,
+  className = '',
+  ref,
   onClick = () => {},
   ...props
 }: BeButtonProps): JSX.Element => {
@@ -49,7 +51,8 @@ const BeButton = ({
   }
   return (
     <button 
-      className={`be-button ${setClass}`}
+      className={`be-button ${className} ${setClass}`}
+      ref={ref}
       onClick={handleClick}      
     >
       {children || (
@@ -76,7 +79,7 @@ const BeButton = ({
         </>
       )}
       {link && (
-        <a href={link} linkTarget={linkTarget}></a>
+        <a href={link} target={linkTarget}></a>
       )}
     </button>
   )

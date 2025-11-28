@@ -20,8 +20,12 @@ export const dataSet =
 export const base_component =
   `<!-- script setup -->\n` +
   `<!-- const treeList = [] -->\n` +
-  `<BeTree :tree-data="treeList"></BeTree>`
+  `<BeTree treeData={treeList}></BeTree>`
 export const use_mark =
   `<!-- @useMark: Boolean -->\n` +
   `<!-- default: true -->\n` +
-  `<BeTree :tree-data="treeList" :use-mark="useMark"></BeTree>`
+  `<BeTree treeData={treeList} useMark></BeTree>`
+export const files =
+  `<!-- @useMark: Boolean -->\n` +
+  `<!-- default: true -->\n` +
+  `<BeTree treeData={treeList} files></BeTree>`

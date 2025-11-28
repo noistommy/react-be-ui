@@ -86,7 +86,7 @@ function App() {
       <header className="main-header">
         <div className="be container">
           <div className={`toggle-btn ${show ? 'show' : ''}`}>
-            <button className="be-button icon" onClick={handleClick}>
+            <button className="be-button icon round" onClick={handleClick}>
               {show ? (
                 <i className="icon xi-hamburger-back"></i>
               ) : (
@@ -95,8 +95,8 @@ function App() {
             </button>
           </div>
           <div className="logo">
-            <div className="title">Be-UI</div>
-            <div className="description">React 전용 공용 UI 라이브러리</div>
+            <div className="title">BEUI <span className="sub">React</span></div>
+            {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </div>
         </div>
       </header>
@@ -112,7 +112,7 @@ function App() {
           <Slot name="main">
             <div className="main">
               <div className="main-title">
-                <div className="title">{currentName}</div>
+                <h1 className="title">{currentName}</h1>
                 <div className="description"></div>
               </div>
               <div className="main-contents">

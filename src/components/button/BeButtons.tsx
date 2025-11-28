@@ -5,6 +5,7 @@ import {useState } from 'react'
 
 interface BeButtonProps {
   children: React.ReactNode;
+  className: string;
   buttons: BeButtonProps[];
   border?: boolean;
   round?: boolean;
@@ -14,6 +15,7 @@ interface BeButtonProps {
 
 const BeButtons = ({
   children,
+  className = '',
   buttons = null,
   border = false,
   round = false,
@@ -25,7 +27,7 @@ const BeButtons = ({
     setSelected(idx)
   }
   return (
-    <div className={`be-buttons ${border ? 'border' : ''} ${round ? 'round' : ''}`}>
+    <div className={`be-buttons ${className} ${border ? 'border' : ''} ${round ? 'round' : ''}`}>
       {children || (
         <>
           {buttons.map((b, i) => (

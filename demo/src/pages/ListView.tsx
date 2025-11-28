@@ -23,7 +23,7 @@ export default function ListView () {
             <div className="be-segment border">
               <div className="contents">
                 <div className="list-container">
-                  <BeList options={optionList} selection></BeList>
+                  <BeList options={optionList}></BeList>
                 </div>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>

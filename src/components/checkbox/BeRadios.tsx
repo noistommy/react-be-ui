@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const BeRadios = ({
   children,
+  className = '',
   onChange = () => {},
   group = '',
   radioList = [],
@@ -20,7 +21,7 @@ const BeRadios = ({
   }
 
   return (
-    <div className="be-radio">
+    <div className={`be-radio ${className}`}>
       {children || (
         <>
           {radioList.map(option => (

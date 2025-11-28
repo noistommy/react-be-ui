@@ -3,17 +3,21 @@ import BeCheckbox from '../checkbox/BeCheckbox'
 import { useState } from 'react'
 
 const BeTreeNode = ({
+  className = '',
   node = null,
   level = 0,
   useCheck = false,
   useMark = false,
-  check = false
+  check = false,
+  files = false
 }: {
+  className?: string;
   node: treeNode;
   level: number;
   useCheck?: boolean;
   useMark?: boolean;
   check?: boolean
+  files?: boolean
 }): JSX.Element => {
 
   const [showNode, setShowNode] = useState(false)
@@ -25,13 +29,16 @@ const BeTreeNode = ({
   }
   return (
     <div 
-      className={`be-tree ${showNode ? 'show' : ''}`}
+      className={`be-tree ${className} ${showNode ? 'show' : ''}`}
       style={{'--level': level}}
     >
       <div className="node custom-node" onClick={toggleNode}>
         <div className="node-title">
           {useMark && (
             <i className={`icon expend-icon ${node.children?.length > 0 ? 'xi-caret-down-min': ''}`} />
+          )}
+          {files && (
+            <i className={`icon ${node.children?.length > 0 ? showNode ? 'xi-folder-open' : 'xi-folder' : 'xi-file-o'}`} />
           )}
           <div className="node-label">
             {useCheck && (
@@ -54,6 +61,7 @@ const BeTreeNode = ({
               useCheck={useCheck}
               useMark={useMark}
               check={check}
+              files={files}
             />
           ))}
         </div>

@@ -3,6 +3,8 @@ import { useState, useRef, useMemo, useEffect, ChangeEvent } from 'react'
 interface BeInputProps {
   children?: React.ReactNode;
   value?: number;
+  ref?: HTMLInputElement | null;
+  className?: string;
   onChange?: (value: string) => void;
   onFocus?: (isFocused: boolean) => void;
   onButtonClick?: (value: string) => void;
@@ -28,9 +30,11 @@ interface BeInputProps {
 
 const BeInputNumber = ({ 
   children, 
-  value = 0, 
+  value = 0,
+  className = '', 
   onChange = () => {}, 
   onFocus = () => {},
+  ref,
   ...props
 }: BeInputProps): JSX.Element => {
   const {
@@ -57,6 +61,17 @@ const BeInputNumber = ({
   const [inputValue, setInputValue] = useState(value)
   const [isFocus, setIsFocus] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const setRefs = (element: HTMLInputElement | null) => {
+    inputRef.current = element
+    if (!ref) return
+
+    if (typeof ref === 'function') {
+      ref(element)
+    } else {
+      (ref as MutableRefObject<HTMLInputElement | null>).current = element
+    }
+  }
 
   useEffect(() => {
     if (min && value < min) setInputValue(min)
@@ -120,7 +135,7 @@ const BeInputNumber = ({
 
   return (
     <div 
-      className={`be-input button number ${setClass}`}
+      className={`be-input button number ${className} ${setClass}`}
       tabIndex="-1"
       style={width ? { width: `${width}px` } : {}}
       onKeyDown={keyControl}
@@ -135,7 +150,7 @@ const BeInputNumber = ({
         value={inputValue}
         onChange={handleInputChange}
         placeholder={placeholder}
-        ref={inputRef}
+        ref={setRefs}
         onClick={checkFocus}
         onBlur={handleBlur}
         readOnly={readonly}

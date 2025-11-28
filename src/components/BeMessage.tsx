@@ -13,6 +13,7 @@ const stateIcon: Record<MessageState, string> = {
 
 interface BeMessageProps {
   children?: React.ReactNode;
+  className?: string;
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
   title?: string;
   contents?: string;
@@ -24,6 +25,7 @@ interface BeMessageProps {
 
 const BeMessage = ({
   children,
+  className = '',
   onClick = () => {},
   ...props
 }: BeMessageProps): JSX.Element => {
@@ -53,7 +55,7 @@ const BeMessage = ({
   }
   
   return (
-    <div className={`be-message ${setClass}`} onClick={handleClick}>
+    <div className={`be-message ${className} ${setClass}`} onClick={handleClick}>
       {icon && (
         <i className={`icon ${iconName}`}></i>
       )}

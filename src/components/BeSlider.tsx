@@ -1,6 +1,7 @@
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react'
 
 const BeSlider = ({
+  className = '',
   onChange = () => {},
   resultValue = null,
   ...props
@@ -123,7 +124,7 @@ const BeSlider = ({
 
   return (
     <div 
-      className={`be-slider ${setClass}`} ref={sliderRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}
+      className={`be-slider ${className} ${setClass}`} ref={sliderRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}
     >
       <div 
         className={`result-slider primary ${color && `be-${color}`}`} 

@@ -10,6 +10,7 @@ interface optionItem {
 
 const BeList = ({
   children,
+  className = '',
   onChange = () => {},
   options = [],
   selection = false,
@@ -20,6 +21,7 @@ const BeList = ({
   itemClass = ''
 }: {
   children?: React.ReactNode;
+  className?: string;
   onChange?: (value: optionItem) => void;
   options?: optionItem[];
   selection?: boolean
@@ -44,7 +46,7 @@ const BeList = ({
   }
 
   return (
-    <div className={`be-list ${setClass}`}>
+    <div className={`be-list ${className} ${setClass}`}>
       {children || (
         <>
           {options.map(opt => (

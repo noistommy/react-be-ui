@@ -1,5 +1,7 @@
 export interface BeButtonProps {
   children?: React.ReactNode;
+  ref?: HTMLButtonElement;
+  className?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   selected?: boolean;
   contentText?: string;
@@ -19,6 +21,6 @@ export interface BeButtonProps {
   badge?: string | number;
   badgeOption?: string;
   link?: string;
-  link?: '_self' | '_blank';
+  linkTarget?: '_self' | '_blank';
 }
 

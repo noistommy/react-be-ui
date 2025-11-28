@@ -2,6 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react'
 
 interface BeCheckBoxProps {
   children?: React.ReactNode;
+  className?: string;
   onChange?: (checked: boolean) => void;
   type?: 'checkbox' | 'radio';
   inputType?: 'checkbox' | 'radio';
@@ -14,6 +15,7 @@ interface BeCheckBoxProps {
 
 const BeCheckBox = ({
   children,
+  className = '',
   onChange = () => {},
   ...props
 }: BeCheckBoxProps): JSX.Element => {
@@ -46,7 +48,7 @@ const BeCheckBox = ({
   }
 
   return (
-    <div className={`be-checkbox ${setClass} ${isChecked ? 'checked' : ''}`}>
+    <div className={`be-checkbox ${className} ${setClass} ${isChecked ? 'checked' : ''}`}>
       <label htmlFor={name}>
         {children || labelText}
       </label>

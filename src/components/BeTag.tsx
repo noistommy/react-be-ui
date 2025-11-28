@@ -1,5 +1,6 @@
 interface BeTagProps {
   children?: React.ReactNode;
+  className?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type?: 'label' | 'line' | 'dot' | 'kbd';
   color?: string;
@@ -15,6 +16,7 @@ interface BeTagProps {
 
 const BeTag = ({
   children, 
+  className = '',
   onClick = () => {}, 
   ...props
 }: BeTagProps): JSX.Element => {
@@ -51,7 +53,7 @@ const BeTag = ({
 
   return (
     <span 
-      className={`be-tag ${setClass}`} 
+      className={`be-tag ${className} ${setClass}`} 
       onClick={handleClick}
     >
       {icon && iconPos !== 'right' && (

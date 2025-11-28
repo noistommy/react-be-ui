@@ -3,7 +3,7 @@ import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/tree-list'
 
-import {treeList} from '../contents/data'
+import {treeList, fileList} from '../contents/data'
 
 
 export default function ExanpleView () {
@@ -44,6 +44,20 @@ export default function ExanpleView () {
                 <BeTree treeList={treeList}></BeTree>
               </div>
               <CodeBlock code={codes.use_mark} language="html"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Files</h4>
+          <div className="desc">
+            <BeTag color="deepblue">Component</BeTag>
+          </div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeTree treeList={fileList} files></BeTree>
+              </div>
+              <CodeBlock code={codes.files} language="html"></CodeBlock>
             </div>
           </div>
         </section>

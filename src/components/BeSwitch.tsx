@@ -3,6 +3,7 @@ import { useState } from 'react'
 interface BeSwitchProps {
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
+  className?: string;
   type?: 'slide' | 'button' | 'button-slide';
   inside?: boolean;
   round?: boolean;
@@ -15,6 +16,7 @@ interface BeSwitchProps {
 
 const BeSwitch = ({
   children,
+  className = '',
   onChange = () => {},
   ...props
 }: BeSwitchProps): JSX.Element => {
@@ -46,7 +48,7 @@ const BeSwitch = ({
   }
 
   return (
-    <div className={`be-switch ${setClass}`} onClick={handleChange}>
+    <div className={`be-switch ${className} ${setClass}`} onClick={handleChange}>
       <input 
         type="checkbox" 
         onChange={handleChange}

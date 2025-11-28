@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useMemo } from 'react'
 
 const BePagination = ({
   onChange = () => {},
+  ref,
+  className = '',
   type = 'number',
   ...props
 }): JSX.Element => {
@@ -24,6 +26,17 @@ const BePagination = ({
   const pageRef = useRef(null)
   const [current, setCurrent] = useState(currentPage)
   const [last, setLast] = useState(pageLength)
+
+  const setRef = (element) => {
+    pageRef.current = element
+    if (!ref) return
+
+    if (typeof ref === 'function') {
+      ref(element)
+    } else {
+      ref.current = element
+    }
+  }
 
   const offLimits = useMemo(() => {
     return (pageLength <= limits) || !limits
@@ -112,7 +125,7 @@ const BePagination = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`be-pagination ${setClass}`} ref={pageRef} tabIndex={-1}>
+    <div className={`be-pagination ${className} ${setClass}`} ref={setRef} tabIndex={-1}>
       {(!ellipsis && !offLimits) && (
         <div className={`${itemClass} pagination-nav first ${isDisabledPrev && 'disabled'}`}
           onClick={() => handleSetCurrent(1)}

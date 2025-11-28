@@ -1,16 +1,17 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 
 const BeTable = ({
   children,
+  className = '',
   onSelect = () => {},
-  onSelectColumn,
+  // onSelectColumn = () => {},
   ...props
 }) => {
   const {
     columns = [],
     values = [],
     headAlign = 'center',
-    useFoot = false,
+    // useFoot = false,
     border = false,
     gridType = null,
     divideNum = 3,
@@ -35,7 +36,7 @@ const BeTable = ({
     }
   }
   return (
-    <table className={`be-table ${setClass}`}>
+    <table className={`be-table ${className} ${setClass}`}>
       {children || (
         <>
           <thead className={`align-${headAlign}`}>

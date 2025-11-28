@@ -2,6 +2,7 @@ import createSlots from './slot/createSlots'
 
 const BeCard = ({
   children,
+  className = '',
   title,
   surf,
   border = true,
@@ -10,6 +11,7 @@ const BeCard = ({
   round = 'l'
 }: {
   children?: React.ReactNode;
+  className?: string;
   title?: string;
   surf?: boolean;
   border?: boolean;
@@ -28,7 +30,7 @@ const BeCard = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
   
   return (
-    <div className={`be-card ${setClass}`}>
+    <div className={`be-card ${className} ${setClass}`}>
       {slots.header && (
         <div className="header">{slots.header}</div>
       )}

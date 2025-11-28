@@ -5,7 +5,14 @@ import * as codes from '../codes/input'
 
 import {status} from '../contents'
 
+import { useRef, useEffect } from 'react'
+
 export default function InputView () {
+  const inputRef = useRef()
+  
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [inputRef])
   return (
     <div className="page-wrapper be container">
       <div className="base">
@@ -31,7 +38,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput></BeInput>
+                <BeInput ref={inputRef}></BeInput>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>
@@ -171,6 +178,7 @@ export default function InputView () {
             <div className="be-segment border">
               <div className="contents">
                 <BeInput clear placeholder="Focus on!!"></BeInput>
+                <BeInput placeholder="Focus on!!" clear iconRight="xi-lock"></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>

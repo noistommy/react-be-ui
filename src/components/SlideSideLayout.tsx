@@ -49,7 +49,6 @@ const SlideSideLayout = ({
   }, [isShow])
 
   useEffect(() => {
-    console.log("current:", scrollRef)
     scrollRef.current.scrollTop = 0
   }, [current])
 

@@ -37,6 +37,7 @@ export default function ButtonView () {
                 <BeButton brand="primary" contentText="Comp(brand)" />
                 <BeButton state="error" contentText="Comp(status)" />
                 <BeButton icon="xi-user" />
+                <BeButton icon="xi-user" />
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>

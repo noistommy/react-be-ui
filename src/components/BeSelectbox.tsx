@@ -13,6 +13,7 @@ import {
 
 
 const BeSelectbox = ({
+  className = '',
   onSelect = () => {},
   ...props
 }) => {
@@ -162,7 +163,7 @@ const BeSelectbox = ({
 
   return (
     <div 
-      className={`be-select-box ${setClass} ${isShow ? 'show' : ''}`}
+      className={`be-select-box ${className} ${setClass} ${isShow ? 'show' : ''}`}
       ref={boxRef}
       onClick={toggleOpen}
     >

@@ -1,6 +1,7 @@
 
 const BeSegment = ({
   children,
+  className = '',
   surf,
   border,
   float,
@@ -8,6 +9,7 @@ const BeSegment = ({
   round = 'l',
 }: {
   children?: React.ReactNode;
+  className?: string;
   surf?: boolean;
   border?: boolean;
   float?: boolean;

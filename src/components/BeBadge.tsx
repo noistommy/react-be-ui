@@ -1,6 +1,7 @@
 
 interface BeBadgeProps {
   children?: React.ReactNode;
+  className?: string;
   contents?: string;
   brand?: 'primary' | 'secondary';
   state?: 'success' | 'error' | 'attention' | 'importance' | 'info';
@@ -15,6 +16,7 @@ const BeBadge = ({children, ...props}: BeBadgeProps): JSX.Element => {
 
   const {
     contents = '',
+    className = '',
     brand = null,
     state =  null,
     color = null,
@@ -35,7 +37,7 @@ const BeBadge = ({children, ...props}: BeBadgeProps): JSX.Element => {
   ].filter(Boolean).join(' ')
 
   return (
-    <div className={`be-badge ${setClass}`}>
+    <div className={`be-badge ${className} ${setClass}`}>
       {children || (
         <>
           {icon ? (

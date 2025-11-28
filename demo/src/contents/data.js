@@ -77,3 +77,59 @@ export const treeList = [
     ],
   },
 ]
+export const fileList = [
+  {
+    label: 'src',
+    children: [
+      {
+        label: 'assets',
+        children: [
+          {
+            label: 'style.css',
+          },
+        ],
+      },
+      {
+        label: 'index.tsx',
+      },
+    ],
+  },
+  {
+    label: 'demo',
+    children: [
+      {
+        label: 'public',
+        children: [
+          {
+            label: 'index.html',
+          },
+        ],
+      },
+      {
+        label: 'src',
+        children: [
+          {
+            label: 'main.tsx',
+          },
+          {
+            label: 'pages',
+            children: [
+              {
+                label: 'page1.tsx',
+              },
+              {
+                label: 'page2.tsx',
+              },
+              {
+                label: 'page3.tsx',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'README.md',
+  }
+]

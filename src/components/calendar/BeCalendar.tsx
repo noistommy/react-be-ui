@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react'
 
 const BeCalendar = ({
   children,
+  className = '',
   onSelect = () => {},
   selectedDate = new Date(),
   cellSize = '37px',
@@ -15,7 +16,8 @@ const BeCalendar = ({
   contentType = 'MIDDLE',
   today = false
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
+  className: string;
   onSelect: (value: Date ) => void;
   selectedDate: string | Date;
   cellSize: string;
@@ -101,7 +103,7 @@ const BeCalendar = ({
 
   return (
     <div 
-      className={`be-calendar ${border ? 'border' : ''}`} 
+      className={`be-calendar ${className} ${border ? 'border' : ''}`} 
       style={{ '--cell-size': cellSize}}
     >
       <div className={`calendar-header ${symmetry ? 'symmetry' : ''}`}>

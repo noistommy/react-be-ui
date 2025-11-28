@@ -9,6 +9,7 @@ interface tabItem {
 
 const BeTabs = ({
   children,
+  className = '',
   onSelectTab = () => {},
   tabList = [],
   directType = 'horizontal',
@@ -35,7 +36,7 @@ const BeTabs = ({
     onSelectTab(value.option)
   }
   return (
-    <div className={`be-tabs ${setClass}`}>
+    <div className={`be-tabs ${className} ${setClass}`}>
       {slots.nav || (
         <div className="tab-menu">
           {tabList.map(tab => (

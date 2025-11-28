@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useEffect, ChangeEvent, MouseEvent } from 'react'
+import { useState, useRef, useMemo, useEffect, ChangeEvent, MouseEvent, MutableRefObject } from 'react'
 
 interface LabeledOption {
   pos?: 'left' | 'right';
@@ -15,6 +15,8 @@ interface ButtonOption {
 interface BeInputProps {
   children?: React.ReactNode;
   value?: string;
+  ref? : HTMLInputElement | HTMLTextAreaElement | null;
+  className? : string;
   onChange?: (value: string) => void;
   onFocus?: (isFocused: boolean) => void;
   onButtonClick?: (value: string) => void;
@@ -43,10 +45,12 @@ interface BeInputProps {
 
 const BeInput = ({ 
   children, 
-  value = '', 
+  value = '',
+  className = '',
   onChange = () => {}, 
   onFocus = () => {},
   onButtonClick = () => {},
+  ref,
   ...props
 }: BeInputProps): JSX.Element => {
   const {
@@ -75,16 +79,27 @@ const BeInput = ({
 
   const [inputValue, setInputValue] = useState(value)
   const [isFocus, setIsFocus] = useState(false)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
+
+  const setRefs = (element: HTMLInputElement | HTMLTextAreaElement | null) => {
+    inputRef.current = element
+    if (!ref) return
+
+    if (typeof ref === 'function') {
+      ref(element)
+    } else {
+      (ref as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = element
+    }
+  }
 
   useEffect(() => {
     setInputValue(value)
   }, [value])
 
   const iconPosition = useMemo(() => {
-    if (iconLeft && (iconRight || clear)) return 'both';
-    return iconLeft ? 'left' : iconRight || clear ? 'right' : null;
-  }, [iconLeft, iconRight, clear]);
+    if (iconLeft && iconRight) return 'both';
+    return iconLeft ? 'left' : iconRight ? 'right' : null;
+  }, [iconLeft, iconRight]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const newValue = e.target.value;
@@ -136,7 +151,7 @@ const BeInput = ({
 
   return (
     <div 
-      className={`be-input ${setClass}`}
+      className={`be-input ${className} ${setClass}`}
       data-unit={unit}
     >
       {iconLeft && (
@@ -150,7 +165,7 @@ const BeInput = ({
           onChange={handleInputChange}
           placeholder={placeholder}
           className={`align-${align}`}
-          ref={inputRef}
+          ref={setRefs}
           onClick={checkFocus}
           onBlur={handleBlur}
           readOnly={readonly}
@@ -162,17 +177,19 @@ const BeInput = ({
           onChange={handleInputChange}
           rows={3}
           placeholder={placeholder}
+          ref={setRefs}
           onBlur={handleBlur}
           readOnly={readonly}
           disabled={disabled}
         />
       )}
-      {clear ? (
+      {clear && (
         <i
           className={`icon clear-btn xi-close ${inputValue === '' ? 'disabled' : ''}`}
           onClick={handleClear}
         />
-      ) : iconRight && !clear ? (
+      )}
+      {iconRight ? (
         <i className={`icon ${iconRight}`} />
       ) : badge ? (
         <span className={`be-badge ${badgeOption || ''}`}>{badge}</span>
