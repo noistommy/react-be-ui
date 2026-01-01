@@ -3,8 +3,14 @@ import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/input-number'
 
+import { useState } from 'react'
+
 
 export default function InputNumberView () {
+  const [inputValue, setInputValue] = useState(5)
+  const handleChange = (value) =>{
+     setInputValue(value)
+  }
   return (
     <div className="page-wrapper be container">
       <div className="base">
@@ -57,7 +63,7 @@ export default function InputNumberView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInputNumber min={1} max={10}></BeInputNumber>
+                <BeInputNumber value={inputValue} min={1} max={10} onChange={handleChange}></BeInputNumber>
               </div>
               <CodeBlock code={codes.min_max} language="tsx"></CodeBlock>
             </div>
