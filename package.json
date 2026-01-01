@@ -1,7 +1,7 @@
 {
   "name": "react-be-ui",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "main": "./dist/be-ui.umd.js",
   "module": "./dist/be-ui.es.js",

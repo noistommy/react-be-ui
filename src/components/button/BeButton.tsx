@@ -35,7 +35,6 @@ const BeButton = ({
   const setClass: string = [brand, state, size,
     color && (light ? `${color}-light` : color),
     selected && 'selected',
-    icon && 'icon',
     text && 'text', border && 'border',
     disabled && 'disabled', fluid && 'fluid',
     round && 'round', compact && 'compact',

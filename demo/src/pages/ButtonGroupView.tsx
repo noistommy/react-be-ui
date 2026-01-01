@@ -11,13 +11,20 @@ const propList = [
   {contentText: 'C Button'},
 ]
 const propList2 = [
-  {withIcon: 'xi-sun'},
-  {withIcon: 'xi-moon' },
-  {withIcon: 'xi-desktop'},
+  {icon: 'xi-sun'},
+  {icon: 'xi-moon' },
+  {icon: 'xi-desktop'},
 ]
 
+
+
 export default function ButtonGroupView () {
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
+  const [resultIndex, setResultIndex] = useState(0);
+
+  const handleSelect = (index, value) => {
+    setResultIndex(index)
+  }
   return (
     <div className="page-wrapper be container">
       <div className="base">
@@ -81,6 +88,20 @@ export default function ButtonGroupView () {
               <div className="contents">
                 <BeButtons buttons={propList} round></BeButtons>
               </div>
+              <CodeBlock code={codes.buttons_border} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Event: onChange</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeButtons buttons={propList} onChange={handleSelect}></BeButtons>
+
+              </div>
+              <div>Selected Value: {propList[resultIndex].contentText}</div>
               <CodeBlock code={codes.buttons_border} language="tsx"></CodeBlock>
             </div>
           </div>

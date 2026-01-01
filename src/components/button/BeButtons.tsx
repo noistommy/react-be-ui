@@ -15,6 +15,7 @@ interface BeButtonProps {
 
 const BeButtons = ({
   children,
+  onChange = () => {},
   className = '',
   buttons = null,
   border = false,
@@ -22,9 +23,10 @@ const BeButtons = ({
   selectIndex = 0
 }: BeButtonProps): JSX.Element => {
   const [selected, setSelected] = useState(selectIndex)
-  const handleSelect = (e) => {
-    const idx = buttons.findIndex(t => t.contentText === e.target.textContent)
+  const handleSelect = (idx) => {
+    // const idx = buttons.findIndex(t => t.contentText === e.target.textContent)
     setSelected(idx)
+    onChange(idx, buttons[idx])
   }
   return (
     <div className={`be-buttons ${className} ${border ? 'border' : ''} ${round ? 'round' : ''}`}>
@@ -35,7 +37,7 @@ const BeButtons = ({
               key={`btn-${i}`}
               {...b} 
               selected={selected === i}
-              onClick={handleSelect}
+              onClick={() => handleSelect(i)}
             ></BeButton>
           ))}
         </>

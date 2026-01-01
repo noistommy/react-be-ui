@@ -321,7 +321,6 @@ const Zn = ({
     y,
     l && (f ? `${l}-light` : l),
     o && "selected",
-    E && "icon",
     p && "text",
     m && "border",
     h && "disabled",
@@ -355,24 +354,25 @@ const Zn = ({
   );
 }, bo = ({
   children: e,
-  className: t = "",
-  buttons: r = null,
-  border: n = !1,
-  round: s = !1,
-  selectIndex: o = 0
+  onChange: t = () => {
+  },
+  className: r = "",
+  buttons: n = null,
+  border: s = !1,
+  round: o = !1,
+  selectIndex: i = 0
 }) => {
-  const [i, a] = J(o), c = (l) => {
-    const f = r.findIndex((p) => p.contentText === l.target.textContent);
-    a(f);
+  const [a, c] = J(i), l = (f) => {
+    c(f), t(f, n[f]);
   };
-  return /* @__PURE__ */ u.jsx("div", { className: `be-buttons ${t} ${n ? "border" : ""} ${s ? "round" : ""}`, children: e || /* @__PURE__ */ u.jsx(u.Fragment, { children: r.map((l, f) => /* @__PURE__ */ u.jsx(
+  return /* @__PURE__ */ u.jsx("div", { className: `be-buttons ${r} ${s ? "border" : ""} ${o ? "round" : ""}`, children: e || /* @__PURE__ */ u.jsx(u.Fragment, { children: n.map((f, p) => /* @__PURE__ */ u.jsx(
     Zn,
     {
-      ...l,
-      selected: i === f,
-      onClick: c
+      ...f,
+      selected: a === p,
+      onClick: () => l(p)
     },
-    `btn-${f}`
+    `btn-${p}`
   )) }) });
 }, yo = ({
   children: e,
