@@ -30,12 +30,12 @@ const BeButton = ({
     link,
     linkTarget = '_self'
   } = props
-  
   // const hasIcon = !!(icon || withIcon)
 
   const setClass: string = [brand, state, size,
     color && (light ? `${color}-light` : color),
     selected && 'selected',
+    icon && 'icon',
     text && 'text', border && 'border',
     disabled && 'disabled', fluid && 'fluid',
     round && 'round', compact && 'compact',
@@ -58,11 +58,13 @@ const BeButton = ({
       {children || (
         <>
           {withIcon && (iconPos === 'left' || iconPos === 'both') && (
-            <i className={`icon left ${withIcon}`} />
+            typeof withIcon === 'string' ? 
+              <i className={`icon left ${withIcon}`} /> : 
+              <i className="icon left">{withIcon}</i>
           )}
 
           {icon && !withIcon && (
-            <i className={`icon ${icon}`}></i>
+            typeof icon === 'string' ? <i className={`icon ${icon}`} /> : icon
           )}
 
           {contentText && (
@@ -70,7 +72,9 @@ const BeButton = ({
           )}
 
           {withIcon && (iconPos === 'right' || iconPos === 'both') && (
-            <i className={`icon right ${withIcon}`}></i>
+            typeof withIcon === 'string' ? 
+              <i className={`icon right ${withIcon}`} /> : 
+              <i className="icon right">{withIcon}</i>
           )}
           
           {badge && (

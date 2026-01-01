@@ -16,7 +16,7 @@ export interface BeButtonProps {
   compact?: boolean;
   outline?: boolean;
   icon?: string;
-  withIcon?: string;
+  withIcon?: string | ReactNode;
   iconPos?: 'left' | 'right' | 'both';
   badge?: string | number;
   badgeOption?: string;

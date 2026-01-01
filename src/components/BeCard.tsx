@@ -8,7 +8,8 @@ const BeCard = ({
   border = true,
   float,
   align,
-  round = 'l'
+  round = 'm',
+  media = false,
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -16,6 +17,7 @@ const BeCard = ({
   surf?: boolean;
   border?: boolean;
   float?: boolean;
+  media?: boolean;
   align?: 'left' | 'center' | 'right';
   round?: 's' | 'm' | 'l' | 'xl';
 }): JSX.Element => {
@@ -24,6 +26,7 @@ const BeCard = ({
     surf && 'surface',
     border && 'border',
     float && 'float',
+    media && 'media',
     align && `align-${align}`,
     `round-${round}`,
     slots.header || slots.footer && 'atteched'

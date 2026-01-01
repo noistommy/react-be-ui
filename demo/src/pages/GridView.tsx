@@ -1,4 +1,4 @@
-import { BeTag, BeGrid, Column, Rows } from '../../../dist/be-ui.es'
+import { BeTag, BeGrid, Column } from '../../../dist/be-ui.es'
 import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/grid'
@@ -48,11 +48,14 @@ export default function GridView () {
                   {Array.from({length: 12}).map(col => (
                     <Column key={col}></Column>
                   ))}
-                  <Rows>
+                  {Array.from({length: 12}).map(col => (
+                    <BeGrid.Column key={col}></BeGrid.Column>
+                  ))}
+                  <BeGrid.Rows>
                     {Array.from({length: 6}).map(col => (
                       <Column key={col}></Column>
                     ))}
-                  </Rows>
+                  </BeGrid.Rows>
                 </BeGrid>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>

@@ -68,7 +68,7 @@ export default function CardView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeCard title="Title">
+                <BeCard title="Title" media>
                   <Slot name="image">
                     <img src={profileImg} alt="profile image" />
                   </Slot>
@@ -186,12 +186,12 @@ export default function CardView () {
                     </BeCard2.Contents>
                     <BeCard2.Footer>Footer</BeCard2.Footer>
                   </BeCard2>
-                  <BeCard2>
+                  <BeCard2 media>
                     <BeCard2.Image src={profileImg} alt="profile image"></BeCard2.Image>
                     <BeCard2.Contents title="Contents">
                     </BeCard2.Contents>
                   </BeCard2>
-                  <BeCard2>
+                  <BeCard2 media>
                     <BeCard2.Image src={profileImg} alt="profile image"></BeCard2.Image>
                     <BeCard2.Contents title="Contents">Image Card</BeCard2.Contents>
                     <BeCard2.Extra>

@@ -33,10 +33,10 @@ const BeButtons = ({
           {buttons.map((b, i) => (
             <BeButton 
               key={`btn-${i}`}
-              props={b} 
+              {...b} 
               selected={selected === i}
               onClick={handleSelect}
-            >{b.contentText}</BeButton>
+            ></BeButton>
           ))}
         </>
       )}

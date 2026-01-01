@@ -1,4 +1,4 @@
-const Column = ({children}:{children?: React.ReactNode}):JSX.Element => { 
+const Rows = ({children}:{children?: React.ReactNode}):JSX.Element => { 
   return (
     <div className="rows">
       {children}
@@ -7,4 +7,4 @@ const Column = ({children}:{children?: React.ReactNode}):JSX.Element => {
 
 }
 
-export default Column
+export default Rows

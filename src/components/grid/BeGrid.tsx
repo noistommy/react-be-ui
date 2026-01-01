@@ -1,3 +1,6 @@
+import Rows from './Rows';
+import Column from './Column';
+
 interface BeGridProps {
   children: React.ReactNode;
   divide?: number;
@@ -5,7 +8,7 @@ interface BeGridProps {
   sm?: number;
   xs?: number;
   justify?: 'left' | 'center' | 'right' | 'between' | 'around';
-  align?: 'left' | 'center' | 'right' | 'stretch';
+  align?: 'top' | 'center' | 'bottom' | 'stretch';
   leftSide?: boolean;
   rightSide?: boolean;
 }
@@ -40,5 +43,8 @@ const BeGrid = ({children, ...props}: BeGridProps): JSX.Element => {
     </div>
   )
 }
+
+BeGrid.Rows = Rows;
+BeGrid.Column = Column;
 
 export default BeGrid

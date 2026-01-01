@@ -17,13 +17,13 @@ function SideList({
 
   const itemStyle = {
     width: '100%',
-    padding: '8px'
+    padding: '14px'
   }
 
   return (
     <div className="nav-wrapper">
       <h4 className="nav-title">{title}</h4>
-      <div className="be-list selection text bg">
+      <div className="be-list selection mark">
         {
           navList.map(item => (
             <div 
@@ -47,6 +47,7 @@ function SideList({
             font-size: .95em;
           }
           .nav-item {
+            padding: 0 !important;
             border-radius: 4px;
           }
       `}

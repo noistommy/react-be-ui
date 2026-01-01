@@ -10,6 +10,11 @@ const propList = [
   {contentText: 'B Button'},
   {contentText: 'C Button'},
 ]
+const propList2 = [
+  {withIcon: 'xi-sun'},
+  {withIcon: 'xi-moon' },
+  {withIcon: 'xi-desktop'},
+]
 
 export default function ButtonGroupView () {
   const [selected, setSelected] = useState(0)
@@ -47,6 +52,7 @@ export default function ButtonGroupView () {
             <div className="be-segment border">
               <div className="contents">
                 <BeButtons buttons={propList}></BeButtons>
+                <BeButtons buttons={propList2}></BeButtons>
               </div>
               <CodeBlock code={codes.buttons_component} language="tsx"></CodeBlock>
             </div>

@@ -65,7 +65,7 @@ export default function TabsView () {
               <div className="contents">
                 <BeTabs tabList={optionList} directType="vertical" selected={selectTab} onSelectTab={handleSelect}>
                   <Slot name="contents">
-                    {selectTab}
+                    <div className="tab-contents">{selectTab}</div>
                   </Slot>
                 </BeTabs>
               </div>
@@ -81,7 +81,7 @@ export default function TabsView () {
               <div className="contents">
                 <BeTabs tabList={optionList} tabType="line" selected={selectTab} onSelectTab={handleSelect}>
                   <Slot name="contents">
-                    {selectTab}
+                    <div className="tab-contents">{selectTab}</div>
                   </Slot>
                 </BeTabs>
               </div>
@@ -97,7 +97,7 @@ export default function TabsView () {
               <div className="contents">
                 <BeTabs tabList={optionList} tabType="button" selected={selectTab} onSelectTab={handleSelect}>
                   <Slot name="contents">
-                    {selectTab}
+                    <div className="tab-contents">{selectTab}</div>
                   </Slot>
                 </BeTabs>
               </div>

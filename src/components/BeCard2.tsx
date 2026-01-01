@@ -7,7 +7,8 @@ const BeCard2 = ({
   border = true,
   float,
   align,
-  round = 'l'
+  round = 'm',
+  media
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -20,6 +21,7 @@ const BeCard2 = ({
   const setClass = [
     surf && 'surface',
     border && 'border',
+    media && 'media',
     float && 'float',
     align && `align-${align}`,
     `round-${round}`,

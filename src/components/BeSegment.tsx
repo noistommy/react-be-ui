@@ -6,7 +6,7 @@ const BeSegment = ({
   border,
   float,
   align = 'left',
-  round = 'l',
+  round = 'm',
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -26,7 +26,7 @@ const BeSegment = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
   
   return (
-    <div className={`be-segment ${setClass}`}>
+    <div className={`be-segment ${className} ${setClass}`}>
       <div className="contents">
         {children}
       </div>

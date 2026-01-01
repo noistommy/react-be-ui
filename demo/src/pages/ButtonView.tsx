@@ -4,10 +4,12 @@ import CodeBlock from '../component/CodeBlock'
 import * as codes from '../codes/button'
 import {sizes, status, colors} from '../contents'
 
+
+import {FaCat} from 'react-icons/fa'
+
 const handleClick = () => {
   console.log('click')
 }
-
 export default function ButtonView () {
   return (
     <div className="page-wrapper be container">
@@ -33,11 +35,12 @@ export default function ButtonView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButton contentText="Component" />
+                <BeButton contentText="Component" /> 
                 <BeButton brand="primary" contentText="Comp(brand)" />
                 <BeButton state="error" contentText="Comp(status)" />
                 <BeButton icon="xi-user" />
-                <BeButton icon="xi-user" />
+                <BeButton icon={<FaCat />} />
+                <BeButton withIcon={<FaCat />} iconPos="right" contentText="Cat"></BeButton>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>

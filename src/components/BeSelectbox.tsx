@@ -34,13 +34,14 @@ const BeSelectbox = ({
     fluid = false,
     compact = false,
     round = false,
-    disabled = false 
+    disabled = false,
+    show = false
   } = props
 
 
   const boxRef = useRef(null)
   const menuRef = useRef(null)
-  const [isShow, setIsShow] = useState(false)
+  const [isShow, setIsShow] = useState(show)
 
   const { refs, floatingStyles } = useFloating({
     placement: 'bottom-start',
@@ -199,7 +200,7 @@ const BeSelectbox = ({
         <FloatingPortal>
           <div className="be-popper-container" ref={refs.setFloating} style={floatingStyles}>
             <CSSTransition nodeRef={menuRef} in={isShow} timeout={250} classNames="extend-fade">
-              <div ref={menuRef} className="select-menu be-popper" style={{...optionHeight, width:`${boxRef.current.clientWidth}px`}}>
+              <div ref={menuRef} className="select-menu be-popper" style={{...optionHeight, width:`${boxRef.current?.clientWidth}px`}}>
                 <div className={`be-list selection ${selectedType}`}>
                   {(isSearch && searchOptions.length === 0) ? (
                     <div className="no-searched">검색 결과가 없습니다.</div>
