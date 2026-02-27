@@ -82,7 +82,7 @@ const BeButton = ({
         </>
       )}
       {link && (
-        <a href={link} target={linkTarget}></a>
+        <a className="link" href={link} target={linkTarget}></a>
       )}
     </button>
   )

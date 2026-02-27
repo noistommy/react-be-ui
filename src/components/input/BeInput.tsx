@@ -39,8 +39,9 @@ interface BeInputProps {
   disabled?: boolean;
   unit?: string | null;
   labeled?: boolean | LabeledOption | null;
-  button?: boolean | ButtonOption | null;
+  withButton?: boolean | ButtonOption | null;
   short?: boolean;
+  label?: string;
 }
 
 const BeInput = ({ 
@@ -73,8 +74,9 @@ const BeInput = ({
     disabled = false,
     unit = null,
     labeled = null,
-    button = null,
-    short = false
+    withButton = null,
+    short = false,
+    label = null
   } = props
 
   const [inputValue, setInputValue] = useState(value)
@@ -100,6 +102,10 @@ const BeInput = ({
     if (iconLeft && iconRight) return 'both';
     return iconLeft ? 'left' : iconRight ? 'right' : null;
   }, [iconLeft, iconRight]);
+
+  const setPlaceholder = useMemo(() => {
+    return label ? '' : placeholder
+  }, [placeholder, label])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const newValue = e.target.value;
@@ -144,8 +150,8 @@ const BeInput = ({
     disabled && 'disabled',
     labeled && 'labeled',
     labeled && (labeled.pos || 'right'),
-    button && 'button',
-    button &&( button.pos || 'right'),
+    withButton && 'withButton',
+    withButton &&( withButton.pos || 'right'),
     type === 'textarea' && short ? 'short' : ''
   ].filter((item): item is string => Boolean(item)).join(' ')
 
@@ -157,13 +163,12 @@ const BeInput = ({
       {iconLeft && (
         <i className={`icon ${iconLeft}`} />
       )}
-
       {type === 'input' ? (
         <input
           type={inputType}
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={placeholder}
+          placeholder={setPlaceholder}
           className={`align-${align}`}
           ref={setRefs}
           onClick={checkFocus}
@@ -183,6 +188,9 @@ const BeInput = ({
           disabled={disabled}
         />
       )}
+      {label && (
+        <label>{label}</label>
+      )}
       {clear && (
         <i
           className={`icon clear-btn xi-close ${inputValue === '' ? 'disabled' : ''}`}
@@ -196,8 +204,8 @@ const BeInput = ({
       ) : null}
       {labeled ? (
         children || <div className={`label ${labeled.option}`}>{children || labeled.contents}</div>
-      ) : button ? (
-        children || <button className={`be-button ${button.option}`} onClick={handleButtonClick}>{button.contents}</button>
+      ) : withButton ? (
+        children || <button className={`be-button ${withButton.option}`} onClick={handleButtonClick}>{withButton.contents}</button>
       ) : null}
     </div>
   )

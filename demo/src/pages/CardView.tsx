@@ -155,12 +155,43 @@ export default function CardView () {
           </div>
         </section>
         <section>
+          <h4>Round</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeCard title="round s" round="s">
+                  <Slot name="contents">
+                   {lorem_text}
+                  </Slot>
+                </BeCard>
+                <BeCard title="round m" round="m">
+                  <Slot name="contents">
+                   {lorem_text}
+                  </Slot>
+                </BeCard>
+                <BeCard title="round l" round="l">
+                  <Slot name="contents">
+                   {lorem_text}
+                  </Slot>
+                </BeCard>
+                <BeCard title="round xl" round="xl">
+                  <Slot name="contents">
+                   {lorem_text}
+                  </Slot>
+                </BeCard>
+              </div>
+              <CodeBlock code={codes.round} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Cards</h4>
           <div className="desc"></div>
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className="be-cards">
+                <div className="be-cards round-m">
                   <BeCard title="Card1" >
                     <Slot name="contents">
                     {lorem_text}

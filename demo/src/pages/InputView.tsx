@@ -48,6 +48,19 @@ export default function InputView () {
       <div className="variants">
         <h1 className="title">Variants</h1>
         <section>
+          <h4>Use Label</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeInput label="Use Label"></BeInput>
+                <BeInput label="Use Label" value="Value"></BeInput>
+              </div>
+              <CodeBlock code={codes.disabled} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Disabled</h4>
           <div className="desc"></div>
           <div className="contents">
@@ -208,7 +221,7 @@ export default function InputView () {
                   contents: 'label'
                 }}></BeInput>
                 <BeInput labeled>
-                  <label><i className="icon xi-won"></i></label>
+                  <span className="label"><i className="icon xi-won"></i></span>
                 </BeInput>
               </div>
               <CodeBlock code={codes.label} language="tsx"></CodeBlock>
@@ -221,12 +234,12 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput button={{
+                <BeInput withButton={{
                   pos: 'left',
                   option: 'primary',
                   contents: 'save'
                 }}></BeInput>
-                <BeInput labeled>
+                <BeInput withButton>
                   <BeButton brand="secondary" icon="xi-upload" />
                 </BeInput>
               </div>
@@ -240,7 +253,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput type="textarea" fluid></BeInput>
+                <BeInput type="textarea" fluid label="Textarea"></BeInput>
                 <BeInput type="textarea" short fluid></BeInput>
               </div>
               <CodeBlock code={codes.textarea} language="tsx"></CodeBlock>

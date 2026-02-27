@@ -159,10 +159,10 @@ const BeInputNumber = ({
       {iconRight && (
         <i className={`icon ${iconRight}`} />
       )}
-      <button className={`be-button icon dec ${disabled ? 'disabled' : ''}`} onClick={decrease}>
+      <button className={`be-button border icon dec ${disabled ? 'disabled' : ''}`} onClick={decrease}>
         <i className={`icon ${decIcon}`}></i>
       </button>
-      <button className={`be-button icon inc ${disabled ? 'disabled' : ''}`} onClick={increase}>
+      <button className={`be-button border icon inc ${disabled ? 'disabled' : ''}`} onClick={increase}>
         <i className={`icon ${incIcon}`}></i>
       </button>
     </div>
