@@ -14,7 +14,8 @@ const BeCheckboxGroup = ({
 
 
 
-  const handleSelect = (name, checked) => {
+  const handleSelect = (e) => {
+    const { name, checked } = e.target
     const newSetList = new Set(selectedList)
     if (checked) {
       newSetList.add(name)

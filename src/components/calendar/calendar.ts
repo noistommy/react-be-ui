@@ -105,6 +105,11 @@ export const setCalendar = (dateValue: DateInfo): CalendarCell[] => {
   return dayList
 }
 
+export const arrayToClassname = (list) => {
+  if (list.length === 0) return ''
+  return list.join(' ')
+ }
+
 //
 // document.getElementById('calDate').addEventListener('click', () => {
 //     const result = setCalendar(2022, 11);

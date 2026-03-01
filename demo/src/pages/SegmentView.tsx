@@ -58,9 +58,40 @@ export default function SegmentView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSegment border>{lorem_text}{lorem_text}</BeSegment>
+                <BeSegment border>{lorem_text + lorem_text}</BeSegment>
               </div>
               <CodeBlock code={codes.border} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Title</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeSegment border>
+                  <div className="title">Title</div>
+                  {lorem_text + lorem_text}
+                </BeSegment>
+              </div>
+              <CodeBlock code={codes.title} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Attached</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeSegment attached border> 
+                  <BeSegment.Header>Header</BeSegment.Header>
+                  <BeSegment.Contents>{lorem_text}</BeSegment.Contents>
+                  <BeSegment.Footer>Footer</BeSegment.Footer>
+                </BeSegment>
+              </div>
+              <CodeBlock code={codes.attached} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>
@@ -82,11 +113,11 @@ export default function SegmentView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>Align Left</h6>
+                <h5>Align Left</h5>
                 <BeSegment border>{lorem_text}</BeSegment>
-                <h6>Align Center</h6>
+                <h5>Align Center</h5>
                 <BeSegment align="center" border>{lorem_text}</BeSegment>
-                <h6>Align Right</h6>
+                <h5>Align Right</h5>
                 <BeSegment align="right" border>{lorem_text}</BeSegment>
               </div>
               <CodeBlock code={codes.align} language="tsx"></CodeBlock>
@@ -99,13 +130,13 @@ export default function SegmentView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>round: s</h6>
+                <h5>round: s</h5>
                 <BeSegment round="s" border>{lorem_text}</BeSegment>
-                <h6>round: m</h6>
+                <h5>round: m</h5>
                 <BeSegment round="m" border>{lorem_text}</BeSegment>
-                <h6>round: l</h6>
+                <h5>round: l</h5>
                 <BeSegment round="l" border>{lorem_text}</BeSegment>
-                <h6>round: xl</h6>
+                <h5>round: xl</h5>
                 <BeSegment round="xl" border>{lorem_text}</BeSegment>
               </div>
               <CodeBlock code={codes.round} language="tsx"></CodeBlock>

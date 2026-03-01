@@ -1,9 +1,8 @@
-import { useState } from 'react'
-
 interface BeSwitchProps {
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   className?: string;
+  name?: string;
   type?: 'slide' | 'button' | 'button-slide';
   inside?: boolean;
   round?: boolean;
@@ -21,6 +20,7 @@ const BeSwitch = ({
   ...props
 }: BeSwitchProps): JSX.Element => {
   const {
+    name = '',
     type = 'slide',
     inside = false,
     round = false,
@@ -31,8 +31,6 @@ const BeSwitch = ({
     disabled = false
   } = props
 
-  const [switchValue, setSwitchValue] = useState(checked)
-
   const setClass: string = [
     type,
     inside && 'inside',
@@ -42,26 +40,25 @@ const BeSwitch = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   const handleChange = () => {
-    const newValue = !switchValue
-    setSwitchValue(newValue);
-    onChange(newValue);
+    const newValue = !checked
+    onChange(name, newValue);
   }
 
   return (
-    <div className={`be-switch ${className} ${setClass}`} onClick={handleChange}>
+    <div key={name} className={`be-switch ${className} ${setClass}`} onClick={handleChange}>
       <input 
         type="checkbox" 
+        checked={checked}
         onChange={handleChange}
-        checked={switchValue}
-      />
+      /> 
       {type === 'slide' ? (
         <div className="switch"></div>
       ) : (
         <>
           {children || (
             <>
-              <span className={`on ${switchValue && 'active'}`}>{onText}</span>
-              <span className={`off ${!switchValue && 'active'}`}>{offText}</span>
+              <span className={`on ${checked && 'active'}`}>{onText}</span>
+              <span className={`off ${!checked && 'active'}`}>{offText}</span>
             </>
           )}
         </>

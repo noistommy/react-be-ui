@@ -101,11 +101,11 @@ export default function PaginationView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>Left(default)</h6>
+                <h5>Left(default)</h5>
                 <BePagination pageLength={10} align="left"></BePagination>
-                <h6>Center</h6>
+                <h5>Center</h5>
                 <BePagination pageLength={10} align="center"></BePagination>
-                <h6>Right</h6>
+                <h5>Right</h5>
                 <BePagination pageLength={10} align="right"></BePagination>
               </div>
               <CodeBlock code={codes.align} language="tsx"></CodeBlock>
@@ -118,9 +118,9 @@ export default function PaginationView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>number(default)</h6>
+                <h5>number(default)</h5>
                 <BePagination pageLength={10} ></BePagination>
-                <h6>page</h6>
+                <h5>page</h5>
                 <BePagination pageLength={10} type="page"></BePagination>
               </div>
               <CodeBlock code={codes.page_type} language="tsx"></CodeBlock>

@@ -1,15 +1,13 @@
 import {BeButtonProps} from '../../types'
 import BeButton from './BeButton'
 
-import {useState } from 'react'
-
 interface BeButtonProps {
   children: React.ReactNode;
   className: string;
   buttons: BeButtonProps[];
   border?: boolean;
   round?: boolean;
-  selectIndex: number;
+  value?: number;
 }
 
 
@@ -20,13 +18,10 @@ const BeButtons = ({
   buttons = null,
   border = false,
   round = false,
-  selectIndex = 0
+  value = 0
 }: BeButtonProps): JSX.Element => {
-  const [selected, setSelected] = useState(selectIndex)
   const handleSelect = (idx) => {
-    // const idx = buttons.findIndex(t => t.contentText === e.target.textContent)
-    setSelected(idx)
-    onChange(idx, buttons[idx])
+    onChange(idx)
   }
   return (
     <div className={`be-buttons ${className} ${border ? 'border' : ''} ${round ? 'round' : ''}`}>
@@ -36,7 +31,7 @@ const BeButtons = ({
             <BeButton 
               key={`btn-${i}`}
               {...b} 
-              selected={selected === i}
+              selected={value === i}
               onClick={() => handleSelect(i)}
             ></BeButton>
           ))}

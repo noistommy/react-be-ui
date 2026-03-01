@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useEffect, ChangeEvent, MouseEvent, MutableRefObject } from 'react'
+import { useState, useRef, useMemo, ChangeEvent, MouseEvent, MutableRefObject } from 'react'
 
 interface LabeledOption {
   pos?: 'left' | 'right';
@@ -42,6 +42,7 @@ interface BeInputProps {
   withButton?: boolean | ButtonOption | null;
   short?: boolean;
   label?: string;
+  name?: string;
 }
 
 const BeInput = ({ 
@@ -76,10 +77,11 @@ const BeInput = ({
     labeled = null,
     withButton = null,
     short = false,
-    label = null
+    label = null,
+    name = ''
   } = props
 
-  const [inputValue, setInputValue] = useState(value)
+  // const [inputValue, setInputValue] = useState(value)
   const [isFocus, setIsFocus] = useState(false)
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
 
@@ -94,9 +96,9 @@ const BeInput = ({
     }
   }
 
-  useEffect(() => {
-    setInputValue(value)
-  }, [value])
+  // useEffect(() => {
+  //   setInputValue(value)
+  // }, [value])
 
   const iconPosition = useMemo(() => {
     if (iconLeft && iconRight) return 'both';
@@ -104,13 +106,11 @@ const BeInput = ({
   }, [iconLeft, iconRight]);
 
   const setPlaceholder = useMemo(() => {
-    return label ? '' : placeholder
+    return label ? ' ' : placeholder
   }, [placeholder, label])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const newValue = e.target.value;
-    setInputValue(newValue);
-    onChange(newValue);
+    onChange(e);
   };
 
   const checkFocus = () => {
@@ -127,12 +127,13 @@ const BeInput = ({
 
   const handleClear = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    setInputValue('')
-    onChange('')
+    // setInputValue('')
+    (e.target as HTMLInputElement).value = ''
+    onChange(e)
   };
 
   const handleButtonClick = () => {
-    onButtonClick(inputValue)
+    onButtonClick(value)
   }
 
   const setClass: string = [
@@ -165,8 +166,9 @@ const BeInput = ({
       )}
       {type === 'input' ? (
         <input
+          name={name}
           type={inputType}
-          value={inputValue}
+          value={value}
           onChange={handleInputChange}
           placeholder={setPlaceholder}
           className={`align-${align}`}
@@ -178,7 +180,8 @@ const BeInput = ({
         />
       ) : (
         <textarea
-          value={inputValue}
+          name={name}
+          value={value}
           onChange={handleInputChange}
           rows={3}
           placeholder={placeholder}
@@ -189,11 +192,11 @@ const BeInput = ({
         />
       )}
       {label && (
-        <label>{label}</label>
+        <label htmlFor={name}>{label}</label>
       )}
       {clear && (
         <i
-          className={`icon clear-btn xi-close ${inputValue === '' ? 'disabled' : ''}`}
+          className={`icon clear-btn xi-close ${value === '' ? 'disabled' : ''}`}
           onClick={handleClear}
         />
       )}

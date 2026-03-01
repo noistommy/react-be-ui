@@ -8,7 +8,27 @@ import {colors} from '../contents'
 import {useState} from 'react'
 
 export default function ExanpleView () {
-  const [colored, setColored]  = useState('red')
+  const [colored, setColored]  = useState('red');
+  const [select, setSelect]  = useState(false);
+
+  const [checked, setChecked] = useState({
+    switch1: true,
+    switch2: false,
+    switch3: false,
+    switch4: false,
+    switch5: false,
+    switch6: false,
+    switch7: false,
+    switch8: false,
+    switch9: false,
+    switch10: false,
+  });
+  const handleChange = (name, checked) => {
+    setChecked((prevData) => ({...prevData, [name]: checked}))
+  }
+  const handleSelectChange = (name, checked) => {
+    setSelect(checked)
+  }
   const setColor = (color) => {
     setColored(color)
   }
@@ -42,8 +62,9 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSwitch checked></BeSwitch>
-                <BeSwitch inside checked></BeSwitch>
+                <BeSwitch checked={select} onChange={handleSelectChange}></BeSwitch>
+                <BeSwitch name="switch1" checked={checked.switch1} onChange={handleChange}></BeSwitch>
+                <BeSwitch name="switch2" inside checked={checked.switch2} onChange={handleChange}></BeSwitch>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>
@@ -58,9 +79,9 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSwitch type="button" checked></BeSwitch>
-                <BeSwitch type="button" round checked></BeSwitch>
-                <BeSwitch type="button" onText="A" offText="B" checked></BeSwitch>
+                <BeSwitch name="switch3" type="button" checked={checked.switch3} onChange={handleChange}></BeSwitch>
+                <BeSwitch name="switch4" type="button" round checked={checked.switch4} onChange={handleChange}></BeSwitch>
+                <BeSwitch name="switch5" type="button" onText="A" offText="B" checked={checked.switch5} onChange={handleChange}></BeSwitch>
               </div>
               <CodeBlock code={codes.button} language="tsx"></CodeBlock>
             </div>
@@ -72,10 +93,10 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSwitch round checked />
-                <BeSwitch round inside checked />
-                <BeSwitch type="button" round checked></BeSwitch>
-                <BeSwitch type="button" round onText="A" offText="B" checked></BeSwitch>
+                <BeSwitch name="switch6" round checked={checked.switch6} onChange={handleChange} />
+                <BeSwitch name="switch7" round inside checked={checked.switch7} onChange={handleChange} />
+                <BeSwitch name="switch8" type="button" round checked={checked.switch8} onChange={handleChange}></BeSwitch>
+                <BeSwitch name="switch9" type="button" round onText="A" offText="B" checked={checked.switch9} onChange={handleChange}></BeSwitch>
               </div>
               <CodeBlock code={codes.round} language="tsx"></CodeBlock>
             </div>
@@ -92,10 +113,10 @@ export default function ExanpleView () {
                 ))}
               </div>
               <div className="contents">
-                <BeSwitch color={colored} checked />
-                <BeSwitch color={colored} inside checked />
-                <BeSwitch color={colored} type="button" checked></BeSwitch>
-                <BeSwitch color={colored} type="button" onText="A" offText="B" checked></BeSwitch>
+                <BeSwitch name="switch10" color={colored} checked={checked.switch10} onChange={handleChange} />
+                <BeSwitch name="switch11" color={colored} inside checked={checked.switch11} onChange={handleChange} />
+                <BeSwitch name="switch12" color={colored} type="button" checked={checked.switch12} onChange={handleChange}></BeSwitch>
+                <BeSwitch name="switch13" color={colored} type="button" onText="A" offText="B" checked={checked.switch13} onChange={handleChange}></BeSwitch>
               </div>
               <CodeBlock code={codes.colors} language="tsx"></CodeBlock>
             </div>

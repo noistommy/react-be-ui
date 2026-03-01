@@ -50,7 +50,12 @@ export default function ListView () {
                   ))}
                 </div>
                 <div className="list-container">
-                  <BeList options={optionList} selection selectedType={actived}></BeList>
+                  <BeList 
+                    options={optionList} 
+                    selectedItem={optionList[0]}
+                    selection 
+                    selectedType={actived}
+                  ></BeList>
                 </div>
               </div>
               <CodeBlock code={codes.selection} language="tsx"></CodeBlock>

@@ -13,10 +13,11 @@ const BeRadios = ({
 
   const [selected, setSelected] = useState(selectedValue)
 
-  const handleChange = (name, checked) => {
+  const handleChange = (e) => {
+    const { id, checked } = e.target
     if (checked) {
-      setSelected(name)
-      onChange(name)
+      setSelected(id)
+      onChange(id)
     }
   }
 

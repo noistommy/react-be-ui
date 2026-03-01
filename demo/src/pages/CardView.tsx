@@ -191,7 +191,7 @@ export default function CardView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className="be-cards round-m">
+                <div className="be-cards round-m column-3 column-sm-2 column-xs-1">
                   <BeCard title="Card1" >
                     <Slot name="contents">
                     {lorem_text}

@@ -5,7 +5,7 @@ export const base_html =
   `</div>`
 export const base_component =
   `// component \n` +
-  `<BeInput></BeInput>`
+  `<BeInput value={value} onChange={handleChange}></BeInput>`
 export const disabled =
   `// @disabled: Boolean \n` +
   `// default: false \n\n` +
@@ -14,7 +14,7 @@ export const disabled =
   `   <input type="text" placeholder="입력하세요" disabled />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput disabled></BeInput>`
+  `<BeInput disabled value={value} onChange={handleChange}></BeInput>`
 export const readonly =
   `// @readonly: Boolean \n` +
   `// default: false \n\n` +
@@ -23,7 +23,7 @@ export const readonly =
   `   <input type="text" placeholder="입력하세요" readonly />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput readonly></BeInput>`
+  `<BeInput readonly value={value} onChange={handleChange}></BeInput>`
 export const underline =
   `// @underline: Boolean \n` +
   `// default: false \n\n` +
@@ -32,7 +32,7 @@ export const underline =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput underline></BeInput>`
+  `<BeInput underline value={value} onChange={handleChange}></BeInput>`
 export const transparent =
   `// @transparent: Boolean \n` +
   `// default: false \n\n` +
@@ -41,7 +41,7 @@ export const transparent =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput transparent></BeInput>`
+  `<BeInput transparent value={value} onChange={handleChange}></BeInput>`
 export const compact =
   `// @compact: Boolean \n` +
   `// default: false \n\n` +
@@ -50,7 +50,7 @@ export const compact =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput compact></BeInput>`
+  `<BeInput compact value={value} onChange={handleChange}></BeInput>`
 export const edit =
   `// @edit: Boolean \n` +
   `// @editMode: Boolean \n` +
@@ -60,7 +60,7 @@ export const edit =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput edit editMode={true || false}></BeInput>`
+  `<BeInput edit editMode={true || false} value={value} onChange={handleChange}></BeInput>`
 export const status =
   `// @status: success || danger || info || attention || importance \n\n` +
   `// html \n` +
@@ -68,7 +68,7 @@ export const status =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput status="{status}"></BeInput>`
+  `<BeInput status="{status}" value={value} onChange={handleChange}></BeInput>`
 export const fluid =
   `// @fluid: Boolean \n` +
   `// default: false \n\n` +
@@ -77,7 +77,7 @@ export const fluid =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput fluid></BeInput>`
+  `<BeInput fluid value={value} onChange={handleChange}></BeInput>`
 export const unit =
   `// @unit: String \n` +
   `// default: false \n\n` +
@@ -86,7 +86,7 @@ export const unit =
   `   <input type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput unit="{unit}"></BeInput>`
+  `<BeInput unit="{unit}" value={value} onChange={handleChange}></BeInput>`
 export const icon =
   `// @icon-left: String \n` +
   `// @icon-right: String \n` +
@@ -109,12 +109,13 @@ export const icon =
   `<BeInput \n ` +
   `  iconLeft={iconLeft}\n ` +
   `  iconRight={iconRight}\n ` +
+  `  value={value} onChange={handleChange}\n ` +
   `></BeInput>`
 export const clearIcon =
   `// @clear: Boolean \n` +
   `// default: false \n\n` +
   `//only component \n` +
-  `<BeInput clear></BeInput>`
+  `<BeInput clear value={value} onChange={handleChange}></BeInput>`
 export const badge =
   `// @badge: String \n` +
   `// @badgeOption: Object \n` +
@@ -128,6 +129,7 @@ export const badge =
   `<BeInput\n ` +
   `  badge={badge}\n ` +
   `  badgeOption={badgeOption}\n ` +
+  `  value={value} onChange={handleChange}\n ` +
   `></BeInput>`
 export const label =
   `// @label: String \n` +
@@ -148,6 +150,7 @@ export const label =
   `}} />\n ` +
   `<BeInput labeled>\n ` +
   `   <label>{label}</label>\n` +
+  `   value={value} onChange={handleChange}\n ` +
   `</BeInput>`
 export const button =
   `// @button: String \n` +
@@ -170,6 +173,7 @@ export const button =
   `}} />\n ` +
   `<BeInput button>\n ` +
   `   <BeButton contentsText={button}></BeButton>\n` +
+  `   value={value} onChange={handleChange}\n ` +
   `</BeInput>`
 export const textarea =
   `// @type: input || textarea \n` +
@@ -182,7 +186,8 @@ export const textarea =
   `   <textarea type="text" placeholder="입력하세요" />\n` +
   `</div>\n` +
   `// component \n` +
-  `<BeInput type="textarea" short={true | false}></BeInput>\n` +
+  `<BeInput type="textarea" short={true | false} value={value} onChange={handleChange}></BeInput>\n` +
   `<BeInput>\n ` +
   `   <textarea type="text" placeholder="입력하세요" />\n` +
+  `   value={value} onChange={handleChange}\n ` +
   `</BeInput>`

@@ -46,6 +46,16 @@ export const collapse =
   `   open={open}\n` +
   `   maxLine={number} // default: 5\n` +
   `></BePanel>`
+export const collapseToggle =
+  `// @toggleIcon: String | SVGSVGElement \n` +
+  `// @iconPos: 'left | right | null' \n` +
+  `// default: 'xi-angle-down' \n\n` +
+  `<!-- xi-icons classname icon -->\n` +
+  `<BePanel toggleIcon="xi-icon-toggle" iconPos={iconPos}>...</BePanel>\n` +
+  `<!-- or -->\n` +
+  `<!-- components icon -->\n` +
+  `<BePanel toggleIcon={<ComponentsIcon />} iconPos={iconPos}>...</BePanel>`
+
 export const special_html =
   `<!-- HTML(details-summary) -->\n` +
   `<details class="be-panel">\n` +

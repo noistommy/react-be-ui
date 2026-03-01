@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
 
 interface BeCheckBoxProps {
   children?: React.ReactNode;
@@ -30,34 +30,23 @@ const BeCheckBox = ({
     checked = false
   } = props
 
-  const [isChecked, setIsChecked] = useState(checked)
-
-  useEffect(() => {
-    setIsChecked(checked)
-  }, [checked])
-
   const setClass: string = [
     type,
     indeter && 'indeter'
   ].filter((item): item is string => Boolean(item)).join(' ')
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newChecked = e.target.checked;
-    setIsChecked(newChecked);
-    onChange(name, newChecked);
-  }
-
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e)
   return (
-    <div className={`be-checkbox ${className} ${setClass} ${isChecked ? 'checked' : ''}`}>
+    <div className={`be-checkbox ${className} ${setClass} ${checked ? 'checked' : ''}`}>
       <label htmlFor={name}>
         {children || labelText}
       </label>
       <input 
-        name={type === 'radio' ? group : name} 
+        name={inputType === 'radio' ? group : name} 
         id={name} 
         type={inputType}
         onChange={handleChange}
-        checked={isChecked}
+        checked={checked}
       />
     </div>
   )

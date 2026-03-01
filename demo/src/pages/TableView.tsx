@@ -63,9 +63,9 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>Odd</h6>
+                <h5>Odd</h5>
                 <BeTable columns={columns} values={values} striped="odd"></BeTable>
-                <h6>Even</h6>
+                <h5>Even</h5>
                 <BeTable columns={columns} values={values} striped="even"></BeTable>
               </div>
               <CodeBlock code={codes.striped} language="tsx"></CodeBlock>

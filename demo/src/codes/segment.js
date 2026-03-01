@@ -22,17 +22,27 @@ export const float =
   `//@float: Boolean \n` +
   `//default: false \n\n` +
   `<BeSegement float> contents ... ...</BeSegement>`
+export const title =
+  `//@title: String \n` +
+  `//default: null \n\n` +
+  `<BeSegement>\n` +
+  `   <BeSegment.Contents title={title}>\n` +
+  `     {contents}\n` +
+  `   </BeSegment.Contents>\n` +
+  `</BeSegment>`
 export const attached =
-  `//@attached: Array \n` +
-  `//default: [] \n\n` +
-  `<BeSegement attached="['header', 'footer']">\n` +
-  `   <template #header>\n` +
-  `     <div class="header">Header</div>\n` +
-  `   </template>\n` +
-  `   contents ... ... \n` +
-  `   <template #footer>\n` +
-  `     <div class="footer">Footer</div>\n` +
-  `   </template>\n` +
+  `//@attached: Boolean \n` +
+  `//default: false \n\n` +
+  `<BeSegement attached={attached}>\n` +
+  `   <BeSegment.Header>\n` +
+  `     {Header contents}\n` +
+  `   </BeSegment.Header>\n` +
+  `   <BeSegment.Contents>\n` +
+  `     {contents}\n` +
+  `   </BeSegment.Contents>\n` +
+  `   <BeSegment.Footer>\n` +
+  `     {Footer contents}\n` +
+  `   </BeSegment.Footer>\n` +
   `</BeSegment>`
 
 export const align =

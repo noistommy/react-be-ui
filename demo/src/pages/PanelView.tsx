@@ -1,5 +1,6 @@
 import { BeTag, BePanel } from '../../../dist/be-ui.es'
 import CodeBlock from '../component/CodeBlock'
+import { FaAngleDown, FaCaretDown } from "react-icons/fa6";
 
 import * as codes from '../codes/panel'
 
@@ -22,7 +23,7 @@ export default function PanelView () {
                   </div>
                   <div className="panel-content">
                     <div className="content-wrapper">
-                      Contents
+                      {lorem_text}
                     </div>
                   </div>
                 </div>
@@ -38,7 +39,7 @@ export default function PanelView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BePanel title="Title" contents="Contents" border></BePanel>
+                <BePanel title="Title" contents={lorem_text} border></BePanel>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>
@@ -53,7 +54,7 @@ export default function PanelView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BePanel title="Title" contents="Contents" border></BePanel>
+                <BePanel title="Title" contents={lorem_text} border></BePanel>
               </div>
               <CodeBlock code={codes.border} language="tsx"></CodeBlock>
             </div>
@@ -66,9 +67,9 @@ export default function PanelView () {
             <div className="be-segment border">
               <div className="contents">
                 <BePanel title="Title" border>
-                  <div className="content-head">Header</div>
-                  <div className="content-body">Body</div>
-                  <div className="content-foot">Footer</div>
+                  <div className="header">Header</div>
+                  <div className="body">{lorem_text}</div>
+                  <div className="footer">Footer</div>
                 </BePanel>
               </div>
               <CodeBlock code={codes.contents} language="tsx"></CodeBlock>
@@ -81,9 +82,26 @@ export default function PanelView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BePanel title="Title" border collapse  maxLine={3}>{lorem_text}{lorem_text}</BePanel>
+                <BePanel title="Title" border collapse  maxLine={3} toggleIcon="xi-caret-down" iconPos="right">{lorem_text}{lorem_text}</BePanel>
               </div>
               <CodeBlock code={codes.collapse} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Collapse - Toggle Icon</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <h5>xi-icon</h5>
+                <BePanel title="Toggle icon on left" border collapse  maxLine={3} toggleIcon="xi-caret-down" iconPos="left">{lorem_text}{lorem_text}</BePanel>
+                <BePanel title="Toggle icon on right" border collapse  maxLine={3} toggleIcon="xi-caret-down" iconPos="right">{lorem_text}{lorem_text}</BePanel>
+                <h5>component icon(react-icon)</h5>
+                <BePanel title="Toggle icon on left" border collapse  maxLine={3} toggleIcon={<FaAngleDown />} iconPos="left">{lorem_text}{lorem_text}</BePanel>
+                <BePanel title="Toggle icon on right" border collapse  maxLine={3} toggleIcon={<FaCaretDown />}>{lorem_text}{lorem_text}</BePanel>
+              </div>
+              <CodeBlock code={codes.collapseToggle} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>

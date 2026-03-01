@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface optionItem {
   id?: string | number;
@@ -18,7 +18,8 @@ const BeList = ({
   icon = false,
   image = false,
   border = false,
-  itemClass = ''
+  itemClass = '',
+  selectedItem = null
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -30,6 +31,7 @@ const BeList = ({
   image?: boolean;
   border?: boolean;
   itemClass?: string;
+  selectedItem?: optionItem;
 }): JSX.Element => {
 
   const [selectItem, setSelectItem] = useState(null)
@@ -44,6 +46,10 @@ const BeList = ({
     setSelectItem(value)
     onChange(value)
   }
+
+  useEffect(() => {
+    setSelectItem(selectedItem)
+  }, [selectedItem])
 
   return (
     <div className={`be-list ${className} ${setClass}`}>

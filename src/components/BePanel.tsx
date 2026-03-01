@@ -7,8 +7,8 @@ interface BePanelProps {
   title?: string;
   contents?: string;
   border? : boolean;
-  toggleIcon?: string | null;
-  iconPos?: string;
+  toggleIcon?: string | React.SVGProps<SVGSVGElement> | null;
+  iconPos?: 'left' | 'right' | null;
   open?: boolean;
   collapse?: boolean;
   maxHeight?: number;
@@ -26,7 +26,7 @@ const BePanel = ({
     contents = '',
     border = false,
     toggleIcon = 'xi-angle-down',
-    iconPos = 'left',
+    iconPos = null,
     open = false,
     collapse = false,
     // maxHeight = 200,
@@ -52,7 +52,11 @@ const BePanel = ({
       <div className="panel-header" onClick={onToggle}>
         <div className="title">{title}</div>
         {collapse && toggleIcon && (
-          <i className={`icon ${toggleIcon}`} />
+          <div className="panel-toggle-btn">
+            {typeof toggleIcon === 'string' 
+            ? (<i className={`icon ${toggleIcon}`} />)
+            :toggleIcon}
+          </div>
         )}
       </div>
       <div className="panel-content" style={{'--max-height': `${maxLine * 1.5 + 1}em`}}>

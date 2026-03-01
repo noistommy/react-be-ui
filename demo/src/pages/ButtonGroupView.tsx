@@ -10,19 +10,22 @@ const propList = [
   {contentText: 'B Button'},
   {contentText: 'C Button'},
 ]
-const propList2 = [
-  {icon: 'xi-sun'},
-  {icon: 'xi-moon' },
-  {icon: 'xi-desktop'},
-]
+// const propList2 = [
+//   {icon: 'xi-sun'},
+//   {icon: 'xi-moon' },
+//   {icon: 'xi-desktop'},
+// ]
 
 
 
 export default function ButtonGroupView () {
   const [selected, setSelected] = useState(0);
+  const [selectComponent, setSelectComponent] = useState(0);
+  const [selectBorder, setSelectBorder] = useState(0);
+  const [selectRound, setSelectRound] = useState(0);
   const [resultIndex, setResultIndex] = useState(0);
 
-  const handleSelect = (index, value) => {
+  const handleSelect = (index) => {
     setResultIndex(index)
   }
   return (
@@ -58,8 +61,7 @@ export default function ButtonGroupView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButtons buttons={propList}></BeButtons>
-                <BeButtons buttons={propList2}></BeButtons>
+                <BeButtons buttons={propList} value={selectComponent} onChange={setSelectComponent}></BeButtons>
               </div>
               <CodeBlock code={codes.buttons_component} language="tsx"></CodeBlock>
             </div>
@@ -74,7 +76,7 @@ export default function ButtonGroupView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButtons buttons={propList} border></BeButtons>
+                <BeButtons buttons={propList} border value={selectBorder} onChange={setSelectBorder}></BeButtons>
               </div>
               <CodeBlock code={codes.buttons_border} language="tsx"></CodeBlock>
             </div>
@@ -86,7 +88,7 @@ export default function ButtonGroupView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButtons buttons={propList} round></BeButtons>
+                <BeButtons buttons={propList} round  value={selectRound} onChange={setSelectRound}></BeButtons>
               </div>
               <CodeBlock code={codes.buttons_border} language="tsx"></CodeBlock>
             </div>
@@ -98,7 +100,7 @@ export default function ButtonGroupView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButtons buttons={propList} onChange={handleSelect}></BeButtons>
+                <BeButtons buttons={propList} value={resultIndex} onChange={handleSelect}></BeButtons>
 
               </div>
               <div>Selected Value: {propList[resultIndex].contentText}</div>

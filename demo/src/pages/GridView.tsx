@@ -176,9 +176,9 @@ export default function GridView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents block">
-              <h6>Divide Responsive</h6>
+              <h5>Divide Responsive</h5>
               <BeGrid divide={12} md={6} sm={4} xs={2}>{Array.from({length: 12}).map(col => (<Column key={col}></Column>))}</BeGrid>
-              <h6>Widths Responsive</h6>
+              <h5>Widths Responsive</h5>
               <BeGrid>{[2, 2, 2, 2].map(col => (<Column span={col} md={2} sm={3} xs={6}></Column>))}</BeGrid>
               </div>
               <CodeBlock code={codes.reponsive} language="tsx"></CodeBlock>

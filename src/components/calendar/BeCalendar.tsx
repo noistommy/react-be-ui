@@ -1,4 +1,4 @@
-import {setCalendar, getDateInfo } from './calendar'
+import {setCalendar, getDateInfo, arrayToClassname } from './calendar'
 import createSlots from '../slot/createSlots'
 import * as type from './calendar-contents'
 
@@ -91,7 +91,6 @@ const BeCalendar = ({
       )
     }
   }
-    
 
   const setToday = () => {
     
@@ -141,8 +140,8 @@ const BeCalendar = ({
         {dayList.map((day, i) => (
           <div
             key={`day-${i}`} 
-            className={`cell ${day.type} ${checkSelectDate(day.name) ? 'selected' : ''}`}
-            style={{'--x': day.position.x, '--y': day.position.y}}q
+            className={`cell ${arrayToClassname(day.type)} ${checkSelectDate(day.name) ? 'selected' : ''}`}
+            style={{'--x': day.position.x, '--y': day.position.y}}
             data-name={day.name}
             onClick={() => handleSelectDate(day.name)}
           ></div>

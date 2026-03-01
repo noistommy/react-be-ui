@@ -106,11 +106,11 @@ export default function SliderView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>Thin</h6>
+                <h5>Thin</h5>
                 <BeSlider resultValue={50} trackType="thin" ></BeSlider>
-                <h6>Normal(default)</h6>
+                <h5>Normal(default)</h5>
                 <BeSlider resultValue={50} ></BeSlider>
-                <h6>Fat</h6>
+                <h5>Fat</h5>
                 <BeSlider resultValue={50} trackType="fat"  ></BeSlider>
               </div>
               <CodeBlock code={codes.trackType} language="tsx"></CodeBlock>

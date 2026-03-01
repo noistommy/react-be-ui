@@ -38,9 +38,9 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <h6>mark 사용</h6>
+                <h5>mark 사용</h5>
                 <BeTree treeList={treeList} useMark></BeTree>
-                <h6>mark 사용 안함</h6>
+                <h5>mark 사용 안함</h5>
                 <BeTree treeList={treeList}></BeTree>
               </div>
               <CodeBlock code={codes.use_mark} language="html"></CodeBlock>
