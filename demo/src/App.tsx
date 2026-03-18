@@ -4,7 +4,7 @@ import Router from './router'
 
 import { version } from '../../package.json'
 
-import {SlideSideLayout, Slot} from '../../dist/be-ui.es'
+import SlideSideLayout from './component/SlideSideLayout'
 import SideList from './component/SideList'
 
 import PrevNext from './component/PrevNext'
@@ -105,14 +105,14 @@ function App() {
       </header>
       <main>
         <SlideSideLayout isShow={show} onChange={handleClick} current={currentName}>
-          <Slot name="side">
+          <SlideSideLayout.SidePane>
             <nav className="nav-container">
               {/* <SideList title="Test" current={location.pathname} navList={LIST_INFO} /> */}
               <SideList title="Component" current={location.pathname} navList={COMPONENT_INFO} />
               <SideList title="Layout" current={location.pathname} navList={LAYOUT_INFO} />
             </nav>
-          </Slot>
-          <Slot name="main">
+          </SlideSideLayout.SidePane>
+          <SlideSideLayout.MainPane>
             <div className="main">
               <div className="main-title">
                 <h1 className="title">{currentName}</h1>
@@ -125,7 +125,7 @@ function App() {
                 <PrevNext prevInfo={prevPage} nextInfo={nextPage}></PrevNext>
               </div>
             </div>
-          </Slot>
+          </SlideSideLayout.MainPane>
         </SlideSideLayout>
       </main>
       <Analytics/>
