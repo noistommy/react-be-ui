@@ -2,6 +2,8 @@
 import './App.scss'
 import Router from './router'
 
+import { version } from '../../package.json'
+
 import {SlideSideLayout, Slot} from '../../dist/be-ui.es'
 import SideList from './component/SideList'
 
@@ -96,6 +98,7 @@ function App() {
           </div>
           <div className="logo">
             <div className="title">BEUI <span className="sub">React</span></div>
+            <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </div>
         </div>
