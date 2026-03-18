@@ -52,7 +52,7 @@ export default function CheckboxView () {
                   <label htmlFor="ch_2">Checkbox</label>
                 </div>
                 <div className={`be-checkbox indeter ${isChecked[2] ? 'checked' : ''}`}>
-                  <input type="checkbox" id="ch_3" onChange={() => handleHtmlChange(2)}  />
+                  <input type="checkbox" id="ch_3" onChange={() => handleHtmlChange(2)} checked={isChecked[2]} />
                   <label htmlFor="ch_3">Checkbox</label>
                 </div>
               </div>

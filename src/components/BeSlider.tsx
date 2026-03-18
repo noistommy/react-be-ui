@@ -63,8 +63,18 @@ const BeSlider = ({
     return offset < 0 ? 0 : offset > container ? container : offset
   }
 
-  const handleMouseDown = ({target: control, pageX}) => {
-    if (control.classList.contains('control-btn')) {
+  const isControlBtnTarget = (target: EventTarget | null) => {
+    const el = target as HTMLElement | null
+    return Boolean(el?.closest?.('.control-btn'))
+  }
+
+  const getTouchPageX = (e) => {
+    const t = e.touches?.[0] ?? e.changedTouches?.[0]
+    return t?.pageX ?? null
+  }
+
+  const handleMouseDown = ({ target, pageX }) => {
+    if (isControlBtnTarget(target)) {
       setInitialX(pageX)
       setInitialW(resultRef.current.offsetWidth)
       setIsCatch(true)
@@ -74,8 +84,8 @@ const BeSlider = ({
       setResult(updatePos(pageX - initialX))
     }
   }
-  const handleMouseUp = ({target: control, pageX}) => {
-    if (control.classList.contains('control-btn')) {
+  const handleMouseUp = ({ target, pageX }) => {
+    if (isControlBtnTarget(target)) {
       setResult(updatePos(pageX - initialX))
     }
     onChange(setResultValue)
@@ -88,13 +98,49 @@ const BeSlider = ({
     setResult(updatePos(pageX - initialX))
   }
 
+  const changeValueTouch = (e) => {
+    const pageX = getTouchPageX(e)
+    if (pageX === null) return
+    e.preventDefault?.()
+    setResult(updatePos(pageX - initialX))
+  }
+
+  const handleTouchStart = (e) => {
+    const pageX = getTouchPageX(e)
+    if (pageX === null) return
+
+    if (isControlBtnTarget(e.target)) {
+      setInitialX(pageX)
+      setInitialW(resultRef.current.offsetWidth)
+      setIsCatch(true)
+      window.addEventListener('touchmove', changeValueTouch, { passive: false })
+      window.addEventListener('touchend', handleTouchEnd)
+      window.addEventListener('touchcancel', handleTouchEnd)
+    } else {
+      setResult(updatePos(pageX - initialX))
+    }
+  }
+
+  const handleTouchEnd = (e) => {
+    const pageX = getTouchPageX(e)
+    if (pageX !== null && isControlBtnTarget(e.target)) {
+      setResult(updatePos(pageX - initialX))
+    }
+    onChange(setResultValue)
+    setIsCatch(false)
+    window.removeEventListener('touchmove', changeValueTouch)
+    window.removeEventListener('touchend', handleTouchEnd)
+    window.removeEventListener('touchcancel', handleTouchEnd)
+  }
+
   const selectStep = ({target: step}) => {
     console.log(step)
   }
   useEffect(() => {
     let slider_obs
-    if(sliderRef.current) {
-      const sliderInfo = sliderRef.current.getBoundingClientRect()
+    const sliderEl = sliderRef.current
+    if(sliderEl) {
+      const sliderInfo = sliderEl.getBoundingClientRect()
       setContainer(sliderInfo.width)
       setInitialX(sliderInfo.left)
       initValue()
@@ -105,10 +151,10 @@ const BeSlider = ({
           initValue()
         }
       })
-      slider_obs.observe(sliderRef.current)
+      slider_obs.observe(sliderEl)
     }
     return () => {
-      if (slider_obs && sliderRef.current) slider_obs.disconnect()
+      if (slider_obs && sliderEl) slider_obs.disconnect()
     }
   }, [sliderRef, initValue])
 
@@ -124,7 +170,12 @@ const BeSlider = ({
 
   return (
     <div 
-      className={`be-slider ${className} ${setClass}`} ref={sliderRef} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}
+      className={`be-slider ${className} ${setClass}`} 
+      ref={sliderRef} 
+      onMouseDown={handleMouseDown} 
+      onMouseUp={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div 
         className={`result-slider primary ${color && `be-${color}`}`} 
