@@ -1,4 +1,4 @@
-import{r as d,j as e}from"./index-Jiet0Pp3.js";import{M as a,W as s,C as l}from"./CodeBlock-LLj1QYvU.js";import{c as i}from"./index-CkuhuPNf.js";const r=`// Component only 
+import{r as d,j as e}from"./index-DVv6qmf1.js";import{M as a,W as s,C as l}from"./CodeBlock-CgGTopQv.js";import{c as i}from"./index-CkuhuPNf.js";const r=`// Component only 
 <BeSlider></BeSlider>`,o=`//@disabled: Boolean 
 //default: false 
 

@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
 import './assets/reset.css'
-// import 'gitris-ui/dist/beui.css'
+import 'gitris-ui/dist/beui.css'
 // import './beui.css'
 import './index.css'
 import App from './App.tsx'

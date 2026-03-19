@@ -1,4 +1,4 @@
-import{r as c,j as e}from"./index-Jiet0Pp3.js";import{M as o,C as a,T as n,n as v}from"./CodeBlock-LLj1QYvU.js";import{s as g}from"./index-CkuhuPNf.js";const b=`<!-- <div></div> 태그 사용 -->
+import{r as c,j as e}from"./index-DVv6qmf1.js";import{M as o,C as a,T as n,n as v}from"./CodeBlock-CgGTopQv.js";import{s as g}from"./index-CkuhuPNf.js";const b=`<!-- <div></div> 태그 사용 -->
 <div class="be-input">
    <input type="text" placeholder="입력하세요" />
 </div>`,N=`// component 

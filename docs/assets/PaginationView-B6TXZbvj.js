@@ -1,4 +1,4 @@
-import{r as i,j as e}from"./index-Jiet0Pp3.js";import{M as t,B as s,C as n}from"./CodeBlock-LLj1QYvU.js";import{c as g}from"./index-CkuhuPNf.js";const h=`// @pageLength: Number  
+import{r as i,j as e}from"./index-DVv6qmf1.js";import{M as t,B as s,C as n}from"./CodeBlock-CgGTopQv.js";import{c as g}from"./index-CkuhuPNf.js";const h=`// @pageLength: Number  
 // required: true  
 
 <BePagination pageLength={pageLength}></BePagination>`,j=`// @activeType: button | line 
