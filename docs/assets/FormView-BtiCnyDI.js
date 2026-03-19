@@ -1,4 +1,4 @@
-import{j as e}from"./index-DVv6qmf1.js";import{M as a,C as s,N as i,O as n,T as t,j as d,s as l}from"./CodeBlock-CgGTopQv.js";const c=`<!-- HTML -->
+import{j as e}from"./index-Jiet0Pp3.js";import{M as a,C as s,N as i,O as n,T as t,j as d,s as l}from"./CodeBlock-LLj1QYvU.js";const c=`<!-- HTML -->
 <div class="be-form">
    <div class="field">
        <label> Label </label>

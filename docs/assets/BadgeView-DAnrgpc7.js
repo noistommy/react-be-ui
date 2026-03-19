@@ -1,4 +1,4 @@
-import{j as e}from"./index-DVv6qmf1.js";import{M as d,C as n,$ as s}from"./CodeBlock-CgGTopQv.js";import{c as l}from"./index-CkuhuPNf.js";const c=`<!-- Parent element 내부에 사용 -->
+import{j as e}from"./index-Jiet0Pp3.js";import{M as d,C as n,$ as s}from"./CodeBlock-LLj1QYvU.js";import{c as l}from"./index-CkuhuPNf.js";const c=`<!-- Parent element 내부에 사용 -->
 <div class="parent-element">
    ...
    <div class="be-badge">N</div>
