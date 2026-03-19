@@ -19,11 +19,6 @@ interface ListItem {
   name: string;
 }
 
-// const LIST_INFO: ListItem[] = [
-//   { path: '/', name: 'Home'},
-//   { path: '/globals', name: 'Global'},
-// ]
-
 const COMPONENT_INFO: ListItem[] = [
   { path: '/button', name: 'Button' },
   { path: '/button-group', name: 'Button Group' },
