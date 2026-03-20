@@ -1,4 +1,5 @@
 import { BeTag, BeInput, BeButton } from '../../../dist/be-ui.es'
+
 import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/input'
@@ -30,6 +31,8 @@ export default function InputView () {
     input18: '',
     input19: '',
     input20: '',
+    input21: '',
+    input22: '',
   })
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -103,7 +106,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput readonly name="input4" value={value.input4} onChange={handleChange}></BeInput>
+                <BeInput readonly></BeInput>
               </div>
               <CodeBlock code={codes.readonly} language="tsx"></CodeBlock>
             </div>
@@ -115,7 +118,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput underline></BeInput>
+                <BeInput underline  name="input4" value={value.input4} onChange={handleChange}></BeInput>
               </div>
               <CodeBlock code={codes.underline} language="tsx"></CodeBlock>
             </div>
@@ -215,8 +218,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput clear placeholder="Focus on!!"></BeInput>
-                <BeInput placeholder="Focus on!!" clear iconRight="xi-lock"></BeInput>
+                <BeInput clear placeholder="Focus on!!" name="input21" value={value.input21} onChange={handleChange}></BeInput>
+                <BeInput placeholder="Focus on!!" clear iconRight="xi-lock" name="input22" value={value.input22} onChange={handleChange}></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>

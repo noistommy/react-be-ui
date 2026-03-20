@@ -128,8 +128,9 @@ const BeInput = ({
   const handleClear = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     // setInputValue('')
-    (e.target as HTMLInputElement).value = ''
-    onChange(e)
+    (e.target as HTMLInputElement).name = name;
+    (e.target as HTMLInputElement).value = '';
+    onChange(e);
   };
 
   const handleButtonClick = () => {
@@ -197,7 +198,7 @@ const BeInput = ({
       {clear && (
         <i
           className={`icon clear-btn xi-close ${value === '' ? 'disabled' : ''}`}
-          onClick={handleClear}
+          onMouseDown={handleClear}
         />
       )}
       {iconRight ? (

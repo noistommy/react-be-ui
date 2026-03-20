@@ -420,7 +420,7 @@ const nr = ({
   }, S = () => {
     U(!1), s(!1);
   }, $ = (P) => {
-    P.stopPropagation(), P.target.value = "", n(P);
+    P.stopPropagation(), P.target.name = z, P.target.value = "", n(P);
   }, D = () => {
     o(t);
   }, L = [
@@ -483,7 +483,7 @@ const nr = ({
           "i",
           {
             className: `icon clear-btn xi-close ${t === "" ? "disabled" : ""}`,
-            onClick: $
+            onMouseDown: $
           }
         ),
         T ? /* @__PURE__ */ u.jsx("i", { className: `icon ${T}` }) : B ? /* @__PURE__ */ u.jsx("span", { className: `be-badge ${F || ""}`, children: B }) : null,
