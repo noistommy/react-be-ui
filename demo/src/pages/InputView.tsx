@@ -67,6 +67,7 @@ export default function InputView () {
             <div className="be-segment border">
               <div className="contents">
                 <BeInput ref={inputRef} name="input1" value={value.input1} onChange={handleChange}></BeInput>
+                <BeInput ref={inputRef} isControlled={false} clear></BeInput>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>

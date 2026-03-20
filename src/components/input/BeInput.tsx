@@ -43,6 +43,7 @@ interface BeInputProps {
   short?: boolean;
   label?: string;
   name?: string;
+  isControlled?: string;
 }
 
 const BeInput = ({ 
@@ -78,10 +79,11 @@ const BeInput = ({
     withButton = null,
     short = false,
     label = null,
-    name = ''
+    name = '',
+    isControlled = true
   } = props
 
-  // const [inputValue, setInputValue] = useState(value)
+  const [inputValue, setInputValue] = useState(value)
   const [isFocus, setIsFocus] = useState(false)
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
 
@@ -96,10 +98,6 @@ const BeInput = ({
     }
   }
 
-  // useEffect(() => {
-  //   setInputValue(value)
-  // }, [value])
-
   const iconPosition = useMemo(() => {
     if (iconLeft && iconRight) return 'both';
     return iconLeft ? 'left' : iconRight ? 'right' : null;
@@ -110,7 +108,8 @@ const BeInput = ({
   }, [placeholder, label])
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    onChange(e);
+    if (!isControlled) setInputValue(e.target.value)
+    onChange?.(e);
   };
 
   const checkFocus = () => {
@@ -127,7 +126,7 @@ const BeInput = ({
 
   const handleClear = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation();
-    // setInputValue('')
+    if (!isControlled) setInputValue('');
     (e.target as HTMLInputElement).name = name;
     (e.target as HTMLInputElement).value = '';
     onChange(e);
@@ -169,7 +168,7 @@ const BeInput = ({
         <input
           name={name}
           type={inputType}
-          value={value}
+          value={isControlled ? value : inputValue}
           onChange={handleInputChange}
           placeholder={setPlaceholder}
           className={`align-${align}`}
@@ -182,7 +181,7 @@ const BeInput = ({
       ) : (
         <textarea
           name={name}
-          value={value}
+          value={isControlled ? value : inputValue}
           onChange={handleInputChange}
           rows={3}
           placeholder={placeholder}
@@ -197,7 +196,7 @@ const BeInput = ({
       )}
       {clear && (
         <i
-          className={`icon clear-btn xi-close ${value === '' ? 'disabled' : ''}`}
+          className={`icon clear-btn xi-close`}
           onMouseDown={handleClear}
         />
       )}
