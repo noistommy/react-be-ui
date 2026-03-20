@@ -11,28 +11,7 @@ import { useRef, useEffect, useState } from 'react'
 export default function InputView () {
   const inputRef = useRef()
   const [value, setValue] = useState({
-    input1: '',
-    input2: '',
-    input3: '',
-    input4: '',
-    input5: '',
-    input6: '',
-    input7: '',
-    input8: '',
-    input9: '',
-    input10: '',
-    input11: '',
-    input12: '',
-    input13: '',
-    input14: '',
-    input15: '',
-    input16: '',
-    input17: '',
-    input18: '',
-    input19: '',
-    input20: '',
-    input21: '',
-    input22: '',
+    input: '',
   })
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -66,7 +45,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput ref={inputRef} name="input1" value={value.input1} onChange={handleChange}></BeInput>
+                <BeInput ref={inputRef} name="input" value={value.input} onChange={handleChange}></BeInput>
                 <BeInput ref={inputRef} isControlled={false} clear></BeInput>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
@@ -82,8 +61,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput label="Use Label" name="input2" value={value.input2} onChange={handleChange}></BeInput>
-                <BeInput label="Use Label" name="input3" value={value.input3} onChange={handleChange}></BeInput>
+                <BeInput label="Use Label" isControlled={false}></BeInput>
+                <BeInput label="Use Label" isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.disabled} language="tsx"></CodeBlock>
             </div>
@@ -119,7 +98,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput underline  name="input4" value={value.input4} onChange={handleChange}></BeInput>
+                <BeInput underline isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.underline} language="tsx"></CodeBlock>
             </div>
@@ -131,7 +110,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput round name="input5" value={value.input5} onChange={handleChange}></BeInput>
+                <BeInput round isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.underline} language="tsx"></CodeBlock>
             </div>
@@ -143,7 +122,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput transparent name="input6" value={value.input6} onChange={handleChange}></BeInput>
+                <BeInput transparent isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.transparent} language="tsx"></CodeBlock>
             </div>
@@ -155,7 +134,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput compact></BeInput>
+                <BeInput compact isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.compact} language="tsx"></CodeBlock>
             </div>
@@ -168,7 +147,7 @@ export default function InputView () {
             <div className="be-segment border">
               <div className="contents">
                 {status.map(state => (
-                  <BeInput key={state} status={state} placeholder={state} name="input7" value={value.input7} onChange={handleChange}></BeInput>
+                  <BeInput key={state} status={state} placeholder={state}  isControlled={false}></BeInput>
                 ))}
               </div>
               <CodeBlock code={codes.status} language="tsx"></CodeBlock>
@@ -181,7 +160,7 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput fluid name="input8" value={value.input8} onChange={handleChange}></BeInput>
+                <BeInput fluid isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.fluid} language="tsx"></CodeBlock>
             </div>
@@ -193,8 +172,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput unit={'대'} align="right" name="input9" value={value.input9} onChange={handleChange}></BeInput>
-                <BeInput unit={'개'} align="right" name="input10" value={value.input10} onChange={handleChange}></BeInput>
+                <BeInput unit={'대'} align="right" isControlled={false}></BeInput>
+                <BeInput unit={'개'} align="right" isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.fluid} language="tsx"></CodeBlock>
             </div>
@@ -206,8 +185,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput iconLeft="xi-search" name="input11" value={value.input11} onChange={handleChange}></BeInput>
-                <BeInput iconRight="xi-lock" name="input12" value={value.input12} onChange={handleChange}></BeInput>
+                <BeInput iconLeft="xi-search" isControlled={false}></BeInput>
+                <BeInput iconRight="xi-lock" isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>
@@ -219,8 +198,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput clear placeholder="Focus on!!" name="input21" value={value.input21} onChange={handleChange}></BeInput>
-                <BeInput placeholder="Focus on!!" clear iconRight="xi-lock" name="input22" value={value.input22} onChange={handleChange}></BeInput>
+                <BeInput clear placeholder="Focus on!!" isControlled={false}></BeInput>
+                <BeInput placeholder="Focus on!!" clear iconRight="xi-lock" isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>
@@ -232,8 +211,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput badge="New" badgeOption="red" name="input13" value={value.input13} onChange={handleChange}></BeInput>
-                <BeInput badge={<i className="xi-arrow-down"></i>} badgeOption="primary" name="input14" value={value.input14} onChange={handleChange}></BeInput>
+                <BeInput badge="New" badgeOption="red" isControlled={false}></BeInput>
+                <BeInput badge={<i className="xi-arrow-down"></i>} badgeOption="primary" isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.icon} language="tsx"></CodeBlock>
             </div>
@@ -248,8 +227,8 @@ export default function InputView () {
                 <BeInput labeled={{
                   pos: 'left',
                   contents: 'label'
-                }} name="input15" value={value.input15} onChange={handleChange}></BeInput>
-                <BeInput labeled name="input16" value={value.input16} onChange={handleChange} >
+                }}  isControlled={false}></BeInput>
+                <BeInput labeled isControlled={false} >
                   <span className="label"><i className="icon xi-won"></i></span>
                 </BeInput>
               </div>
@@ -267,8 +246,8 @@ export default function InputView () {
                   pos: 'left',
                   option: 'primary',
                   contents: 'save'
-                }} name="input17" value={value.input17} onChange={handleChange}></BeInput>
-                <BeInput withButton name="input18" value={value.input18} onChange={handleChange}>
+                }} isControlled={false}></BeInput>
+                <BeInput withButton isControlled={false}>
                   <BeButton brand="secondary" icon="xi-upload" />
                 </BeInput>
               </div>
@@ -282,8 +261,8 @@ export default function InputView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeInput type="textarea" fluid label="Textarea" name="input19" value={value.input19} onChange={handleChange}></BeInput>
-                <BeInput type="textarea" short fluid name="input20" value={value.input20} onChange={handleChange}></BeInput>
+                <BeInput type="textarea" fluid label="Textarea" isControlled={false}></BeInput>
+                <BeInput type="textarea" short fluid isControlled={false}></BeInput>
               </div>
               <CodeBlock code={codes.textarea} language="tsx"></CodeBlock>
             </div>
