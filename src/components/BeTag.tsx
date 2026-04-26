@@ -12,6 +12,8 @@ interface BeTagProps {
   disabled?: boolean;
   isMeta?: boolean;
   keyType?: string;
+  prefix?: string;
+  suffix?: string;
 }
 
 const BeTag = ({
@@ -30,7 +32,9 @@ const BeTag = ({
     pointDirect = 'up',
     disabled = false,
     isMeta = false,
-    keyType = ''
+    keyType = '',
+    prefix = null,
+    suffix = null,
   } = props
 
   const setClass = [
@@ -42,7 +46,9 @@ const BeTag = ({
     type === 'pointing' && pointDirect,
     type === 'kbd' && isMeta && 'meta',
     type === 'kbd' && keyType,
-    disabled && 'disabled'
+    disabled && 'disabled',
+    prefix && 'prefix',
+    suffix && 'suffix',
   ].filter(Boolean).join(' ')
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -56,12 +62,18 @@ const BeTag = ({
       className={`be-tag ${className} ${setClass}`} 
       onClick={handleClick}
     >
+      {prefix && (
+        <span class="detail">{prefix}</span>
+      )}
       {icon && iconPos !== 'right' && (
         <i className={`icon ${iconPos} ${icon}`}></i>
       )}
       {(type === 'label' || type === 'pointing' || type === 'kbd') && children}
       {icon && iconPos === 'right' && (
         <i className={`icon right ${icon}`}></i>
+      )}
+      {suffix && (
+        <span class="detail">{suffix}</span>
       )}
     </span>
   )

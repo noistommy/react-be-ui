@@ -1,68 +1,68 @@
 export const base_html =
-  `<!-- HTML -->\n` +
-  `<div class="be-panel">\n` +
-  `   <div class="panel-header">\n` +
-  `       {header contents}\n` +
-  `   </div>\n` +
-  `   <div class="panel-contents">\n` +
-  `       <div class="contents-wrapper">Contents ...</div>\n` +
-  `   </div>\n` +
-  `</div>`
+`<!-- HTML --> 
+<div class="be-panel"> 
+   <div class="panel-header"> 
+       {header contents} 
+   </div> 
+   <div class="panel-contents"> 
+       <div class="contents-wrapper">Contents ...</div> 
+   </div> 
+</div>`
 export const base_component =
-  `// @title: string \n` +
-  `// @contents: string \n` +
-  `<BePanel title={title} contents={contents ...}></BePanel>`
+`// @title: string  
+// @contents: string  
+<BePanel title={title} contents={contents ...}></BePanel>`
 export const contents =
-  `// HTML \n` +
-  `<div class="be-panel">\n` +
-  `   <div class="panel-header">\n` +
-  `       {header contents}\n` +
-  `   </div>\n` +
-  `   <div class="panel-content">\n` +
-  `       <div class="content-wrapper">\n` +
-  `           <div class="content-head">Header</div>\n` +
-  `           <div class="content-body">Body ... </div>\n` +
-  `           <div class="content-foot">Footer</div>\n` +
-  `       </div>\n` +
-  `   </div>\n` +
-  `</div>\n` +
-  `// Component \n` +
-  `<BePanel title="title">\n` +
-  `   <div class="content-head">Header</div>\n` +
-  `   <div class="content-body">Body ... </div>\n` +
-  `   <div class="content-foot">Footer</div>\n` +
-  `</BePanel>`
+`// HTML  
+<div class="be-panel"> 
+   <div class="panel-header"> 
+       {header contents} 
+   </div> 
+   <div class="panel-content"> 
+       <div class="content-wrapper"> 
+           <div class="content-head">Header</div> 
+           <div class="content-body">Body ... </div> 
+           <div class="content-foot">Footer</div> 
+       </div> 
+   </div> 
+</div> 
+// Component  
+<BePanel title="title"> 
+   <div class="content-head">Header</div> 
+   <div class="content-body">Body ... </div> 
+   <div class="content-foot">Footer</div> 
+</BePanel>`
 export const border =
-  `// @border: Boolean \n` +
-  `// default: false \n\n` +
-  `<BePanel title="title" contents="contents ..." border></BePanel>`
+`// @border: Boolean  
+// default: false  
+<BePanel title="title" contents="contents ..." border></BePanel>`
 export const collapse =
-  `// @collapse: Boolean \n` +
-  `// @open: Boolean \n` +
-  `// default: false \n\n` +
-  `<BePanel title="title" contents="contents ..."\n` +
-  `   toggleIcon="xi-icon-toggle" // default: xi-angle-down\n` +
-  `   collapse\n` +
-  `   open={open}\n` +
-  `   maxLine={number} // default: 5\n` +
-  `></BePanel>`
+`// @collapse: Boolean  
+// @open: Boolean  
+// default: false  
+<BePanel title="title" contents="contents ..." 
+   toggleIcon="xi-icon-toggle" // default: xi-angle-down 
+   collapse 
+   open={open} 
+   maxLine={number} // default: 5 
+></BePanel>`
 export const collapseToggle =
-  `// @toggleIcon: String | SVGSVGElement \n` +
-  `// @iconPos: 'left | right | null' \n` +
-  `// default: 'xi-angle-down' \n\n` +
-  `<!-- xi-icons classname icon -->\n` +
-  `<BePanel toggleIcon="xi-icon-toggle" iconPos={iconPos}>...</BePanel>\n` +
-  `<!-- or -->\n` +
-  `<!-- components icon -->\n` +
-  `<BePanel toggleIcon={<ComponentsIcon />} iconPos={iconPos}>...</BePanel>`
+`// @toggleIcon: String | SVGSVGElement  
+// @iconPos: 'left | right | null'  
+// default: 'xi-angle-down'  
+<!-- xi-icons classname icon --> 
+<BePanel toggleIcon="xi-icon-toggle" iconPos={iconPos}>...</BePanel> 
+<!-- or --> 
+<!-- components icon --> 
+<BePanel toggleIcon={<ComponentsIcon />} iconPos={iconPos}>...</BePanel>`
 
 export const special_html =
-  `<!-- HTML(details-summary) -->\n` +
-  `<details class="be-panel">\n` +
-  `   <summary class="panel-header">\n` +
-  `       {header contents}\n` +
-  `   </summary>\n` +
-  `   <div class="panel-content">\n` +
-  `       <div class="content -wrapper">Contents ...</div>\n` +
-  `   </div>\n` +
-  `</details>`
+`<!-- HTML(details-summary) --> 
+<details class="be-panel"> 
+   <summary class="panel-header"> 
+       {header contents} 
+   </summary> 
+   <div class="panel-content"> 
+       <div class="content -wrapper">Contents ...</div> 
+   </div> 
+</details>`

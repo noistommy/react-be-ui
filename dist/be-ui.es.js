@@ -636,47 +636,80 @@ ln.Rows = rr;
 ln.Column = sr;
 const No = ({
   children: e,
-  title: t = null
+  title: t = null.desc = null
 }) => /* @__PURE__ */ u.jsxs("div", { className: "be-form", children: [
-  t && /* @__PURE__ */ u.jsx("div", { className: "header", children: /* @__PURE__ */ u.jsx("div", { className: "title", children: t }) }),
+  t && /* @__PURE__ */ u.jsxs("div", { className: "header", children: [
+    /* @__PURE__ */ u.jsx("div", { className: "title", children: t }),
+    desc && /* @__PURE__ */ u.jsx("div", { className: "desc", children: desc })
+  ] }),
   e
 ] }), jo = ({ children: e, ...t }) => {
   const {
-    divide: r = null,
-    md: n = null,
-    sm: s = null,
-    xs: o = null,
-    justify: i = null,
-    align: a = null,
-    leftSide: c = null,
-    rightSide: l = null
-  } = t, f = [
-    r && `divide-${r}`,
-    r && n && `divide-md-${n}`,
-    r && s && `divide-sm-${s}`,
-    r && o && `divide-xs-${o}`,
-    i && `justify-${i}`,
-    a && `align-${a}`,
-    c && "left-side",
-    l && "right-side"
-  ].filter((p) => !!p).join(" ");
-  return /* @__PURE__ */ u.jsx("div", { className: `fields ${f}`, children: e });
+    grid: r = !1,
+    divide: n = null,
+    md: s = null,
+    sm: o = null,
+    xs: i = null,
+    justify: a = null,
+    align: c = null,
+    leftSide: l = null,
+    rightSide: f = null
+  } = t, p = [
+    n && `divide-${n}`,
+    n && s && `divide-md-${s}`,
+    n && o && `divide-sm-${o}`,
+    n && i && `divide-xs-${i}`,
+    a && `justify-${a}`,
+    c && `align-${c}`,
+    l && "left-side",
+    f && "right-side"
+  ].filter((m) => !!m).join(" ");
+  return /* @__PURE__ */ u.jsx("div", { className: `fields ${r ? "grid" : ""} ${p}`, children: e });
 }, Oo = ({
   children: e,
   fieldLabel: t = null,
   inline: r = !1,
   short: n = !1,
-  disabled: s = !1
-}) => /* @__PURE__ */ u.jsxs(
-  "div",
-  {
-    className: `field ${r ? "inline" : ""} ${s ? "disabled" : ""} ${n ? "short" : ""}`,
-    children: [
-      t && /* @__PURE__ */ u.jsx("label", { children: t }),
-      e
-    ]
-  }
-), $o = ({ children: e, ...t }) => {
+  disabled: s = !1,
+  column: o = null,
+  span: i = null,
+  offset: a = null,
+  order: c = null,
+  md: l = null,
+  sm: f = null,
+  xs: p = null,
+  offset_md: m = null,
+  offset_sm: h = null,
+  offset_xs: w = null,
+  helpText: v = ""
+}) => {
+  const y = [
+    r && "inline",
+    s && "disabled",
+    n && "short",
+    o && "column",
+    i && `span-${i}`,
+    a && `offset-${a}`,
+    c && `order-${c}`,
+    l && `span-md-${l}`,
+    f && `span-sm-${f}`,
+    p && `span-xs-${p}`,
+    m && `offset-md-${m}`,
+    h && `offset-sm-${h}`,
+    w && `offset-xs-${w}`
+  ].filter((C) => !!C).join(" ");
+  return /* @__PURE__ */ u.jsxs(
+    "div",
+    {
+      className: `field ${y}`,
+      children: [
+        t && /* @__PURE__ */ u.jsx("label", { children: t }),
+        e,
+        v && /* @__PURE__ */ u.jsx("div", { className: "help-text", children: v })
+      ]
+    }
+  );
+}, $o = ({ children: e, ...t }) => {
   const {
     contents: r = "",
     className: n = "",
@@ -716,8 +749,8 @@ const No = ({
     o,
     l && "indeter"
   ].filter((h) => !!h).join(" "), m = (h) => r(h);
-  return /* @__PURE__ */ u.jsxs("div", { className: `be-checkbox ${t} ${p} ${f ? "checked" : ""}`, children: [
-    /* @__PURE__ */ u.jsx("label", { htmlFor: c, children: e || s }),
+  return /* @__PURE__ */ u.jsxs("label", { htmlFor: c, className: `be-checkbox ${t} ${p} ${f ? "checked" : ""}`, children: [
+    e || s,
     /* @__PURE__ */ u.jsx(
       "input",
       {
@@ -936,8 +969,10 @@ const No = ({
     pointDirect: f = "up",
     disabled: p = !1,
     isMeta: m = !1,
-    keyType: h = ""
-  } = n, w = [
+    keyType: h = "",
+    prefix: w = null,
+    suffix: v = null
+  } = n, y = [
     s,
     o,
     i && "light",
@@ -946,19 +981,23 @@ const No = ({
     s === "pointing" && f,
     s === "kbd" && m && "meta",
     s === "kbd" && h,
-    p && "disabled"
-  ].filter(Boolean).join(" "), v = (y) => {
-    p || r(y);
+    p && "disabled",
+    w && "prefix",
+    v && "suffix"
+  ].filter(Boolean).join(" "), C = (N) => {
+    p || r(N);
   };
   return /* @__PURE__ */ u.jsxs(
     "span",
     {
-      className: `be-tag ${t} ${w}`,
-      onClick: v,
+      className: `be-tag ${t} ${y}`,
+      onClick: C,
       children: [
+        w && /* @__PURE__ */ u.jsx("span", { class: "detail", children: w }),
         c && l !== "right" && /* @__PURE__ */ u.jsx("i", { className: `icon ${l} ${c}` }),
         (s === "label" || s === "pointing" || s === "kbd") && e,
-        c && l === "right" && /* @__PURE__ */ u.jsx("i", { className: `icon right ${c}` })
+        c && l === "right" && /* @__PURE__ */ u.jsx("i", { className: `icon right ${c}` }),
+        v && /* @__PURE__ */ u.jsx("span", { class: "detail", children: v })
       ]
     }
   );
@@ -4442,7 +4481,7 @@ const Vo = ({
   return /* @__PURE__ */ u.jsxs(
     "div",
     {
-      className: `be-tree ${e} ${a ? "show" : ""}`,
+      className: `tree-branch ${e} ${a ? "show" : ""}`,
       style: { "--level": r },
       children: [
         /* @__PURE__ */ u.jsx("div", { className: "node custom-node", onClick: p, children: /* @__PURE__ */ u.jsxs("div", { className: "node-title", children: [

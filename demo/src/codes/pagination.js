@@ -1,44 +1,44 @@
 export const base_component =
-  `// @pageLength: Number  \n` +
-  `// required: true  \n\n` +
-  `<BePagination pageLength={pageLength}></BePagination>`
+`// @pageLength: Number  
+// required: true  
+<BePagination pageLength={pageLength}></BePagination>`
 export const active_type =
-  `// @activeType: button | line \n` +
-  `// default: button \n\n` +
-  `<BePagination avtiveType={activeType}></BePagination>`
+`// @activeType: button | line 
+// default: button 
+<BePagination avtiveType={activeType}></BePagination>`
 export const limits =
-  `// @limits: Number \n` +
-  `// default: 5 \n\n` +
-  `<BePagination limits={limits}></BePagination>`
+`// @limits: Number 
+// default: 5 
+<BePagination limits={limits}></BePagination>`
 export const compact =
-  `// @compact: Boolean \n` +
-  `// default: false \n\n` +
-  `<BePagination compact></BePagination>`
+`// @compact: Boolean 
+// default: false 
+<BePagination compact></BePagination>`
 export const round =
-  `// @round: Boolean \n` +
-  `// default: false \n\n` +
-  `<BePagination round></BePagination>`
+`// @round: Boolean 
+// default: false 
+<BePagination round></BePagination>`
 export const first_last_text =
-  `// @firstText: String \n` +
-  `// @lastText: String \n` +
-  `// default: F, L \n\n` +
-  `<BePagination firstText={firstText} lastText={lastText}></BePagination>`
+`// @firstText: String 
+// @lastText: String 
+// default: F, L 
+<BePagination firstText={firstText} lastText={lastText}></BePagination>`
 export const align =
-  `// @align: { left | center | right } \n` +
-  `// default: left \n\n` +
-  `<BePagination align={align}></BePagination>`
+`// @align: { left | center | right } 
+// default: left 
+<BePagination align={align}></BePagination>`
 export const page_type =
-  `// @type: { page | number } \n` +
-  `// default: number \n\n` +
-  `<BePagination type={type}></BePagination>`
+`// @type: { page | number } 
+// default: number 
+<BePagination type={type}></BePagination>`
 export const ellipsis =
-  `// @ellipsis: Boolean \n` +
-  `// default: false \n\n` +
-  `<BePagination ellipsis></BePagination>`
+`// @ellipsis: Boolean 
+// default: false 
+<BePagination ellipsis></BePagination>`
 export const event =
-  `// event bind: onChange() \n\n` +
-  `<BePagination onChange={setCurrent}></BePagination>`
+`// event bind: onChange() 
+<BePagination onChange={setCurrent}></BePagination>`
 export const color =
-  `// @color: String \n` +
-  `// default: null \n\n` +
-  `<BePagination color="{color}"></BePagination>`
+`// @color: String 
+// default: null 
+<BePagination color="{color}"></BePagination>`

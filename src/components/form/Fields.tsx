@@ -13,6 +13,7 @@ interface FieldsProps {
 const Fields = ({children, ...props}: FieldsProps): JSX.Element => {
 
   const {
+    grid = false,
     divide = null,
     md = null,
     sm = null,
@@ -35,7 +36,7 @@ const Fields = ({children, ...props}: FieldsProps): JSX.Element => {
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`fields ${setClass}`}>
+    <div className={`fields ${grid ? 'grid' : ''} ${setClass}`}>
       {children}
     </div>
   )

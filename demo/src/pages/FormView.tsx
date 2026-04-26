@@ -1,4 +1,4 @@
-import { BeTag, BeInput, BeForm, Fields, Field, Column } from '../../../dist/be-ui.es'
+import { BeTag, BeInput, BeForm, Fields, Field } from '../../../dist/be-ui.es'
 import CodeBlock from '../component/CodeBlock'
 
 import * as codes from '../codes/form'
@@ -17,9 +17,38 @@ export default function FormView () {
             <div className="be-segment border">
               <div className="contents block">
                 <div className="be-form">
-                  <div className="field">
-                    <label>Label</label>
-                    <input type="text" />
+                  <div className="header">
+                    <div className="title">Form Title</div>
+                    <div className="desc">Form Discription</div>
+                  </div>
+                  <div className="fields">
+                    <div className="field">
+                      <label>Label 1</label>
+                      <div className="be-input">
+                        <input type="text" />
+                      </div>
+                    </div>
+                    <div className="field">
+                      <label>Label 2</label>
+                      <div className="be-input">
+                        <input type="text" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="divider"></div>
+                  <div className="fields">
+                    <div className="field inline">
+                      <label>Label 1</label>
+                      <div className="be-input">
+                        <input type="text" />
+                      </div>
+                    </div>
+                    <div className="field inline">
+                      <label>Label 2</label>
+                      <div className="be-input">
+                        <input type="text" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -48,16 +77,12 @@ export default function FormView () {
       <div className="variants">
         <h1 className="title">Variants</h1>
         <section>
-          <h4>Title</h4>
+          <h4>Form Header</h4>
           <div className="desc"></div>
           <div className="contents">
             <div className="be-segment border">
               <div className="contents block">
                 <BeForm title="Form Title">
-                  <Field>
-                    <label>Label</label>
-                    <input type="text" />
-                  </Field>
                 </BeForm>
               </div>
               <CodeBlock code={codes.title} language="tsx"></CodeBlock>
@@ -144,27 +169,23 @@ export default function FormView () {
             <div className="be-segment border">
               <div className="contents block">
                 <BeForm>
-                  <Fields divide={3}>
-                    <Field>
-                      <Column>
-                        <input type="text" placeholder="col 4" />
-                      </Column>
-                      <Column>
-                        <input type="text" placeholder="col 4" />
-                      </Column>
-                      <Column>
-                        <input type="text" placeholder="col 4" />
-                      </Column>
+                  <Fields grid divide={3}>
+                    <Field column>
+                      <input type="text" placeholder="col 4" />
+                    </Field>
+                    <Field column>
+                      <input type="text" placeholder="col 4" />
+                    </Field>
+                    <Field column>
+                      <input type="text" placeholder="col 4" />
                     </Field>
                   </Fields>
-                  <Fields divide={2}>
-                    <Field>
-                      <Column>
+                  <Fields grid divide={2}>
+                    <Field column>
                         <input type="text"  placeholder="col 6" />
-                      </Column>
-                      <Column>
+                    </Field>
+                    <Field column>
                         <input type="text"  placeholder="col 6" />
-                      </Column>
                     </Field>
                   </Fields>
                 </BeForm>
@@ -180,27 +201,23 @@ export default function FormView () {
             <div className="be-segment border">
               <div className="contents block">
                 <BeForm>
-                  <Fields>
-                    <Field>
-                      <Column span={2}>
+                  <Fields grid>
+                    <Field column span={2}>
                         <input type="text" placeholder="col 2" />
-                      </Column>
-                      <Column span={5}>
+                    </Field>
+                    <Field column span={5}>
                         <input type="text" placeholder="col 5" />
-                      </Column>
-                      <Column span={5}>
+                    </Field>
+                    <Field column span={5}>
                         <input type="text" placeholder="col 5" />
-                      </Column>
                     </Field>
                   </Fields>
-                  <Fields>
-                    <Field>
-                      <Column span={3}>
-                        <input type="text"  placeholder="col 3" />
-                      </Column>
-                      <Column span={9}>
-                        <input type="text"  placeholder="col 9" />
-                      </Column>
+                  <Fields grid>
+                    <Field column span={3}>
+                        <input type="text" placeholder="col 3" />
+                    </Field>
+                    <Field column span={9}>
+                        <input type="text" placeholder="col 9" />
                     </Field>
                   </Fields>
                 </BeForm>
@@ -218,10 +235,10 @@ export default function FormView () {
                 <BeForm>
                   <Fields>
                     <Field fieldLabel="Label Textarea">
-                      <BeInput type="textarea" />
+                      <BeInput type="textarea" fluid />
                     </Field>
                     <Field fieldLabel="Label Textarea short" short>
-                      <BeInput type="textarea" />
+                      <BeInput type="textarea" fluid />
                     </Field>
                   </Fields>
                 </BeForm>

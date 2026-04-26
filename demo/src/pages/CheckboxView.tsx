@@ -43,18 +43,18 @@ export default function CheckboxView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className={`be-checkbox ${isChecked[0] ? 'checked' : ''}`}>
+                <label htmlFor="ch_1" className={`be-checkbox ${isChecked[0] ? 'checked' : ''}`}>
                   <input type="checkbox" id="ch_1" onChange={() => handleHtmlChange(0)} checked={isChecked[0]}  />
-                  <label htmlFor="ch_1">Checkbox</label>
-                </div>
-                <div className={`be-checkbox ${isChecked[1] ? 'checked' : ''}`}>
+                  Checkbox
+                </label>
+                <label htmlFor="ch_2" className={`be-checkbox ${isChecked[1] ? 'checked' : ''}`}>
                   <input type="checkbox" id="ch_2" onChange={() => handleHtmlChange(1)} checked={isChecked[1]}  />
-                  <label htmlFor="ch_2">Checkbox</label>
-                </div>
-                <div className={`be-checkbox indeter ${isChecked[2] ? 'checked' : ''}`}>
-                  <input type="checkbox" id="ch_3" onChange={() => handleHtmlChange(2)} checked={isChecked[2]} />
-                  <label htmlFor="ch_3">Checkbox</label>
-                </div>
+                  Checkbox
+                </label>
+                <label className={`be-checkbox indeter ${isChecked[2] ? 'checked' : ''}`}>
+                  <input htmlFor="ch_3" type="checkbox" id="ch_3" onChange={() => handleHtmlChange(2)} checked={isChecked[2]} />
+                  Checkbox
+                </label>
               </div>
               <CodeBlock code={codes.base_html} language="html"></CodeBlock>
             </div>

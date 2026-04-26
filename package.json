@@ -1,7 +1,7 @@
 {
   "name": "react-be-ui",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "main": "./dist/be-ui.umd.js",
   "module": "./dist/be-ui.es.js",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
-    "gitris-ui": "github:noistommy/frog-ui-css",
+    "gitris-ui": "github:noistommy/frog-ui-css#v1.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

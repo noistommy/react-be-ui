@@ -1,15 +1,18 @@
 const BeForm = ({
   children,
-  title = null
+  title = null.
+  desc = null
 }:{
   children?: React.ReactNode;
-  title?: string
+  title?: string;
+  desc?: string;
 }):JSX.Element => { 
   return (
     <div className="be-form">
       {title && (
         <div className="header">
           <div className="title">{title}</div>
+          {desc && <div className="desc">{desc}</div>}
         </div>
       )}
       {children}

@@ -29,7 +29,7 @@ const BeTreeNode = ({
   }
   return (
     <div 
-      className={`be-tree ${className} ${showNode ? 'show' : ''}`}
+      className={`tree-branch ${className} ${showNode ? 'show' : ''}`}
       style={{'--level': level}}
     >
       <div className="node custom-node" onClick={toggleNode}>

@@ -144,6 +144,20 @@ export default function TagView () {
           </div>
         </section>
         <section>
+          <h4>Prefix | Suffix</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <BeTag type="label" color="deepblue" prefix="prefix">Tag</BeTag>
+                <BeTag type="label" color="deeppurple" suffix="suffix">Tag</BeTag>
+                <BeTag type="label" color="red" prefix="pre" suffix="suf">Tag</BeTag>
+              </div>
+              <CodeBlock code={codes.prefix_suffix} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
           <h4>Color</h4>
           <div className="desc"></div>
           <div className="contents">
@@ -184,6 +198,30 @@ export default function TagView () {
                 </div>
               </div>
               <CodeBlock code={codes.tags} language="tsx"></CodeBlock>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Attached tags</h4>
+          <div className="desc"></div>
+          <div className="contents">
+            <div className="be-segment border">
+              <div className="contents">
+                <div className="be-tags attached">
+                  <BeTag color="green">A Tag</BeTag>
+                  <BeTag color="lightgreen">B Tag</BeTag>
+                </div>
+                <div className="be-tags attached">
+                  <BeTag color="deepblue">B Tag</BeTag>
+                  <BeTag color="orange">O Tag</BeTag>
+                </div>
+                <div className="be-tags attached">
+                  <BeTag color="blue light">1 Tag</BeTag>
+                  <BeTag color="blue">2 Tag</BeTag>
+                  <BeTag color="deepblue">3 Tag</BeTag>
+                </div>
+              </div>
+              <CodeBlock code={codes.attached_tags} language="tsx"></CodeBlock>
             </div>
           </div>
         </section>

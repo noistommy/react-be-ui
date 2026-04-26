@@ -1,79 +1,80 @@
 export const base_html =
-  `<!-- <div></div> 태그 사용 -->\n` +
-  `<div class="be-card">\n` +
-  `   <div class="contents">Contents ... </div>\n` +
-  `</div>`
+`<!-- <div></div> 태그 사용 --> 
+<div class="be-card"> 
+   <div class="contents">Contents ... </div> 
+</div>`
 export const base_component =
-  `// import {Slot} from 'react-be-ui' \n` +
-  `<BeCard>\n` +
-  `   <Slot name="contents">{{ contents }}</Slot>\n` +
-  `</BeCard>\n` +
-  `// or \n` +
-  `<BeCard>\n` +
-  `   <div className="contents">{{ contents }}</div>\n` +
-  `</BeCard>`
+`// import {Slot} from 'react-be-ui'  
+<BeCard> 
+   <Slot name="contents">{{ contents }}</Slot> 
+</BeCard> 
+// or  
+<BeCard> 
+   <div className="contents">{{ contents }}</div> 
+</BeCard>`
 export const title =
-  `// @title: String \n` +
-  `// default: null \n` +
-  `<BeCard title={title}>\n` +
-  `   <Slot name="contents">{{ contents }}</Slot>\n` +
-  `</BeCard>`
+`// @title: String  
+// default: null  
+<BeCard title={title}> 
+   <Slot name="contents">{{ contents }}</Slot> 
+</BeCard>`
 export const image =
-  `// @image: Boolean, Object \n` +
-  `// default: null \n` +
-  `// image: { src, alt } \n` +
-  `//  slot image \n` +
-  `<BeCard >\n` +
-  `   <Slot name="image">\n` +
-  `       <img src="{src}" alt="{alt}" />\n` +
-  `   </Slot>\n` +
-  `   ... ...\n` +
-  `</BeCard>`
+`// @image: Boolean, Object  
+// default: null  
+// image: { src, alt }  
+//  slot image  
+<BeCard > 
+   <Slot name="image"> 
+       <img src="{src}" alt="{alt}" /> 
+   </Slot> 
+   ... ... 
+</BeCard>`
 export const extra =
-  `// @extra: Boolean \n` +
-  `// default: false \n` +
-  `//  slot extra \n` +
-  `<BeCard>\n` +
-  `   ... ...\n` +
-  `   <Slot name="extra">\n` +
-  `       {extra_contents}\n` +
-  `   </Slot>\n` +
-  `</BeCard>`
+`// @extra: Boolean  
+// default: false  
+//  slot extra  
+<BeCard> 
+   ... ... 
+   <Slot name="extra"> 
+       {extra_contents} 
+   </Slot> 
+</BeCard>`
 export const attached =
-  `// @attached: Boolean \n` +
-  `// default: false \n` +
-  `//  slot header & footer \n` +
-  `<BeCard>\n` +
-  `   <Slot name="header">\n` +
-  `       {header_contents}\n` +
-  `   </Slot>\n` +
-  `   ... ...\n` +
-  `   <Slot name="footer">\n` +
-  `       {footer_contents}\n` +
-  `   </Slot>\n` +
-  `</BeCard>`
+`// @attached: Boolean  
+// default: false  
+//  slot header & footer  
+<BeCard> 
+   <Slot name="header"> 
+       {header_contents} 
+   </Slot> 
+   ... ... 
+   <Slot name="footer"> 
+       {footer_contents} 
+   </Slot> 
+</BeCard>
 export const border =
-  `// @border: Boolean \n` +
-  `// default: true \n` +
-  `<BeCard border={border}>\n` +
-  `   <Slot name="contents">{{ contents }}</Slot>\n` +
-  `</BeCard>`
+// @border: Boolean  
+// default: true  
+<BeCard border={border}> 
+   <Slot name="contents">{{ contents }}</Slot> 
+</BeCard>`
 export const float =
-  `// @float: Boolean \n` +
-  `// default: false \n` +
-  `<BeCard float={float}>\n` +
-  `   <Slot name="contents">{{ contents }}</Slot>\n` +
-  `</BeCard>`
+`// @float: Boolean  
+// default: false  
+<BeCard float={float}> 
+   <Slot name="contents">{{ contents }}</Slot> 
+</BeCard>
 export const round =
-  `// @round: String (s | m | l | xl) \n` +
-  `// default: m \n` +
-  `<BeCard round={round}>\n` +
-  `   <Slot name="contents">{{ contents }}</Slot>\n` +
-  `</BeCard>`
+// @round: String (s | m | l | xl)  
+// default: m  
+<BeCard round={round}> 
+   <Slot name="contents">{{ contents }}</Slot> 
+</BeCard>`
 export const cards =
-  `// only html \n` +
-  `<div class="be-cards">\n` +
-  `   <BeCard >...</BeCard>\n` +
-  `   <BeCard >...</BeCard>\n` +
-  `   <BeCard >...</BeCard>\n` +
-  `</div>`
+`// only html  
+<div class="be-cards"> 
+   <BeCard >...</BeCard> 
+   <BeCard >...</BeCard> 
+   <BeCard >...</BeCard> 
+</div>
+`

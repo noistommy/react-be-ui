@@ -1,63 +1,64 @@
 export const base_html =
-  `<!-- Html 태그 사용 -->\n` +
-  `<div class="be-segment">\n` +
-  `   <div class="contents">Contents ... </div>\n` +
-  `</div>`
+`<!-- Html 태그 사용 --> 
+<div class="be-segment"> 
+   <div class="contents">Contents ... </div> 
+</div>`
 export const base_component =
-  `// @contents: String \n` +
-  `<BeSegment>{ contents }</BeSegment>`
+`// @contents: String  
+<BeSegment>{ contents }</BeSegment>`
 export const collapse =
-  `//@collapse: Boolean \n` +
-  `//default: false \n\n` +
-  `<BeSegement collapse> contents ... ...</BeSegement>`
+`//@collapse: Boolean  
+//default: false  
+<BeSegement collapse> contents ... ...</BeSegement>`
 export const surface =
-  `//@surf: Boolean \n` +
-  `//default: false \n\n` +
-  `<BeSegement surf> contents ... ...</BeSegement>`
+`//@surf: Boolean  
+//default: false  
+<BeSegement surf> contents ... ...</BeSegement>`
 export const border =
-  `//@border: Boolean \n` +
-  `//default: false \n\n` +
-  `<BeSegement border> contents ... ...</BeSegement>`
+`//@border: Boolean  
+//default: false  
+<BeSegement border> contents ... ...</BeSegement>`
 export const float =
-  `//@float: Boolean \n` +
-  `//default: false \n\n` +
-  `<BeSegement float> contents ... ...</BeSegement>`
+`//@float: Boolean  
+//default: false  
+<BeSegement float> contents ... ...</BeSegement>`
 export const title =
-  `//@title: String \n` +
-  `//default: null \n\n` +
-  `<BeSegement>\n` +
-  `   <BeSegment.Contents title={title}>\n` +
-  `     {contents}\n` +
-  `   </BeSegment.Contents>\n` +
-  `</BeSegment>`
+`//@title: String  
+//default: null  
+<BeSegement> 
+   <BeSegment.Contents title={title}> 
+     {contents} 
+   </BeSegment.Contents> 
+</BeSegment>`
 export const attached =
-  `//@attached: Boolean \n` +
-  `//default: false \n\n` +
-  `<BeSegement attached={attached}>\n` +
-  `   <BeSegment.Header>\n` +
-  `     {Header contents}\n` +
-  `   </BeSegment.Header>\n` +
-  `   <BeSegment.Contents>\n` +
-  `     {contents}\n` +
-  `   </BeSegment.Contents>\n` +
-  `   <BeSegment.Footer>\n` +
-  `     {Footer contents}\n` +
-  `   </BeSegment.Footer>\n` +
-  `</BeSegment>`
+`//@attached: Boolean  
+//default: false  
+<BeSegement attached={attached}> 
+   <BeSegment.Header> 
+     {Header contents} 
+   </BeSegment.Header> 
+   <BeSegment.Contents> 
+     {contents} 
+   </BeSegment.Contents> 
+   <BeSegment.Footer> 
+     {Footer contents} 
+   </BeSegment.Footer> 
+</BeSegment>`
 
 export const align =
-  `//@align: {left | center | right} \n` +
-  `//default: left \n\n` +
-  `<BeSegement align={align}> contents ... ...</BeSegement>`
+`//@align: {left | center | right}  
+//default: left  
+<BeSegement align={align}> contents ... ...</BeSegement>
 export const round =
-  `//@align: {s | m | l | xl} \n` +
-  `//default: left \n\n` +
-  `<BeSegement round={round}> contents ... ...</BeSegement>`
+//@align: {s | m | l | xl}  
+//default: left  
+<BeSegement round={round}> contents ... ...</BeSegement>
 export const segment_group =
-  `//segment group \n` +
-  `//border 적용 \n\n` +
-  `<div class="be-segments border" >\n` +
-  `   <BeSegement> contents ... ...</BeSegement>\n` +
-  `   <BeSegement surf> contents ... ...</BeSegement>\n` +
-  `   <BeSegement> contents ... ...</BeSegement>\n` +
-  `</div>`
+//segment group  
+//border 적용  
+<div class="be-segments border" > 
+   <BeSegement> contents ... ...</BeSegement> 
+   <BeSegement surf> contents ... ...</BeSegement> 
+   <BeSegement> contents ... ...</BeSegement> 
+</div>
+`

@@ -37,10 +37,8 @@ const BeCheckBox = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e)
   return (
-    <div className={`be-checkbox ${className} ${setClass} ${checked ? 'checked' : ''}`}>
-      <label htmlFor={name}>
+    <label  htmlFor={name} className={`be-checkbox ${className} ${setClass} ${checked ? 'checked' : ''}`}>
         {children || labelText}
-      </label>
       <input 
         name={inputType === 'radio' ? group : name} 
         id={name} 
@@ -48,7 +46,7 @@ const BeCheckBox = ({
         onChange={handleChange}
         checked={checked}
       />
-    </div>
+    </label>
   )
 }
 
