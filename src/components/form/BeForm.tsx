@@ -1,6 +1,6 @@
 const BeForm = ({
   children,
-  title = null.
+  title = null,
   desc = null
 }:{
   children?: React.ReactNode;
