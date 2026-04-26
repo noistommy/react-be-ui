@@ -636,11 +636,12 @@ ln.Rows = rr;
 ln.Column = sr;
 const No = ({
   children: e,
-  title: t = null.desc = null
+  title: t = null,
+  desc: r = null
 }) => /* @__PURE__ */ u.jsxs("div", { className: "be-form", children: [
   t && /* @__PURE__ */ u.jsxs("div", { className: "header", children: [
     /* @__PURE__ */ u.jsx("div", { className: "title", children: t }),
-    desc && /* @__PURE__ */ u.jsx("div", { className: "desc", children: desc })
+    r && /* @__PURE__ */ u.jsx("div", { className: "desc", children: r })
   ] }),
   e
 ] }), jo = ({ children: e, ...t }) => {
