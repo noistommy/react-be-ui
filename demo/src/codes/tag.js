@@ -101,6 +101,6 @@ export const color_light =
 `// @color: String  
 // @light: Boolean  
 // html  
-<div class="be-tag label {color} light">colors</div> 
+<div class="be-tag label {color}-light">colors</div> 
 // component  
 <BeTag type="label" color={color} light>Colors</BeTag>`

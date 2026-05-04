@@ -20,37 +20,34 @@ interface ListItem {
 }
 
 const COMPONENT_INFO: ListItem[] = [
+  { path: '/badge', name: 'Badge' },
   { path: '/button', name: 'Button' },
   { path: '/button-group', name: 'Button Group' },
-  { path: '/input', name: 'Input' },
-  { path: '/input-number', name: 'InputNumber' },
-  { path: '/checkbox', name: 'Checkbox' },
-  { path: '/checkbox-group', name: 'Checkbox Group' },
-  { path: '/radio', name: 'Radio' },
-  { path: '/switch', name: 'Switch' },
-  { path: '/tag', name: 'Tag' },
-  { path: '/badge', name: 'Badge' },
-  { path: '/message', name: 'Message' },
-  
-  { path: '/table', name: 'Table' },
-  { path: '/panel', name: 'Panel' },
-  
   { path: '/card', name: 'Card' },
   { path: '/calendar', name: 'Calendar' },
+  { path: '/checkbox', name: 'Checkbox' },
+  { path: '/checkbox-group', name: 'Checkbox Group' },
   { path: '/date-picker', name: 'DatePicker' },
-
-  { path: '/slider', name: 'Slider' },
-  { path: '/pagination', name: 'Pagination' },
-  { path: '/selectbox', name: 'SelectBox' },
+  { path: '/input', name: 'Input' },
+  { path: '/input-number', name: 'InputNumber' },
   { path: '/list', name: 'List' },
-  { path: '/tree', name: 'Tree' },
+  { path: '/message', name: 'Message' },
+  { path: '/pagination', name: 'Pagination' },
+  { path: '/panel', name: 'Panel' },
+  { path: '/radio', name: 'Radio' },
+  { path: '/selectbox', name: 'SelectBox' },
   { path: '/segment', name: 'Segment' },
+  { path: '/slider', name: 'Slider' },
+  { path: '/switch', name: 'Switch' },
+  { path: '/table', name: 'Table' },
+  { path: '/tag', name: 'Tag' },
+  { path: '/tree', name: 'Tree' },
 ]
 
 const LAYOUT_INFO: ListItem[] = [
-  { path: '/tabs', name: 'Tabs' },
-  { path: '/grid', name: 'Grid' },
   { path: '/form', name: 'Form' },
+  { path: '/grid', name: 'Grid' },
+  { path: '/tabs', name: 'Tabs' },
 ]
 const navAllList = [...COMPONENT_INFO, ...LAYOUT_INFO]
 

@@ -975,8 +975,7 @@ const No = ({
     suffix: v = null
   } = n, y = [
     s,
-    o,
-    i && "light",
+    o && `${o}${i ? "-light" : ""}`,
     a && "round",
     c && "icon",
     s === "pointing" && f,

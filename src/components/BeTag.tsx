@@ -39,8 +39,7 @@ const BeTag = ({
 
   const setClass = [
     type,
-    color,
-    light && 'light',
+    color && `${color}${light ? '-light' : ''}`,
     round && 'round',
     icon && 'icon',
     type === 'pointing' && pointDirect,
