@@ -123,7 +123,7 @@ export default function ListView () {
         {`  
           .list-container {
             width: 250px;
-            border: 1px solid #ebebeb;
+            border: 1px solid var(--brd);
           }
           .list-container .item {
             padding: 10px;

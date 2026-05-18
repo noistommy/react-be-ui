@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 export default function CodeBlock({
   code = '',
   language = 'javascript',
-  theme = 'github-light',
+  theme = '',
   useToggle = true
 }: { 
   code: string,
@@ -21,6 +21,39 @@ export default function CodeBlock({
   useEffect(() => {
     if (!useToggle) setOpen(true)
   },[useToggle])
+
+  // document.documentElement 의 dark-mode / light-mode 클래스 변경에 맞춰
+  // shiki theme prop을 자동으로 맞춥니다. theme prop이 있으면 그 값을 우선합니다.
+  const [autoTheme, setAutoTheme] = useState(theme);
+
+  useEffect(() => {
+    function detectTheme() {
+      if (theme) {
+        setAutoTheme(theme);
+        return;
+      }
+      const isDark =
+        document.documentElement.classList.contains("dark-mode");
+      setAutoTheme(isDark ? "github-dark" : "github-light");
+    }
+
+    detectTheme();
+
+    if (theme) {
+      return;
+    }
+
+    const el = document.documentElement;
+    const observer = new MutationObserver(() => {
+      detectTheme();
+    });
+    observer.observe(el, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [theme]);
   // const highlightedCode = useShikiHighlighter(code, "javascript", "dark-plus", {
   //   lineNumbers: true,
   // });
@@ -39,7 +72,7 @@ export default function CodeBlock({
       {open && (
         <ShikiHighlighter 
           language={language}
-          theme={theme}
+          theme={autoTheme}
           showLanguage={true}
           addDefaultStyles={true}
           as="div"
@@ -62,7 +95,7 @@ export default function CodeBlock({
             padding: 0 !important;
           }
           #shiki-container {
-            background-color: #f2f2f2;
+            background-color: var(--suf);
           }
           #shiki-container pre {
             background-color: transparent !important;

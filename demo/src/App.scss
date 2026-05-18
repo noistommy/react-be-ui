@@ -46,7 +46,7 @@ main {
     font-family: Ubuntu;
     font-weight: 700;
     font-size: 24px;
-    color: #000;
+    color: var(--txt);
     .sub {
       color: #a1a1a1;
     }
@@ -57,12 +57,19 @@ main {
   }
 }
 
+.main-title {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .main-title .title {
-  font-size: 45px;
+  font-size: 2em;
   font-weight: 700;
-  margin: 20px 0;
+  // margin: 20px 0;
 }
 .main-title .description {
+  width: 100%;
   color: #c4c4c4;
   padding: 10px 10px 20px;
 }

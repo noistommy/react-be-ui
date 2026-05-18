@@ -51,6 +51,13 @@ const LAYOUT_INFO: ListItem[] = [
 ]
 const navAllList = [...COMPONENT_INFO, ...LAYOUT_INFO]
 
+type ThemeMode = 'light' | 'dark'
+
+function readThemeMode(): ThemeMode {
+  const theme = sessionStorage.getItem('theme-mode')
+  return theme ? theme : 'light'
+}
+
 function App() {
   const location = useLocation()
 
@@ -59,10 +66,28 @@ function App() {
   const [show, setShow] = useState(true)
   const [prevPage, setPrevPage] = useState(null)
   const [nextPage, setNextPage] = useState(null)
+  const [mode, setMode] = useState<ThemeMode>(() => readThemeMode())
+
+  useEffect(() => {
+    setMode(readThemeMode())
+  }, [])
 
   const handleClick = (e, value = null) => {
     const showValue = value || !show
     setShow(showValue)
+  }
+
+  const toggleMode = () => {
+    const newMode = mode === 'light' ? 'dark' : 'light'
+    setMode(newMode)
+  }
+
+  const selectTheme = (mode) => {
+    const html = document.documentElement;    
+    html.className = ''
+    html.classList.add(`${mode}-mode`);
+    
+    sessionStorage.setItem('theme-mode', mode)
   }
 
   const currentName = useMemo(() => {
@@ -74,6 +99,10 @@ function App() {
     setPrevPage(navAllList[currentIndex - 1] || null)
     setNextPage(navAllList[currentIndex + 1] || null)
   },[location])
+
+  useEffect(() => {
+    selectTheme(mode)
+  }, [mode])
 
   return (
     <>
@@ -93,6 +122,19 @@ function App() {
             <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </div>
+          <nav>
+            <button className="be-button icon compact" onClick={toggleMode}>
+              <i className={mode === 'light' ? 'xi-moon' : 'xi-sun'}></i>
+            </button>
+            <button className="be-button icon compact">
+              <i className="xi-github"></i>
+              <a href="https://github.com/noistommy/react-be-ui.git" className="link" target="_blank"></a>
+            </button>
+            <button className="be-button icon compact">
+              <i className="xi-package"></i>
+              <a href="https://www.npmjs.com/package/react-be-ui" className="link" target="_blank"></a>
+            </button>
+          </nav>
         </div>
       </header>
       <main>
@@ -107,7 +149,17 @@ function App() {
           <SlideSideLayout.MainPane>
             <div className="main">
               <div className="main-title">
-                <h1 className="title">{currentName}</h1>
+                <div className="title">{currentName}</div>
+                <div className="page-btns">
+                  <button className="be-button compact icon" disabled={!prevPage}>
+                    <i className="xi-angle-left"></i>
+                    <a href={prevPage?.path} className="link"></a>
+                  </button>
+                  <button className="be-button compact icon" disabled={!nextPage}>
+                    <i className="xi-angle-right"></i>
+                    <a href={nextPage?.path} className="link"></a>
+                  </button>
+                </div>
                 <div className="description"></div>
               </div>
               <div className="main-contents">
