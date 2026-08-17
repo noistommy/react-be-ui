@@ -20,7 +20,8 @@ const BePagination = ({
     color = null,
     firstText = 'F',
     lastText = 'L',
-    activeType = 'button'
+    activeType = 'button',
+    ...rest
   } = props
 
   const pageRef = useRef(null)
@@ -125,7 +126,7 @@ const BePagination = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`be-pagination ${className} ${setClass}`} ref={setRef} tabIndex={-1}>
+    <div className={`be-pagination ${className} ${setClass}`} ref={setRef} tabIndex={-1} {...rest}>
       {(!ellipsis && !offLimits) && (
         <div className={`${itemClass} pagination-nav first ${isDisabledPrev && 'disabled'}`}
           onClick={() => handleSetCurrent(1)}

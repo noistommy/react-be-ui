@@ -13,7 +13,7 @@ interface BeGridProps {
   rightSide?: boolean;
 }
 
-const BeGrid = ({children, ...props}: BeGridProps): JSX.Element => {
+const BeGrid = ({children, className = '', ...props}: BeGridProps & { className?: string }): JSX.Element => {
 
   const {
     divide = null,
@@ -24,6 +24,7 @@ const BeGrid = ({children, ...props}: BeGridProps): JSX.Element => {
     align = null,
     leftSide = null,
     rightSide = null,
+    ...rest
   } = props
 
   const setClass = [
@@ -38,7 +39,7 @@ const BeGrid = ({children, ...props}: BeGridProps): JSX.Element => {
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`be-grid ${setClass}`}>
+    <div className={`be-grid ${className} ${setClass}`} {...rest}>
       {children}
     </div>
   )

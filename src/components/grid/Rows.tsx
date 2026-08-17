@@ -1,6 +1,6 @@
-const Rows = ({children}:{children?: React.ReactNode}):JSX.Element => { 
+const Rows = ({children, ...rest}:{children?: React.ReactNode}):JSX.Element => { 
   return (
-    <div className="rows">
+    <div className="rows" {...rest}>
       {children}
     </div>
   )

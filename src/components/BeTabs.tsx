@@ -11,18 +11,23 @@ const BeTabs = ({
   children,
   className = '',
   onSelectTab = () => {},
-  tabList = [],
-  directType = 'horizontal',
-  tabType = null,
-  selected = null
+  ...props
 }: {
   children: React.ReactNode;
-  onSelectTab: (value: tabItem) => void;
-  tabList: tabItem[];
-  directType: 'horizontal' | 'vertical';
-  tabType: 'line' | 'button';
-  selected: string 
+  className?: string;
+  onSelectTab?: (value: tabItem) => void;
+  tabList?: tabItem[];
+  directType?: 'horizontal' | 'vertical';
+  tabType?: 'line' | 'button';
+  selected?: string;
 }): JSX.Element => {
+  const {
+    tabList = [],
+    directType = 'horizontal',
+    tabType = null,
+    selected = null,
+    ...rest
+  } = props
   const slots = createSlots(children, ['nav', 'contents'])
 
   const [selectedTab, setSelectedTab] = useState(selected)
@@ -36,7 +41,7 @@ const BeTabs = ({
     onSelectTab(value.option)
   }
   return (
-    <div className={`be-tabs ${className} ${setClass}`}>
+    <div className={`be-tabs ${className} ${setClass}`} {...rest}>
       {slots.nav || (
         <div className="tab-menu">
           {tabList.map(tab => (

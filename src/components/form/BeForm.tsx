@@ -1,14 +1,18 @@
 const BeForm = ({
   children,
-  title = null,
-  desc = null
+  ...props
 }:{
   children?: React.ReactNode;
   title?: string;
   desc?: string;
-}):JSX.Element => { 
+}):JSX.Element => {
+  const {
+    title = null,
+    desc = null,
+    ...rest
+  } = props 
   return (
-    <div className="be-form">
+    <div className="be-form" {...rest}>
       {title && (
         <div className="header">
           <div className="title">{title}</div>

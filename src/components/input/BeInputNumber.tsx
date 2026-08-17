@@ -55,7 +55,8 @@ const BeInputNumber = ({
     incIcon = 'xi-plus',
     decIcon = 'xi-minus',
     disabled = false,
-    width = null
+    width = null,
+    ...rest
   } = props
 
   const [inputValue, setInputValue] = useState(value)
@@ -139,6 +140,7 @@ const BeInputNumber = ({
       tabIndex="-1"
       style={width ? { width: `${width}px` } : {}}
       onKeyDown={keyControl}
+      {...rest}
     >
       {children}
       {iconLeft && (

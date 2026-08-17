@@ -35,6 +35,7 @@ const BeTag = ({
     keyType = '',
     prefix = null,
     suffix = null,
+    ...rest
   } = props
 
   const setClass = [
@@ -60,6 +61,7 @@ const BeTag = ({
     <span 
       className={`be-tag ${className} ${setClass}`} 
       onClick={handleClick}
+      {...rest}
     >
       {prefix && (
         <span class="detail">{prefix}</span>

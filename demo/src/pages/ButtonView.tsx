@@ -7,10 +7,26 @@ import {sizes, status, colors} from '../contents'
 
 import {FaCat} from 'react-icons/fa'
 
+import {useModal} from 'react-nt-modal'
+
 const handleClick = () => {
   console.log('click')
 }
 export default function ButtonView () {
+  const {show} = useModal()
+
+  const showModal = () => {
+    show({
+      comp: 'confirm',
+      props: {
+        title: 'Button Title',
+        description: 'This is Confirm.',
+        pText: 'Confirm',
+        nText: 'Cancel',
+        result: () => console.log('Check!')
+      }
+    })
+  }
   return (
     <div className="page-wrapper be container">
       <div className="base">
@@ -21,8 +37,8 @@ export default function ButtonView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <div className="be-button">Button(div)</div>
-                <button className="be-button">Button(button)</button>
+                <div className="be-button" onClick={() => showModal()}>Button(div)</div>
+                <button className="be-button" fr-tooltip="content: Button">Button(button)</button>
               </div>
               <CodeBlock code={codes.base_html} language="html"></CodeBlock>
             </div>
@@ -35,7 +51,7 @@ export default function ButtonView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeButton contentText="Component" /> 
+                <BeButton contentText="Component" fr-tooltip="content: Compoenent" /> 
                 <BeButton brand="primary" contentText="Comp(brand)" />
                 <BeButton state="error" contentText="Comp(status)" />
                 <BeButton icon="xi-user" />

@@ -6,10 +6,14 @@ const BeRadios = ({
   children,
   className = '',
   onChange = () => {},
-  group = '',
-  radioList = [],
-  selectedValue = ''
+  ...props
 }) => {
+  const {
+    group = '',
+    radioList = [],
+    selectedValue = '',
+    ...rest
+  } = props
 
   const [selected, setSelected] = useState(selectedValue)
 
@@ -22,7 +26,7 @@ const BeRadios = ({
   }
 
   return (
-    <div className={`be-radio ${className}`}>
+    <div className={`be-radio ${className}`} {...rest}>
       {children || (
         <>
           {radioList.map(option => (

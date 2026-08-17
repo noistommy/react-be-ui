@@ -20,7 +20,8 @@ const SlideSideLayout = ({
   minSideWidth = 0,
   isShow = true,
   duration = 500,
-  current = ''
+  current = '',
+  ...rest
 }: SSLProps): JSX.Element => {
   const slots = createSlots(children, ['side', 'main'])
   const [stateShow, setStateShow] = useState(isShow)
@@ -64,7 +65,8 @@ const SlideSideLayout = ({
   return (
     <div 
       className={`slide-side-layout ${setClass} ${slideType} ${device} ${stateShow ? 'show': 'hide'}`} 
-      style={{'--dur': duration}} 
+      style={{'--dur': duration}}
+      {...rest}
     >
       <div className="side-pane" style={{'--side': sideWidth, '--min-side': minSideWidth}}>
         {slots.side || 'Side'}

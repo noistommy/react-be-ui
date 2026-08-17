@@ -28,7 +28,8 @@ const BeSwitch = ({
     offText = 'OFF',
     color = null,
     checked = false,
-    disabled = false
+    disabled = false,
+    ...rest
   } = props
 
   const setClass: string = [
@@ -45,7 +46,7 @@ const BeSwitch = ({
   }
 
   return (
-    <div key={name} className={`be-switch ${className} ${setClass}`} onClick={handleChange}>
+    <div key={name} className={`be-switch ${className} ${setClass}`} onClick={handleChange} {...rest}>
       <input 
         type="checkbox" 
         checked={checked}

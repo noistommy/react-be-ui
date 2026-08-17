@@ -16,7 +16,8 @@ import { getDateInfo } from './calendar'
 const BeDatePicker = ({
   className = '',
   selectedDate = null,
-  updateChange = () => {}
+  updateChange = () => {},
+  ...rest
 }) => {
 
   const elRef = useRef()
@@ -66,7 +67,7 @@ const BeDatePicker = ({
   }
 
   return (
-    <div className={`be-date-picker ${className}`} ref={elRef}>
+    <div className={`be-date-picker ${className}`} ref={elRef} {...rest}>
       <div className="default-date-text" ref={refs.setReference} onClick={toggleOpen}>
         <div className="be-button icon small round">
           <i className="icon xi-calendar"></i>

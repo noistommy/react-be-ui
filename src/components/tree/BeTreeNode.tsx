@@ -4,21 +4,25 @@ import { useState } from 'react'
 
 const BeTreeNode = ({
   className = '',
-  node = null,
-  level = 0,
-  useCheck = false,
-  useMark = false,
-  check = false,
-  files = false
+  ...props
 }: {
   className?: string;
-  node: treeNode;
-  level: number;
+  node?: treeNode;
+  level?: number;
   useCheck?: boolean;
   useMark?: boolean;
-  check?: boolean
-  files?: boolean
+  check?: boolean;
+  files?: boolean;
 }): JSX.Element => {
+  const {
+    node = null,
+    level = 0,
+    useCheck = false,
+    useMark = false,
+    check = false,
+    files = false,
+    ...rest
+  } = props
 
   const [showNode, setShowNode] = useState(false)
   const [checked, setChecked] = useState(check)
@@ -31,6 +35,7 @@ const BeTreeNode = ({
     <div 
       className={`tree-branch ${className} ${showNode ? 'show' : ''}`}
       style={{'--level': level}}
+      {...rest}
     >
       <div className="node custom-node" onClick={toggleNode}>
         <div className="node-title">

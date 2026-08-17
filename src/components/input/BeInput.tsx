@@ -80,7 +80,8 @@ const BeInput = ({
     short = false,
     label = null,
     name = '',
-    isControlled = true
+    isControlled = true,
+    ...rest
   } = props
 
   const [inputValue, setInputValue] = useState(value)
@@ -160,6 +161,7 @@ const BeInput = ({
     <div 
       className={`be-input ${className} ${setClass}`}
       data-unit={unit}
+      {...rest}
     >
       {iconLeft && (
         <i className={`icon ${iconLeft}`} />

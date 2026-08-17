@@ -3,13 +3,7 @@ import createSlots from './slot/createSlots'
 const BeCard = ({
   children,
   className = '',
-  title,
-  surf,
-  border = true,
-  float,
-  align,
-  round = 'm',
-  media = false,
+  ...props
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -21,6 +15,16 @@ const BeCard = ({
   align?: 'left' | 'center' | 'right';
   round?: 's' | 'm' | 'l' | 'xl';
 }): JSX.Element => {
+  const {
+    title,
+    surf,
+    border = true,
+    float,
+    align,
+    round = 'm',
+    media = false,
+    ...rest
+  } = props
   const slots = createSlots(children, ['image', 'header', 'contents', 'extra', 'footer' ])
   const setClass = [
     surf && 'surface',
@@ -33,7 +37,7 @@ const BeCard = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
   
   return (
-    <div className={`be-card ${className} ${setClass}`}>
+    <div className={`be-card ${className} ${setClass}`} {...rest}>
       {slots.header && (
         <div className="header">{slots.header}</div>
       )}

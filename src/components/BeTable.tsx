@@ -16,7 +16,8 @@ const BeTable = ({
     gridType = null,
     divideNum = 3,
     selection = false,
-    striped = null
+    striped = null,
+    ...rest
   } = props
 
   const gridClass = useMemo(() => {
@@ -36,7 +37,7 @@ const BeTable = ({
     }
   }
   return (
-    <table className={`be-table ${className} ${setClass}`}>
+    <table className={`be-table ${className} ${setClass}`} {...rest}>
       {children || (
         <>
           <thead className={`align-${headAlign}`}>

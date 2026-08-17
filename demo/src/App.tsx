@@ -14,6 +14,12 @@ import { useLocation } from 'react-router'
 
 import { Analytics } from '@vercel/analytics/react'
 
+import { ModalProvider } from 'react-nt-modal'
+import 'react-nt-modal/nt-modal.css'
+
+import {initTooltip, clearTooltip} from './fr-tooltip/tooltip'
+import './fr-tooltip/tooltip.scss'
+
 interface ListItem {
   path: string;
   name: string;
@@ -72,6 +78,12 @@ function App() {
     setMode(readThemeMode())
   }, [])
 
+  useEffect(() => {
+    initTooltip()
+
+    return () =>  clearTooltip()
+  }, [location.pathname])
+
   const handleClick = (e, value = null) => {
     const showValue = value || !show
     setShow(showValue)
@@ -105,7 +117,7 @@ function App() {
   }, [mode])
 
   return (
-    <>
+    <ModalProvider options={{ useStack: true, clickToClose: false, escapeToClose: false }}>
       <header className="main-header">
         <div className="be container">
           <div className={`toggle-btn ${show ? 'show' : ''}`}>
@@ -173,7 +185,7 @@ function App() {
         </SlideSideLayout>
       </main>
       <Analytics/>
-    </>
+    </ModalProvider>
   )
 }
 

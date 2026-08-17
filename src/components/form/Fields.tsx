@@ -22,6 +22,7 @@ const Fields = ({children, ...props}: FieldsProps): JSX.Element => {
     align = null,
     leftSide = null,
     rightSide = null,
+    ...rest
   } = props
 
   const setClass = [
@@ -36,7 +37,7 @@ const Fields = ({children, ...props}: FieldsProps): JSX.Element => {
   ].filter((item): item is string => Boolean(item)).join(' ')
 
   return (
-    <div className={`fields ${grid ? 'grid' : ''} ${setClass}`}>
+    <div className={`fields ${grid ? 'grid' : ''} ${setClass}`} {...rest}>
       {children}
     </div>
   )

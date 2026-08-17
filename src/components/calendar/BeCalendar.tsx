@@ -8,25 +8,29 @@ const BeCalendar = ({
   children,
   className = '',
   onSelect = () => {},
-  selectedDate = new Date(),
-  cellSize = '37px',
-  border = false,
-  symmetry = false,
-  lang = 'EN',
-  contentType = 'MIDDLE',
-  today = false
+  ...props
 }: {
-  children: React.ReactNode;
-  className: string;
-  onSelect: (value: Date ) => void;
-  selectedDate: string | Date;
-  cellSize: string;
-  border: boolean;
-  symmetry: boolean;
-  lang: string;
-  contentType: string;
-  today: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  onSelect?: (value: Date ) => void;
+  selectedDate?: string | Date;
+  cellSize?: string;
+  border?: boolean;
+  symmetry?: boolean;
+  lang?: string;
+  contentType?: string;
+  today?: boolean;
 }): JSX.Element => {
+  const {
+    selectedDate = new Date(),
+    cellSize = '37px',
+    border = false,
+    symmetry = false,
+    lang = 'EN',
+    contentType = 'MIDDLE',
+    today = false,
+    ...rest
+  } = props
   const week: string[] = type[`WEEK_${contentType}_${lang}`]
   const monthText: string[] = type['MONTH_TEXT_LIST']
   const [currentDate, setCurrentDate] = useState(null)
@@ -104,6 +108,7 @@ const BeCalendar = ({
     <div 
       className={`be-calendar ${className} ${border ? 'border' : ''}`} 
       style={{ '--cell-size': cellSize}}
+      {...rest}
     >
       <div className={`calendar-header ${symmetry ? 'symmetry' : ''}`}>
         {slots.current || (

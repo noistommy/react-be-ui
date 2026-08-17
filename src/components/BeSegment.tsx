@@ -2,12 +2,7 @@ import React from 'react'
 const BeSegment = ({
   children,
   className = '',
-  surf,
-  border,
-  float,
-  align = 'left',
-  round = 'm',
-  attached = false
+  ...props
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -18,6 +13,15 @@ const BeSegment = ({
   round?: 's' | 'm' | 'l' | 'xl';
   attached?: boolean
 }): JSX.Element => {
+  const {
+    surf,
+    border,
+    float,
+    align = 'left',
+    round = 'm',
+    attached = false,
+    ...rest
+  } = props
   
   const setClass = [
     surf && 'surface',
@@ -37,7 +41,7 @@ const BeSegment = ({
   })
 
   return (
-    <div className={`be-segment ${className} ${setClass}`}>
+    <div className={`be-segment ${className} ${setClass}`} {...rest}>
       {hasCompond ? children : (<div className="contents">{children}</div>)}
     </div>
   )

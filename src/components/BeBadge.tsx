@@ -12,18 +12,18 @@ interface BeBadgeProps {
   icon? : string;
 }
 
-const BeBadge = ({children, ...props}: BeBadgeProps): JSX.Element => {
+const BeBadge = ({children, className = '', ...props}: BeBadgeProps): JSX.Element => {
 
   const {
     contents = '',
-    className = '',
     brand = null,
     state =  null,
     color = null,
     mark = false,
     shadow = true,
     align = 'center',
-    icon = null
+    icon = null,
+    ...rest
   } = props
 
   const setClass = [
@@ -37,7 +37,7 @@ const BeBadge = ({children, ...props}: BeBadgeProps): JSX.Element => {
   ].filter(Boolean).join(' ')
 
   return (
-    <div className={`be-badge ${className} ${setClass}`}>
+    <div className={`be-badge ${className} ${setClass}`} {...rest}>
       {children || (
         <>
           {icon ? (

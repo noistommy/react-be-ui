@@ -6,10 +6,13 @@ const BeCheckboxGroup = ({
   children,
   onChange = () => {},
   className = '',
-  // { name, label, state }
-  checkboxList = [],
-  checkedList = []
+  ...props
 }) => {
+  const {
+    checkboxList = [],
+    checkedList = [],
+    ...rest
+  } = props
   const [selectedList, setSelectedList] = useState(checkedList)
 
 
@@ -27,7 +30,7 @@ const BeCheckboxGroup = ({
   }
 
   return (
-    <div className={`be-checkbox-group ${className}`}>
+    <div className={`be-checkbox-group ${className}`} {...rest}>
       {children || (
         <>
           {checkboxList.map(item => (

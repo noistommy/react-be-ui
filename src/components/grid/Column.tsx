@@ -12,18 +12,22 @@ interface ColumnProps {
   offset_xs?: number
 }
 const Column = ({
-  children, 
-  span, 
-  spanName,
-  offset,
-  order, 
-  md, 
-  sm, 
-  xs,
-  offset_md,
-  offset_sm,
-  offset_xs,
- }:ColumnProps):JSX.Element => {
+  children,
+  ...props
+}:ColumnProps):JSX.Element => {
+    const {
+      span,
+      spanName,
+      offset,
+      order,
+      md,
+      sm,
+      xs,
+      offset_md,
+      offset_sm,
+      offset_xs,
+      ...rest
+    } = props
     const setClass: string = [
       span && `span-${span}`,
       spanName,
@@ -38,7 +42,7 @@ const Column = ({
     ].filter((item): item is string => Boolean(item)).join(' ')
 
     return (
-      <div className={`column ${setClass}`}>
+      <div className={`column ${setClass}`} {...rest}>
         {children}
       </div>
     )

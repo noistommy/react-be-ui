@@ -19,7 +19,8 @@ const BeSlider = ({
     showTooltip = false,
     // titleText = null,
     disabled = false,
-    color = null
+    color = null,
+    ...rest
   } = props
 
   const sliderRef = useRef(null)
@@ -164,6 +165,7 @@ const BeSlider = ({
 
   const setClass = [
     trackType,
+    color,
     disabled && 'disabled',
     showLabel && 'labeled'
   ].filter((item): item is string => Boolean(item)).join(' ')
@@ -176,9 +178,10 @@ const BeSlider = ({
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      {...rest}
     >
       <div 
-        className={`result-slider primary ${color && `be-${color}`}`} 
+        className={`result-slider`} 
         ref={resultRef}
         style={setResultStyle}
       ></div>
@@ -199,14 +202,12 @@ const BeSlider = ({
         {showTooltip && (
           <div className="tooltip">{setResultValue}</div>
         )}
-      </div>
-      {showValue && (
-        <div className="label-text">
-          <div className="current-label" style={{left: `${result}px`}}>
+        {showValue && (
+          <div className="current-label">
             {setResultValue}{unitText}
           </div>
-        </div>
-      )}
+        )}
+      </div>
       {showLabel && (
         <div className="label-text">
           <div className="start-label">{min}{unitText}</div>

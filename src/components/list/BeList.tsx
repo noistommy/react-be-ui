@@ -12,14 +12,7 @@ const BeList = ({
   children,
   className = '',
   onChange = () => {},
-  options = [],
-  selection = false,
-  selectedType = 'bg',
-  icon = false,
-  image = false,
-  border = false,
-  itemClass = '',
-  selectedItem = null
+  ...props
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -33,6 +26,17 @@ const BeList = ({
   itemClass?: string;
   selectedItem?: optionItem;
 }): JSX.Element => {
+  const {
+    options = [],
+    selection = false,
+    selectedType = 'bg',
+    icon = false,
+    image = false,
+    border = false,
+    itemClass = '',
+    selectedItem = null,
+    ...rest
+  } = props
 
   const [selectItem, setSelectItem] = useState(null)
 
@@ -52,7 +56,7 @@ const BeList = ({
   }, [selectedItem])
 
   return (
-    <div className={`be-list ${className} ${setClass}`}>
+    <div className={`be-list ${className} ${setClass}`} {...rest}>
       {children || (
         <>
           {options.map(opt => (

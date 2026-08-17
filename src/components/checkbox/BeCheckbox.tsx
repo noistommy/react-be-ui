@@ -27,7 +27,8 @@ const BeCheckBox = ({
     group = '',
     name = '',
     indeter = false,
-    checked = false
+    checked = false,
+    ...rest
   } = props
 
   const setClass: string = [
@@ -37,7 +38,7 @@ const BeCheckBox = ({
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e)
   return (
-    <label  htmlFor={name} className={`be-checkbox ${className} ${setClass} ${checked ? 'checked' : ''}`}>
+    <label  htmlFor={name} className={`be-checkbox ${className} ${setClass} ${checked ? 'checked' : ''}`} {...rest}>
         {children || labelText}
       <input 
         name={inputType === 'radio' ? group : name} 

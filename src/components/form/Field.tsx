@@ -1,26 +1,42 @@
 const Field = ({
   children,
-  fieldLabel = null,
-  inline = false,
-  short = false,
-  disabled = false,
-  column = null,
-  span = null,
-  offset = null,
-  order = null, 
-  md = null, 
-  sm = null, 
-  xs = null,
-  offset_md = null,
-  offset_sm = null,
-  offset_xs = null,
-  helpText = ''
+  ...props
 }:{
   children?: React.ReactNode;
   inline?: boolean;
   disabled?: boolean;
   fieldLabel?: string;
-}):JSX.Element => { 
+  short?: boolean;
+  column?: number | null;
+  span?: number | null;
+  offset?: number | null;
+  order?: number | null;
+  md?: number | null;
+  sm?: number | null;
+  xs?: number | null;
+  offset_md?: number | null;
+  offset_sm?: number | null;
+  offset_xs?: number | null;
+  helpText?: string;
+}):JSX.Element => {
+  const {
+    fieldLabel = null,
+    inline = false,
+    short = false,
+    disabled = false,
+    column = null,
+    span = null,
+    offset = null,
+    order = null,
+    md = null,
+    sm = null,
+    xs = null,
+    offset_md = null,
+    offset_sm = null,
+    offset_xs = null,
+    helpText = '',
+    ...rest
+  } = props 
   const setClass: string = [
     inline && 'inline',
     disabled && 'disabled',
@@ -41,6 +57,7 @@ const Field = ({
       className={
         `field ${setClass}`
       }
+      {...rest}
     >
       {fieldLabel && (<label>{fieldLabel}</label>)}
       {children}

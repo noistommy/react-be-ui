@@ -36,7 +36,8 @@ const BeMessage = ({
     icon = false,
     state = null,
     selected = false,
-    disabled = false
+    disabled = false,
+    ...rest
   } = props
 
   const setClass: string = [
@@ -55,7 +56,7 @@ const BeMessage = ({
   }
   
   return (
-    <div className={`be-message ${className} ${setClass}`} onClick={handleClick}>
+    <div className={`be-message ${className} ${setClass}`} onClick={handleClick} {...rest}>
       {icon && (
         <i className={`icon ${iconName}`}></i>
       )}

@@ -3,12 +3,7 @@
 const BeCard2 = ({
   children,
   className = '',
-  surf,
-  border = true,
-  float,
-  align,
-  round = 'm',
-  media
+  ...props
 }: {
   children?: React.ReactNode;
   className?: string;
@@ -17,7 +12,17 @@ const BeCard2 = ({
   float?: boolean;
   align?: 'left' | 'center' | 'right';
   round?: 's' | 'm' | 'l' | 'xl';
+  media?: boolean;
 }): JSX.Element => {
+  const {
+    surf,
+    border = true,
+    float,
+    align,
+    round = 'm',
+    media,
+    ...rest
+  } = props
   const setClass = [
     surf && 'surface',
     border && 'border',
@@ -28,7 +33,7 @@ const BeCard2 = ({
   ].filter((item): item is string => Boolean(item)).join(' ')
   
   return (
-    <div className={`be-card ${className} ${setClass}`}>
+    <div className={`be-card ${className} ${setClass}`} {...rest}>
       {children}
     </div>
   )

@@ -35,7 +35,8 @@ const BeSelectbox = ({
     compact = false,
     round = false,
     disabled = false,
-    show = false
+    show = false,
+    ...rest
   } = props
 
 
@@ -167,6 +168,7 @@ const BeSelectbox = ({
       className={`be-select-box ${className} ${setClass} ${isShow ? 'show' : ''}`}
       ref={boxRef}
       onClick={toggleOpen}
+      {...rest}
     >
       <div className="selected-item" ref={refs.setReference}>
         {!isSearch ? (

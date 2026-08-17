@@ -30,7 +30,8 @@ const BePanel = ({
     open = false,
     collapse = false,
     // maxHeight = 200,
-    maxLine = 5
+    maxLine = 5,
+    ...rest
   } = props
 
   const [isOpen, setIsOpen] = useState(open)
@@ -48,7 +49,7 @@ const BePanel = ({
     onClick(newValue)
   }
   return (
-    <div className={`be-panel ${className} ${setClass} ${isOpen ? 'open' : ''}`}>
+    <div className={`be-panel ${className} ${setClass} ${isOpen ? 'open' : ''}`} {...rest}>
       <div className="panel-header" onClick={onToggle}>
         <div className="title">{title}</div>
         {collapse && toggleIcon && (

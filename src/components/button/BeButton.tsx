@@ -28,7 +28,8 @@ const BeButton = ({
     badge, 
     badgeOption = 'primary',
     link,
-    linkTarget = '_self'
+    linkTarget = '_self',
+    ...rest
   } = props
   // const hasIcon = !!(icon || withIcon)
 
@@ -52,7 +53,8 @@ const BeButton = ({
     <button 
       className={`be-button ${className} ${setClass}`}
       ref={ref}
-      onClick={handleClick}      
+      onClick={handleClick}  
+      {...rest}    
     >
       {children || (
         <>

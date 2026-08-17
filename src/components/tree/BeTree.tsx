@@ -8,22 +8,26 @@ interface treeNode {
 const BeTree = ({
   children,
   className = '',
-  treeList = [],
-  userClass = '',
-  useCheck = false,
-  useMark = false,
-  files = false,
+  ...props
 }: {
   children?: React.ReactNode;
   className?: string;
-  treeList: treeNode;
+  treeList?: treeNode[];
   userClass?: string;
   useCheck?: boolean;
   useMark?: boolean;
   files?: boolean;
 }): JSX.Element => {
+  const {
+    treeList = [],
+    userClass = '',
+    useCheck = false,
+    useMark = false,
+    files = false,
+    ...rest
+  } = props
   return (
-    <div className={`be-tree-list ${className} ${userClass} ${files ? 'files' : ''}`}>
+    <div className={`be-tree-list ${className} ${userClass} ${files ? 'files' : ''}`} {...rest}>
       {children || (
         <>
           {treeList.map((node, i) => (
