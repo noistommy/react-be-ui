@@ -30,7 +30,15 @@ export class Tooltip {
       this.root.addEventListener('click', this.setToggle)
     }
   }
+  update(options) {
+    this.options = {...this.options, ...options}
+    if (this._show) {
+      this.setAttribute()
+      this.setPosition()
+    }
+  }
   destroy () {
+    this.setClose()
     if (this.options.trigger === 'hover') {
       this.root.removeEventListener('mouseenter', this.setShow)
       this.root.removeEventListener('mouseleave', this.setClose)
@@ -51,14 +59,14 @@ export class Tooltip {
       this.tooltip.remove()
       this.tooltip = null
     }
-    window.removeEventListener('scroll', () => this.setPosition(), true)
-    window.removeEventListener('resize', () => this.setPosition())
+    window.removeEventListener('scroll', this.setPosition, true)
+    window.removeEventListener('resize', this.setPosition)
   }
   setToggle = () => {
     if (this._show) {
-      this.setClose
+      this.setClose()
     } else {
-      this.setShow
+      this.setShow()
     }
   }
   setTooltip () {
@@ -69,8 +77,8 @@ export class Tooltip {
     document.body.append(this.tooltip)
     this.setPosition()
 
-    window.addEventListener('scroll', () => this.setPosition(), true)
-    window.addEventListener('resize', () => this.setPosition())
+    window.addEventListener('scroll', this.setPosition, true)
+    window.addEventListener('resize', this.setPosition)
     requestAnimationFrame(() => {
       this.tooltip.classList.add('show')
     });
@@ -87,7 +95,7 @@ export class Tooltip {
     ]);
   }
 
-  setPosition () {
+  setPosition = () => {
     if(!this._show) return
     const W = window.innerWidth;
     const H = window.innerHeight;
@@ -158,23 +166,95 @@ export class Tooltip {
 
 const activeInstances = new Map();
 
+const SELECTOR_NAME = 'fr-tooltip';
+let observer = null;
+
 export function initTooltip() {
   clearTooltip();
 
-  const selectorName = 'fr-tooltip';
-  const targetElement = document.querySelectorAll(`[${selectorName}]`);
-  targetElement.forEach(el => {
-    const options = parseOptions(el.getAttribute('fr-tooltip'))
-    const instance = new Tooltip(el, options)
-
-    activeInstances.set(el, instance)
-  })
+  createTooltip(document.body)
+  observeTarget()
 
   console.log(`${activeInstances.size}개의 툴팁 활성`)
 }
 
-export function clearTooltip () {
-  activeInstances.forEach(instance => instance.destroy())
-  activeInstances.clear();
+
+function createTooltip(root) {
+  if (root.nodeType !== 1) return;
+
+  if (root.hasAttribute(SELECTOR_NAME)) {
+    createInstance(root);
+  }
+  root.querySelectorAll(`[${SELECTOR_NAME}]`).forEach(createInstance);
 }
 
+function createInstance(el) {
+  const options = parseOptions(el.getAttribute(SELECTOR_NAME));
+  const instance = new Tooltip(el, options);
+  activeInstances.set(el, instance);
+}
+
+function updateInstance(el) {
+  const options = parseOptions(el.getAttribute(SELECTOR_NAME));
+  const existing = activeInstances.get(el);
+
+  if (!existing) {
+    createInstance(el);
+    return;
+  }
+
+  // Tooltip 쪽에 update 메서드가 있으면 그걸 쓰고, 없으면 destroy 후 재생성
+  if (typeof existing.update === 'function') {
+    existing.update(options);
+  } else {
+    existing.destroy?.();
+    createInstance(el);
+  }
+}
+
+function removeInstance(el) {
+  const existing = activeInstances.get(el);
+  if (existing) {
+    existing.destroy?.();
+    activeInstances.delete(el);
+  }
+}
+
+function observeTarget() {
+  observer = new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      // 속성 변경
+      if (mutation.type === 'attributes' && mutation.attributeName === SELECTOR_NAME) {
+        const el = mutation.target;
+        el.hasAttribute(SELECTOR_NAME) ? updateInstance(el) : removeInstance(el);
+        continue;
+      }
+
+      // 노드 추가/삭제
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === 1) createTooltip(node);
+        });
+        mutation.removedNodes.forEach(node => {
+          if (node.nodeType !== 1) return;
+          removeInstance(node);
+          node.querySelectorAll?.(`[${SELECTOR_NAME}]`).forEach(removeInstance);
+        });
+      }
+    }
+  });
+
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: [SELECTOR_NAME],
+    childList: true,
+    subtree: true,
+  });
+}
+
+export function clearTooltip() {
+  activeInstances.forEach(instance => instance.destroy?.());
+  activeInstances.clear();
+  observer?.disconnect();
+  observer = null;
+}

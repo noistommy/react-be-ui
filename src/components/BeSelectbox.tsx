@@ -97,16 +97,15 @@ const BeSelectbox = ({
   }, [initValue])
 
   useEffect(() => {
-    window.addEventListener('click', () => showMenu(false))
+    window.addEventListener('click', closeMenu)
     return (
-      window.removeEventListener('click', () => showMenu(false))
+      window.removeEventListener('click', closeMenu)
     )
   })
 
-  const showMenu = (value = true) => {
+  const closeMenu = () => {
     if (boxRef.current?.contains(event.target) || menuRef.current?.contains(event.target)) return
-    if (isShow) value = false
-    setIsShow(value)
+    setIsShow(false)
   }
 
   const selectItem = (value) => {

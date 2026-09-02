@@ -79,7 +79,7 @@ export default function ExanpleView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSwitch name="switch3" type="button" checked={checked.switch3} onChange={handleChange} fr-tooltip="content: Switch"></BeSwitch>
+                <BeSwitch name="switch3" type="button" checked={checked.switch3} onChange={handleChange} fr-tooltip={`content:${checked.switch3 ? 'On' : 'Off'}`}></BeSwitch>
                 <BeSwitch name="switch4" type="button" round checked={checked.switch4} onChange={handleChange}></BeSwitch>
                 <BeSwitch name="switch5" type="button" onText="A" offText="B" checked={checked.switch5} onChange={handleChange}></BeSwitch>
               </div>
