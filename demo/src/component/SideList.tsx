@@ -17,7 +17,7 @@ function SideList({
 
   const itemStyle = {
     width: '100%',
-    padding: '14px'
+    padding: '8px'
   }
 
   return (

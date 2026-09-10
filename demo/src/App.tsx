@@ -20,6 +20,8 @@ import 'react-nt-modal/nt-modal.css'
 import {initTooltip, clearTooltip} from './fr-tooltip/tooltip'
 import './fr-tooltip/tooltip.scss'
 
+import BeLogo from './component/BeLogo'
+
 interface ListItem {
   path: string;
   name: string;
@@ -129,11 +131,11 @@ function App() {
               )}
             </button>
           </div>
-          <div className="logo">
-            <div className="title">BEUI <span className="sub">React</span></div>
+          <a href="/" className="logo">
+            <div className="title"><BeLogo /> <span className="sub">React</span></div>
             <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
-          </div>
+          </a>
           <nav>
             <button className="be-button icon compact" onClick={toggleMode}>
               <i className={mode === 'light' ? 'xi-moon' : 'xi-sun'}></i>

@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router'
 // import TestComp from '../component/TestComp'
 import NotFound from '../pages/NotFound'
 
+const HomeView = lazy(() => import('../pages/HomeView'))
 const ButtonView = lazy(() => import('../pages/ButtonView'))
 const ButtonGroupView = lazy(() => import('../pages/ButtonGroupView'))
 const InputView = lazy(() => import('../pages/InputView'))
@@ -35,7 +36,7 @@ const DatePickerView = lazy(() => import('../pages/DatePickerView'))
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<ButtonView />} />
+      <Route path="/" element={<HomeView />} />
       <Route path="/button" element={<ButtonView />} />
       <Route path="/button-group" element={<ButtonGroupView />} />
       <Route path="/input" element={<InputView />} />

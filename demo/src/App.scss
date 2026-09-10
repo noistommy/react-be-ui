@@ -43,6 +43,8 @@ main {
   align-items: center;
   gap: 10px;
   .title {
+    display: flex;
+    gap: 8px;
     font-family: Ubuntu;
     font-weight: 700;
     font-size: 24px;
@@ -114,3 +116,20 @@ main {
   // }
 }
 
+#intro {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  background-color: var(--bgc);
+  z-index: 9999;
+  text-align: center;
+  .hero {
+    line-height: 1.2;
+  }
+  img {
+    background-color: var(--gray-10);
+    border-radius: 8px;
+  }
+}
