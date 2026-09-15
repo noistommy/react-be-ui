@@ -1,4 +1,4 @@
-import{j as e}from"./index-BNgkG8B6.js";import{M as c,C as t,k as s}from"./CodeBlock-CNKhYZn_.js";import{s as i}from"./index-CkuhuPNf.js";const l=`<!-- <div></div> 태그 사용 --> 
+import{j as e}from"./index-BoCmW2__.js";import{L as c,C as t,_ as s}from"./CodeBlock-jh31zNKE.js";import{s as i}from"./index-CkuhuPNf.js";const l=`<!-- <div></div> 태그 사용 --> 
 <div class="be-message"> 
    <div class="title" >Title</div> 
    <div class="contents" >content...</div> 

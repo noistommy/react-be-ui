@@ -1,4 +1,4 @@
-import{j as e}from"./index-BNgkG8B6.js";import{M as c,C as d,L as t,z as s,_ as a}from"./CodeBlock-CNKhYZn_.js";const r=`<!-- <div></div> 태그 사용 --> 
+import{j as e}from"./index-BoCmW2__.js";import{L as c,C as d,F as t,H as s,a}from"./CodeBlock-jh31zNKE.js";const r=`<!-- <div></div> 태그 사용 --> 
 <div class="be-card"> 
    <div class="contents">Contents ... </div> 
 </div>`,i=`// import {Slot} from 'react-be-ui'  

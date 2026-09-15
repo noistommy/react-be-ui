@@ -22,6 +22,8 @@ import './fr-tooltip/tooltip.scss'
 
 import BeLogo from './component/BeLogo'
 
+import ResponsiveView from './component/ResponsiveView'
+
 interface ListItem {
   path: string;
   name: string;
@@ -66,6 +68,7 @@ function readThemeMode(): ThemeMode {
   return theme ? theme : 'light'
 }
 
+
 function App() {
   const location = useLocation()
 
@@ -75,6 +78,8 @@ function App() {
   const [prevPage, setPrevPage] = useState(null)
   const [nextPage, setNextPage] = useState(null)
   const [mode, setMode] = useState<ThemeMode>(() => readThemeMode())
+
+  const [device, setDevice] = useState('desktop')
 
   useEffect(() => {
     setMode(readThemeMode())
@@ -118,6 +123,7 @@ function App() {
     selectTheme(mode)
   }, [mode])
 
+
   return (
     <ModalProvider options={{ useStack: true, clickToClose: false, escapeToClose: false }}>
       <header className="main-header">
@@ -136,7 +142,20 @@ function App() {
             <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </a>
-          <nav>
+          <div className="select-device">
+            <div className="be-buttons">
+              <button className={`be-button icon compact ${device === 'mobile' ? 'selected' : '' }`}
+                onClick={() => setDevice('mobile')}
+                fr-tooltip="content: Mobile"><i className="xi-mobile" /></button>
+              <button className={`be-button icon compact ${device === 'tablet' ? 'selected' : '' }`}
+                onClick={() => setDevice('tablet')}
+                fr-tooltip="content: Tablet"><i className="xi-tablet" /></button>
+              <button className={`be-button icon compact ${device === 'desktop' ? 'selected' : '' }`}
+                onClick={() => setDevice('desktop')}
+                fr-tooltip="content: Desktop"><i className="xi-desktop" /></button>
+            </div>
+          </div>
+          <nav className="sub-menu">
             <button className="be-button icon compact" onClick={toggleMode}>
               <i className={mode === 'light' ? 'xi-moon' : 'xi-sun'}></i>
             </button>
@@ -186,6 +205,7 @@ function App() {
           </SlideSideLayout.MainPane>
         </SlideSideLayout>
       </main>
+      <ResponsiveView currentDevice={device} />
       <Analytics/>
     </ModalProvider>
   )

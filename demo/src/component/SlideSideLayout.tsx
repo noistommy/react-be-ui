@@ -27,7 +27,7 @@ const SlideSideLayout = ({
   onChange = () => {},
   type = 'push',
   direct = 'left',
-  isShow = true,
+  isShow = false,
   duration = 500,
   current = ''
 }: SSLProps): JSX.Element => {
@@ -39,7 +39,8 @@ const SlideSideLayout = ({
   useEffect(() => {
     function detect() {
       const ua = navigator.userAgent
-      if (/mobile/i.test(ua)) setDevice('mobile')
+      const dw = window.innerWidth
+      if (/mobile/i.test(ua) || dw < 376)  setDevice('mobile')
       else if (/tablet|ipad|playbook|silk/i.test(ua)) setDevice('tablet')
       else setDevice('desktop')
     }
