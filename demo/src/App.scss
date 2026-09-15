@@ -142,7 +142,7 @@ main {
 }
 
 .responsive-view {
-  &.mobile, &.tablet {
+  &:not(.desktop) {
     position: fixed;
     z-index: 9999;
     inset: 0;
@@ -178,6 +178,6 @@ main {
 
 @media (max-width: 1024px) {
   .select-device {
-    display: none;
+    display: none !important;
   }
 }
