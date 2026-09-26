@@ -36,11 +36,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@noistommy/souple": "^1.0.0",
     "@vercel/analytics": "^1.5.0",
     "gitris-ui": "github:noistommy/frog-ui-css#v1.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-nt-modal": "^0.11.0"
+    "react-nt-modal": "^0.11.0",
+    "vite-plugin-svgr": "^5.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

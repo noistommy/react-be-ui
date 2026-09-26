@@ -155,7 +155,7 @@ const BeInputNumber = ({
         ref={setRefs}
         onClick={checkFocus}
         onBlur={handleBlur}
-        readOnly={readonly}
+        readonly={readonly}
         disabled={disabled}
       />
       {iconRight && (

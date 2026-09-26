@@ -47,16 +47,15 @@ const BeDatePicker = ({
   }, [selectedDate])
 
   useEffect(() => {
-    window.addEventListener('click', () => showMenu(false))
-    return (
-      window.removeEventListener('click', () => showMenu(false))
+    window.addEventListener('click', closeMenu)
+    return () => (
+      window.removeEventListener('click', closeMenu)
     )
   })
 
-  const showMenu = (value = true) => {
-    if (elRef.current?.contains(event.target) || menuRef.current?.contains(event.target)) return
-    if (isShow) value = false
-    setIsShow(value)
+  const closeMenu = (event: MouseEvent) => {
+    if (elRef.current?.contains(event.target as Node) || menuRef.current?.contains(event.target as Node)) return
+    setIsShow(false)
   }
 
   const toggleOpen = () => setIsShow(!isShow)
@@ -72,8 +71,8 @@ const BeDatePicker = ({
         <div className="be-button icon small round">
           <i className="icon xi-calendar"></i>
         </div>
-        <input type="text" readonly value={dateFormatted} />
-        <i class={`icon xi-angle-down ${isShow ? 'xi-rotate-180' : ''}`}></i>
+        <input type="text" value={dateFormatted} />
+        <i className={`icon xi-angle-down ${isShow ? 'xi-rotate-180' : ''}`}></i>
       </div>
       {isShow && (
         <FloatingPortal>

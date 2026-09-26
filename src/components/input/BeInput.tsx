@@ -177,7 +177,7 @@ const BeInput = ({
           ref={setRefs}
           onClick={checkFocus}
           onBlur={handleBlur}
-          readOnly={readonly}
+          readonly={readonly}
           disabled={disabled}
         />
       ) : (
@@ -189,7 +189,7 @@ const BeInput = ({
           placeholder={placeholder}
           ref={setRefs}
           onBlur={handleBlur}
-          readOnly={readonly}
+          readonly={readonly}
           disabled={disabled}
         />
       )}

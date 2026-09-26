@@ -22,7 +22,12 @@ import './fr-tooltip/tooltip.scss'
 
 import BeLogo from './component/BeLogo'
 
-import ResponsiveView from './component/ResponsiveView'
+// import { Responsiview } from './nt-responsive-view'
+
+import {Souple} from '@noistommy/souple'
+import '@noistommy/souple/souple.css'
+
+
 
 interface ListItem {
   path: string;
@@ -79,8 +84,6 @@ function App() {
   const [nextPage, setNextPage] = useState(null)
   const [mode, setMode] = useState<ThemeMode>(() => readThemeMode())
 
-  const [device, setDevice] = useState('desktop')
-  const [landscape, setLandcape] = useState(false)
 
   useEffect(() => {
     setMode(readThemeMode())
@@ -143,32 +146,10 @@ function App() {
             <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </a>
-          <div className="select-device be flex gap-4">
-            <div className="be-buttons border">
-              <button className={`be-button compact ${device === 'iphoneDuo' ? 'selected' : '' }`}
-                onClick={() => setDevice('iphoneDuo')}
-                fr-tooltip="content: Custom"><i className="icon left xi-user" /> IPhone Duo</button>
-              <button className={`be-button icon compact ${device === 'mobile' ? 'selected' : '' }`}
-                onClick={() => setDevice('mobile')}
-                fr-tooltip="content: Mobile"><i className="xi-mobile" /></button>
-              <button className={`be-button icon compact ${device === 'tablet' ? 'selected' : '' }`}
-                onClick={() => setDevice('tablet')}
-                fr-tooltip="content: Tablet"><i className="xi-tablet" /></button>
-              <button className={`be-button icon compact ${device === 'desktop' ? 'selected' : '' }`}
-                onClick={() => setDevice('desktop')}
-                fr-tooltip="content: Desktop"><i className="xi-desktop" /></button>
-            </div>
-            {device !== 'desktop' && (
-              <div className="be-buttons">
-                <button className={`be-button icon compact ${!landscape ? 'selected' : '' }`}
-                  onClick={() => setLandcape(false)}
-                  fr-tooltip="content: Portrait"><i className="xi-arrows-v" /></button>
-                <button className={`be-button icon compact ${landscape ? 'selected' : '' }`}
-                  onClick={() => setLandcape(true)}
-                  fr-tooltip="content: Portrait"><i className="xi-arrows-h" /></button>
-              </div>
-            )}
-          </div>
+          <Souple currentDevice="desktop">
+            <Souple.Control className="nt-buttons" />
+            <Souple.Viewport />
+          </Souple>
           <nav className="sub-menu">
             <button className="be-button icon compact" onClick={toggleMode}>
               <i className={mode === 'light' ? 'xi-moon' : 'xi-sun'}></i>
@@ -219,7 +200,6 @@ function App() {
           </SlideSideLayout.MainPane>
         </SlideSideLayout>
       </main>
-      <ResponsiveView currentDevice={device} landscape={landscape} />
       <Analytics/>
     </ModalProvider>
   )

@@ -64,7 +64,7 @@ const BeTag = ({
       {...rest}
     >
       {prefix && (
-        <span class="detail">{prefix}</span>
+        <span className="detail">{prefix}</span>
       )}
       {icon && iconPos !== 'right' && (
         <i className={`icon ${iconPos} ${icon}`}></i>
@@ -74,7 +74,7 @@ const BeTag = ({
         <i className={`icon right ${icon}`}></i>
       )}
       {suffix && (
-        <span class="detail">{suffix}</span>
+        <span className="detail">{suffix}</span>
       )}
     </span>
   )

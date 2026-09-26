@@ -92,21 +92,19 @@ const BeSelectbox = ({
     }
   }, [multiple, selectedValue])
 
+  const closeMenu = (event: MouseEvent) => {
+    if (boxRef.current?.contains(event.target as Node) || menuRef.current?.contains(event.target as Node)) return
+    setIsShow(false)
+  }
+
   useEffect(() => {
     initValue()
   }, [initValue])
 
   useEffect(() => {
     window.addEventListener('click', closeMenu)
-    return (
-      window.removeEventListener('click', closeMenu)
-    )
-  })
-
-  const closeMenu = () => {
-    if (boxRef.current?.contains(event.target) || menuRef.current?.contains(event.target)) return
-    setIsShow(false)
-  }
+    return () => (window.removeEventListener('click', closeMenu))
+  }, [])
 
   const selectItem = (value) => {
     if (multiple) {
@@ -179,7 +177,7 @@ const BeSelectbox = ({
             <input 
               type="text" 
               placeholder={selectedText || placeholder} 
-              readOnly={!isSearch || !isShow}
+              readonly={!isSearch || !isShow}
               onChange={handleSearch}
             />
           </div>

@@ -18,14 +18,8 @@ header {
     padding: 0 10px;
     height: 100%;
     display: flex;
+    gap: 1rem;
     align-items: center;
-  }
-  .select-device {
-    position: fixed;
-    z-index: 99999;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
@@ -45,7 +39,6 @@ main {
 
 .logo {
   flex-grow: 1;
-  padding: 0 16px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -115,12 +108,12 @@ main {
       padding: 5px 5px 10px;
     }
   }
-  // .be-segment > .contents {
-  //   display: flex;
-  //   align-items: center;
-  //   flex-wrap: wrap;
-  //   gap: 5px;
-  // }
+  .be-segment > .contents {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
 }
 
 #intro {
@@ -161,6 +154,7 @@ main {
 }
 
 
+
 @media (max-width: 480px) {
   header {
     .logo .title {
@@ -176,8 +170,3 @@ main {
   }
 }
 
-@media (max-width: 1024px) {
-  .select-device {
-    display: none !important;
-  }
-}

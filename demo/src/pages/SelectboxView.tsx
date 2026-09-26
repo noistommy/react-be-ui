@@ -29,7 +29,7 @@ export default function SelectboxView () {
           <div className="contents">
             <div className="be-segment border">
               <div className="contents">
-                <BeSelectbox options={menuList} onSelect={handleSelect} show></BeSelectbox>
+                <BeSelectbox options={menuList} onSelect={handleSelect}></BeSelectbox>
               </div>
               <CodeBlock code={codes.base_component} language="tsx"></CodeBlock>
             </div>

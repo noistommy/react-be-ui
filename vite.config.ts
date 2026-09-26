@@ -4,8 +4,10 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+import svgr from 'vite-plugin-svgr'
+
 const libConfig = {
-  plugins: [react()],
+  plugins: [svgr(), react()],
   build: {
     lib: {
       entry: resolve(__dirname, './src'),
@@ -33,7 +35,7 @@ const libConfig = {
 const docsConfig = {
   root: './demo',
   // base: process.env.NODE_ENV === 'production' ? '/beui/' : '/',
-  plugins: [react()],
+  plugins: [svgr(), react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./demo/src', import.meta.url)),
