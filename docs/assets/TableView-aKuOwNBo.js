@@ -1,4 +1,4 @@
-import{r as t,j as e}from"./index-BoCmW2__.js";import{L as r,M as s,C as l}from"./CodeBlock-jh31zNKE.js";const m=`//  column data set  
+import{r as t,j as e}from"./index-DFBMfYGO.js";import{L as r,M as s,C as l}from"./CodeBlock-Bw21C8Hj.js";const m=`//  column data set  
 const columns = [ 
    { key: 'column1', name: '이름', align: 'center', col: 2 } 
    { key: 'column2', name: '이름', align: 'center', col: 6 } 

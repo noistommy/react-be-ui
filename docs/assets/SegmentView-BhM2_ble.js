@@ -1,4 +1,4 @@
-import{j as e}from"./index-BoCmW2__.js";import{L as c,C as t,b as n}from"./CodeBlock-jh31zNKE.js";const d=`<!-- Html 태그 사용 --> 
+import{j as e}from"./index-DFBMfYGO.js";import{L as c,C as t,b as n}from"./CodeBlock-Bw21C8Hj.js";const d=`<!-- Html 태그 사용 --> 
 <div class="be-segment"> 
    <div class="contents">Contents ... </div> 
 </div>`,r=`// @contents: String  

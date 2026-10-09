@@ -36,7 +36,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@noistommy/souple": "^1.0.0",
+    "@noistommy/souple": "^1.0.1",
     "@vercel/analytics": "^1.5.0",
     "gitris-ui": "github:noistommy/frog-ui-css#v1.0.0",
     "react": "^19.1.0",

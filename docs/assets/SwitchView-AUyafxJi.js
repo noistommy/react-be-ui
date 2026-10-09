@@ -1,4 +1,4 @@
-import{r as o,j as e}from"./index-BoCmW2__.js";import{L as l,C as i,D as c}from"./CodeBlock-jh31zNKE.js";import{c as u}from"./index-CkuhuPNf.js";const b=`<!-- html --> 
+import{r as o,j as e}from"./index-DFBMfYGO.js";import{L as l,C as i,D as c}from"./CodeBlock-Bw21C8Hj.js";import{c as u}from"./index-CkuhuPNf.js";const b=`<!-- html --> 
 <div class="be-switch slide"> 
    <input type="checkbox" /> 
    <span class="switch"></span> 

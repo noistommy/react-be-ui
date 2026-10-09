@@ -1,4 +1,4 @@
-import{r as i,j as e}from"./index-BoCmW2__.js";import{L as r,N as s,C as n}from"./CodeBlock-jh31zNKE.js";const o=`//   only component  
+import{r as i,j as e}from"./index-DFBMfYGO.js";import{L as r,S as s,C as n}from"./CodeBlock-Bw21C8Hj.js";const o=`//   only component  
 //   const inputValue = 0  
 <BeInputNumber value={inputValue} onChange={changeEvent}></BeInputNumber>`,x=`//   @disabled: Boolean  
 //   default: false  

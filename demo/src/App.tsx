@@ -24,7 +24,7 @@ import BeLogo from './component/BeLogo'
 
 // import { Responsiview } from './nt-responsive-view'
 
-import {Souple} from '@noistommy/souple'
+import {Souple, SoupleButtons} from '@noistommy/souple'
 import '@noistommy/souple/souple.css'
 
 
@@ -83,7 +83,7 @@ function App() {
   const [prevPage, setPrevPage] = useState(null)
   const [nextPage, setNextPage] = useState(null)
   const [mode, setMode] = useState<ThemeMode>(() => readThemeMode())
-
+  const [device, setDevice] = useState('desktop')
 
   useEffect(() => {
     setMode(readThemeMode())
@@ -146,10 +146,11 @@ function App() {
             <span className="be-tag label round">v {version}</span>
             {/* <div className="description">React 전용 공용 UI 라이브러리</div> */}
           </a>
-          <Souple currentDevice="desktop">
-            <Souple.Control className="nt-buttons" />
+          <Souple currentDevice={device}>
+            <Souple.Control />
             <Souple.Viewport />
           </Souple>
+          {/* <SoupleButtons selected={device} handleSelect={setDevice} iconSize={14}  /> */}
           <nav className="sub-menu">
             <button className="be-button icon compact" onClick={toggleMode}>
               <i className={mode === 'light' ? 'xi-moon' : 'xi-sun'}></i>

@@ -1,4 +1,4 @@
-import{r,j as e}from"./index-BoCmW2__.js";import{L as o,C as a,q as i,H as l}from"./CodeBlock-jh31zNKE.js";import{o as n}from"./data-D9Q02z01.js";const b=`<div class="be-tabs"> 
+import{r,j as e}from"./index-DFBMfYGO.js";import{L as o,C as a,q as i,H as l}from"./CodeBlock-Bw21C8Hj.js";import{o as n}from"./data-D9Q02z01.js";const b=`<div class="be-tabs"> 
    <div class="tab-menu"> 
        <div class="tab-item">tab1</div> 
        <div class="tab-item">tab2</div> 

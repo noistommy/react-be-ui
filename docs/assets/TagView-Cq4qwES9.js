@@ -1,4 +1,4 @@
-import{j as e}from"./index-BoCmW2__.js";import{L as s,C as l}from"./CodeBlock-jh31zNKE.js";import{c as a}from"./index-CkuhuPNf.js";const n=`<!-- html --> 
+import{j as e}from"./index-DFBMfYGO.js";import{L as s,C as l}from"./CodeBlock-Bw21C8Hj.js";import{c as a}from"./index-CkuhuPNf.js";const n=`<!-- html --> 
 <div class="be-tag label">Tag</div> 
 <div class="be-tag line"></div> 
 <div class="be-tag dot"></div>`,t=`// component  
